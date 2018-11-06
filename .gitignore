@@ -17,6 +17,7 @@
 /node_modules
 /yarn-error.log
 
+.ruby-version
 .byebug_history
 public/uploads/*
 config/secrets.yml
