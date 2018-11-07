@@ -53,5 +53,5 @@ production:
   username: root
   password: <%= ENV['FREEMARKET_SAMPLE_38B_DATABASE_PASSWORD'] %>
   socket: /var/lib/mysql/mysql.sock
-  host: hogehoge.rds.amazonaws.com　#自分の環境に合わせて変更
+  host: mercari-rds-mysql.ctvy2zfezixg.ap-northeast-1.rds.amazonaws.com
   database: mercari_db
