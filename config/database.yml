@@ -48,7 +48,10 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
-  database: freemarket_sample_38b_production
-  username: freemarket_sample_38b
+  reconnect: false
+  pool: 5
+  username: root
   password: <%= ENV['FREEMARKET_SAMPLE_38B_DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
+  host: hogehoge.rds.amazonaws.com　#自分の環境に合わせて変更
+  database: freemarket_sample_38b_development
