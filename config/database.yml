@@ -54,4 +54,4 @@ production:
   password: <%= ENV['FREEMARKET_SAMPLE_38B_DATABASE_PASSWORD'] %>
   socket: /var/lib/mysql/mysql.sock
   host: hogehoge.rds.amazonaws.com　#自分の環境に合わせて変更
-  database: freemarket_sample_38b_development
+  database: mercari_db
