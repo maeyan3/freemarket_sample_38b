@@ -1,5 +1,5 @@
 # README
-__Optionに記載が無ければnull:falseを全てにつける__
+__※Optionにnull許可の記載が無いものは全てnull:falseをつける__
 
 ## usersテーブル
 |Column          |Type   |Options |
@@ -30,10 +30,9 @@ __Optionに記載が無ければnull:falseを全てにつける__
 ## itemsテーブル
 |Column        |Type       |Options           |
 |--------------|-----------|------------------|
-|item_name     |string     |                  |
+|item_name     |string     |index: true       |
 |detail        |string     |                  |
 |price         |string     |                  |
-|size          |string     |                  |
 |ship_burden   |string     |                  |
 |ship_method   |string     |                  |
 |ship_date     |string     |                  |
@@ -47,9 +46,11 @@ __Optionに記載が無ければnull:falseを全てにつける__
 - has_many :item_images
 - has_many :items_categories
 - has_many :categories, through: :items_categories
+- has_many :items_sizes
+- has_many :sizes, through: :items_sizes
 - has_many :likes
-- has_one :order
-- has_one :brand_items
-- has_one :brand, through: :brand_items
+- has_one  :order
+- has_one  :brand_items
+- has_one  :brand, through: :brand_items
 - belongs_to :user
 - belongs_to :prefecture
