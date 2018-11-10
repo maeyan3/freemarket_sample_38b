@@ -101,7 +101,7 @@ __※Optionにnull許可の記載が無いものは全てnull:falseをつける_
 - belongs_to :from_user, class_name: "User", foreign_key: :from_user_id
 - belongs_to :to_user, class_name: "User", foreign_key: :to_user_id
 
-## transferテーブル
+## transfersテーブル
 |Column        |Type       |Options           |
 |--------------|-----------|------------------|
 |bank               |string     |                  |
@@ -119,6 +119,59 @@ __※Optionにnull許可の記載が無いものは全てnull:falseをつける_
 - belongs_to :sales_money
 - belongs_to :user_detail
 
+## user_detailsテーブル
+|Column        |Type       |Options           |
+|--------------|-----------|------------------|
+|birth_day     |int        |                  |
+|birth_month   |int        |                  |
+|birth_year    |int        |                  |
+|user_id       |references |foreign_key: true |
+|address_id    |references |foreign_key: true |
 
+### Assosiation
+- has_one    :transfer
+- belongs_to :user
+- belongs_to :address
 
+## profilesテーブル
+|Column        |Type       |Options           |
+|--------------|-----------|------------------|
+|profile       |string     |                  |
+|user_id       |references |foreign_key: true |
+
+### Assosiation
+- belongs_to :user
+
+## sales_moniesテーブル
+|Column        |Type       |Options           |
+|--------------|-----------|------------------|
+|get_money     |int        |                  |
+|money_limit   |date       |                  |
+|user_id       |references |foreign_key: true |
+
+### Assosiation
+- has_many   :transfer
+- belongs_to :user
+
+## pointsテーブル
+|Column        |Type       |Options           |
+|--------------|-----------|------------------|
+|get_point     |int        |                  |
+|point_limit   |date       |                  |
+|user_id       |references |foreign_key: true |
+
+### Assosiation
+- belongs_to :user
+
+## creditsテーブル
+|Column        |Type       |Options           |
+|--------------|-----------|------------------|
+|credit_number |int        |                  |
+|limit_month   |int        |                  |
+|limit_year    |int        |                  |
+|security_code |int        |                  |
+|user_id       |references |foreign_key: true |
+
+### Assosiation
+- belongs_to :user
 
