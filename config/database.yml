@@ -48,7 +48,12 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
-  database: freemarket_sample_38b_production
-  username: freemarket_sample_38b
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  pool: 5
+  username: root
   password: <%= ENV['FREEMARKET_SAMPLE_38B_DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
+  host: mercari-rds-mysql.ctvy2zfezixg.ap-northeast-1.rds.amazonaws.com
+  database: mercari_db
