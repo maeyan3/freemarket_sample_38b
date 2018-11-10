@@ -142,7 +142,7 @@ __※Optionにnull許可の記載が無いものは全てnull:falseをつける_
 ### Assosiation
 - belongs_to :user
 
-## sales_moniesテーブル
+## sales_moneyテーブル
 |Column        |Type       |Options           |
 |--------------|-----------|------------------|
 |get_money     |int        |                  |
@@ -174,4 +174,35 @@ __※Optionにnull許可の記載が無いものは全てnull:falseをつける_
 
 ### Assosiation
 - belongs_to :user
+
+## likesテーブル
+|Column        |Type       |Options           |
+|--------------|-----------|------------------|
+|user_id       |references |foreign_key: true |
+|item_id       |references |foreign_key: true |
+
+### Assosiation
+- belongs_to :user
+- belongs_to :item
+
+## item_commentsテーブル
+|Column            |Type       |Options           |
+|------------------|-----------|------------------|
+|item_comment_text |string     |                  |
+|user_id           |references |foreign_key: true |
+|item_id           |references |foreign_key: true |
+
+### Assosiation
+- belongs_to :user
+- belongs_to :item
+
+## ordersテーブル
+|Column            |Type       |Options           |
+|------------------|-----------|------------------|
+|user_id           |references |foreign_key: true |
+|item_id           |references |foreign_key: true |
+
+### Assosiation
+- belongs_to :user
+- belongs_to :item
 
