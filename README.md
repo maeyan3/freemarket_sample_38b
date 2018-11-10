@@ -2,13 +2,13 @@
 __※Optionにnull許可の記載が無いものは全てnull:falseをつける__
 
 ## usersテーブル
-|Column          |Type   |Options |
-|----------------|-------|--------|
-|nickname        |string |        |
-|email           |string |        |
-|password        |string |        |
-|confirm_password|string |        |
-|confirm_tel     |int    |        |
+|Column            |Type   |Options |
+|------------------|-------|--------|
+|nickname          |string |        |
+|email             |string |        |
+|password          |string |        |
+|confirm_password  |string |        |
+|confirm_telephone |int    |        |
 
 ### Association
 - has_many :from_user_rates, class_name: 'Rate', foreign_key: 'from_user_id'
@@ -80,14 +80,6 @@ __※Optionにnull許可の記載が無いものは全てnull:falseをつける_
 |--------------|-----------|------------------|
 |news_title    |string     |                  |
 |news_text     |string     |                  |
-
-## ratesテーブル
-|Column        |Type       |Options           |
-|--------------|-----------|------------------|
-|rating        |string     |                  |
-
-### Assosiation
-- has_many :rates_users
 
 ## ratesテーブル
 |Column        |Type       |Options           |
@@ -273,3 +265,49 @@ __※Optionにnull許可の記載が無いものは全てnull:falseをつける_
 ### Assosiation
 - belongs_to :item
 
+## Addressesテーブル
+|Column             |Type       |Options           |
+|-------------------|-----------|------------------|
+|first_name         |string     |                  |
+|last_name          |string     |                  |
+|first_name_reading |string     |                  |
+|last_name_reading  |string     |                  |
+|postal_code        |int        |                  |
+|city               |string     |                  |
+|block              |string     |                  |
+|user_id            |references |foreign_key: true |
+|prefecture_id      |references |foreign_key: true |
+
+### Assosiation
+- has_one    :user_detail
+- has_one    :building
+- has_one    :address_tel
+- belongs_to :user
+- belongs_to :prefecture
+
+## buildingsテーブル
+|Column            |Type       |Options           |
+|------------------|-----------|------------------|
+|building_name     |string     |                  |
+|address_id        |references |foreign_key: true |
+
+### Assosiation
+- belongs_to :address
+
+## address_telephonesテーブル
+|Column     |Type       |Options           |
+|-----------|-----------|------------------|
+|number     |int        |                  |
+|address_id |references |foreign_key: true |
+
+### Assosiation
+- belongs_to :address
+
+## prefectureテーブル
+|Column            |Type       |Options           |
+|------------------|-----------|------------------|
+|prefecture_name     |string     |                  |
+
+### Assosiation
+- has_many :items
+- has_many :addresses
