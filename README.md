@@ -50,8 +50,8 @@ __※Optionにnull許可の記載が無いものは全てnull:falseをつける_
 - has_many :sizes, through: :items_sizes
 - has_many :likes
 - has_one  :order
-- has_one  :brand_items
-- has_one  :brand, through: :brand_items
+- has_one  :items_brand
+- has_one  :brand, through: :items_brand
 - belongs_to :user
 - belongs_to :prefecture
 
@@ -204,5 +204,72 @@ __※Optionにnull許可の記載が無いものは全てnull:falseをつける_
 
 ### Assosiation
 - belongs_to :user
+- belongs_to :item
+
+## sizesテーブル
+|Column            |Type       |Options           |
+|------------------|-----------|------------------|
+|size_name         |string     |                  |
+|parent_id         |int        |                  |
+
+### Assosiation
+- has_many :items_sizes
+- has_many :sizes, through: :items_sizes
+
+## items_sizesテーブル
+|Column            |Type       |Options           |
+|------------------|-----------|------------------|
+|item_id           |references |foreign_key: true |
+|size_id           |references |foreign_key: true |
+
+### Assosiation
+- belongs_to :item
+- belongs_to :size
+
+## Categoriesテーブル
+|Column            |Type       |Options           |
+|------------------|-----------|------------------|
+|category_name     |string     |                  |
+|parent_id         |int        |                  |
+
+### Assosiation
+- has_many :items_categories
+- has_many :categories, through: :items_categories
+
+## items_categoriesテーブル
+|Column            |Type       |Options           |
+|------------------|-----------|------------------|
+|item_id           |references |foreign_key: true |
+|category_id       |references |foreign_key: true |
+
+### Assosiation
+- belongs_to :item
+- belongs_to :category
+
+## Brandsテーブル
+|Column            |Type       |Options           |
+|------------------|-----------|------------------|
+|brand_name        |string     |                  |
+
+### Assosiation
+- has_many :items_brand
+
+## Items_brandテーブル
+|Column            |Type       |Options           |
+|------------------|-----------|------------------|
+|item_id           |references |foreign_key: true |
+|category_id       |references |foreign_key: true |
+
+### Assosiation
+- belongs_to :item
+- belongs_to :brand
+
+## Item_imagesテーブル
+|Column            |Type       |Options           |
+|------------------|-----------|------------------|
+|item_image_src    |string     |                  |
+|item_id           |references |foreign_key: true |
+
+### Assosiation
 - belongs_to :item
 
