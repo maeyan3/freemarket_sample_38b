@@ -1,25 +1,55 @@
 # README
+__Optionに記載が無ければnull:falseを全てにつける__
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## usersテーブル
+|Column          |Type   |Options |
+|----------------|-------|--------|
+|nickname        |string |        |
+|email           |string |        |
+|password        |string |        |
+|confirm_password|string |        |
+|confirm_tel     |int    |        |
 
-Things you may want to cover:
+### Association
+- has_many :notices
+- has_many :todos
+- has_many :rates_users
+- has_many :rates, through: :rates_users
+- has_many :sales_moneies
+- has_many :points
+- has_many :orders
+- has_many :item_comments
+- has_many :likes
+- has_many :items
+- has_one  :transfer
+- has_one  :credit
+- has_one  :address
+- has_one  :user_detail
+- has_one  :profile
 
-* Ruby version
+## itemsテーブル
+|Column        |Type       |Options           |
+|--------------|-----------|------------------|
+|item_name     |string     |                  |
+|detail        |string     |                  |
+|price         |string     |                  |
+|size          |string     |                  |
+|ship_burden   |string     |                  |
+|ship_method   |string     |                  |
+|ship_date     |string     |                  |
+|quality       |string     |                  |
+|status        |int        |                  |
+|user_id       |references |foreign_key: true |
+|prefecture_id |references |foreign_key: true |
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-hello world
+### Assosiation
+- has_many :item_comments
+- has_many :item_images
+- has_many :items_categories
+- has_many :categories, through: :items_categories
+- has_many :likes
+- has_one :order
+- has_one :brand_items
+- has_one :brand, through: :brand_items
+- belongs_to :user
+- belongs_to :prefecture
