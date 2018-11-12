@@ -46,6 +46,24 @@ describe User do
 
 
 
+    it "パスワードに英字が入ってないと登録できない" do
+      user = build(:user, password: "12345678", password_confirmation: "12345678")
+      user.valid?
+      expect(user.errors[:password]).to include("is invalid")
+    end
+
+
+    it "パスワードが英字大のみで登録できる" do
+      user = build(:user, password: "abcdefg", password_confirmation: "abcdefg")
+      expect(user.save).to be_truthy
+    end
+
+    it "パスワードが英字小のみで登録できる" do
+      user = build(:user, password: "ABCDEFG", password_confirmation: "ABCDEFG")
+      expect(user.save).to be_truthy
+    end
+
+
 
 
     it "is invalid with a nickname that has more than 20 characters " do
