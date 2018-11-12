@@ -10,7 +10,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181112064846) do
+ActiveRecord::Schema.define(version: 20181112122723) do
+
+  create_table "item_images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "item_image_src", null: false
+    t.bigint "item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_item_images_on_item_id"
+  end
+
+  create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "item_name", null: false
+    t.string "detail", null: false
+    t.string "size", null: false
+    t.string "ship_burden", null: false
+    t.string "ship_method", null: false
+    t.string "ship_date", null: false
+    t.string "quality", null: false
+    t.integer "price", null: false
+    t.integer "status", null: false
+    t.bigint "user_id"
+    t.bigint "prefecture_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_name"], name: "index_items_on_item_name"
+    t.index ["prefecture_id"], name: "index_items_on_prefecture_id"
+    t.index ["user_id"], name: "index_items_on_user_id"
+  end
+
+  create_table "prefectures", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "prefecture_name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "nickname", null: false
@@ -25,4 +58,7 @@ ActiveRecord::Schema.define(version: 20181112064846) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "item_images", "items"
+  add_foreign_key "items", "prefectures"
+  add_foreign_key "items", "users"
 end

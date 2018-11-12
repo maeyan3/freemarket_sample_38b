@@ -33,6 +33,7 @@ __※Optionにnull許可の記載が無いものは全てnull:falseをつける_
 |item_name     |string     |index: true       |
 |detail        |string     |                  |
 |price         |string     |                  |
+|size          |string     |                  |
 |ship_burden   |string     |                  |
 |ship_method   |string     |                  |
 |ship_date     |string     |                  |
