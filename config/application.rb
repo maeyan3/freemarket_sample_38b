@@ -11,7 +11,7 @@ module FreemarketSample38b
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
     config.generators do |g|
-      g.stylesheet false
+      g.stylesheets false
       g.javascripts false
       g.helper false
       g.test_framework false
