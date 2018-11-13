@@ -11,4 +11,6 @@ class Item < ApplicationRecord
   has_one  :brand, through: :items_brand
   belongs_to :user
   belongs_to :prefecture
+
+  accepts_nested_attributes_for :item_images
 end
