@@ -6,9 +6,9 @@ class Item < ApplicationRecord
   has_many :items_sizes
   has_many :sizes, through: :items_sizes
   has_many :likes
+  has_many :items_brands
+  has_many :brands, through: :items_brands
   has_one  :order
-  has_one  :items_brand
-  has_one  :brand, through: :items_brand
   belongs_to :user
   belongs_to :prefecture
 
