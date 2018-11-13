@@ -1,0 +1,71 @@
+
+$sell-width: 700px;
+
+// @mixin font_basic($color: #333, $size: 16px, $weight: null, $line: null, $aline: null) {
+//   color      : $color;
+//   font-size  : $size;
+//   font-weight: $weight;
+//   line-height: $line;
+//   text-align : $aline;
+// }
+
+
+
+
+
+.single-container{
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+
+  .single-header{
+    width: $sell-width;
+    max-width: $sell-width;
+    margin: 0 auto;
+    height: 130px;
+
+    h1{
+      // font-size: 14px;
+      text-align: center;
+    }
+  }
+
+  .single-main{
+    width: $sell-width;
+    max-width: $sell-width;
+    background-color: #fff;
+    margin: 0 auto;
+
+    .l-single-container{
+
+    }
+    .buy-item-container{
+
+      #sell-container{
+        .sell-container-inner{
+          h2{
+            font-size: 22px;
+            text-align: center;
+            padding: 45px;
+            font-weight: bold;
+
+          }
+        }
+        .sell-form{
+          height: 100%;
+        }
+      }
+    }
+  }
+
+
+  .single-footer{
+    width: $sell-width;
+    max-width: $sell-width;
+    margin: 0 auto;
+
+    height: 150px;
+
+  }
+
+}

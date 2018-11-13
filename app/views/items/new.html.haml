@@ -1,1 +1,141 @@
-%h1 Items new
+.single-container
+  .single-header
+    %h1 Items new
+    %a
+
+  .single-main
+    %section.l-single-container.buy-item-container
+      #sell-container
+        .sell-container-inner
+          %h2.l-single-head 商品の情報を入力
+          %form.sell-form
+
+            .sell-upload-box
+              %h3.sell-upload-head 出品画像
+              %span.form-rewuire 必須
+              %p 最大４枚までアップロードできます
+              .sell-dropbox-container.clearfix
+                .sell-upload-items
+                  %ul
+                  .sell-upload-drop-box
+                    %input.sell-upload-drop-file
+                    %pre.visible-pc
+                    %i.icon-camera
+
+            .sell-content
+              .form-group
+                %label 商品名
+                %span.form-rewuire 必須
+                %input.input-default
+              .form-group
+                %label 商品の説明
+                %span.form-rewuire 必須
+                %textarea.textarea-default
+
+            .sell-content.clearfix
+              %h3.sell-sub-head 商品の詳細
+              .sell-form-box
+                .form-group
+                  %label カテゴリー
+                  %span.form-rewuire 必須
+                .select-wrap
+                  %select.select-default
+                    %option value1
+                    %option value2
+                    %option value3
+                  %i.icon-arrow-bottom
+                .form-group
+                  %label 商品の状態
+                  %span.form-rewuire 必須
+                .select-wrap
+                  %select.select-default
+                    %option value1
+                    %option value2
+                    %option value3
+                  %i.icon-arrow-bottom
+
+            .sell-content.clearfix
+              %h3.sell-sub-head 配送について
+              %a.form-question
+              .sell-form-box
+                .form-group
+                  %label 配送料の負担
+                  %span.form-rewuire 必須
+                .select-wrap
+                  %select.select-default
+                    %option 送料込み
+                    %option 着払い
+                  %i.icon-arrow-bottom
+              .sell-form-box
+                .form-group
+                  %label 配送元の地域
+                  %span.form-rewuire 必須
+                .select-wrap
+                  %select.select-default
+                    %option 北海道
+                    %option 沖縄
+                  %i.icon-arrow-bottom
+              .sell-form-box
+                .form-group
+                  %label 発送までの日数
+                  %span.form-rewuire 必須
+                .select-wrap
+                  %select.select-default
+                    %option １〜２日
+                    %option ４〜７日
+                  %i.icon-arrow-bottom
+
+
+            .sell-content.clearfix
+              %h3.sell-sub-head 販売価格（300~9,999,999）
+              %a.form-question
+              .sell-form-box
+                %ul.sell-price
+                  %li.form-group
+                    .clearfix
+                      %label.l-left 価格
+                      %span.form-rewuire 必須
+                      .l-right.sell-price-input ¥
+                      %input.input-default
+                  %li.clearfix
+                    .l-left 販売手数料（10％）
+                    .l-right -
+                  %li.clearfix.bold
+                    .l-left 販売利益
+                    .l-right -
+
+
+            .modal
+              .modal-inner
+
+            .sell-content.sell-btn-box
+              %p 禁止されている出品、行為を必ずご確認ください。
+              %a
+              %p またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。
+              %a
+              %p また、出品をもちまして加盟店規約に同意したことになります。
+              %a
+
+              %button.btn-default.btn-red 出品する
+              %a.btn-default.btn-gray もどる
+
+
+  .single-footer
+    %nav
+      %ul.clearfix
+        %li プライバシーポリシー
+        %li メルカリ利用規約
+        %li 特定商取引に関する表記
+    %a.single-footer-logo
+    %p
+    %small © 2018 Mercari
+
+
+
+
+
+
+
+
+
+
