@@ -9,10 +9,46 @@
         %input.input-default{:name => "keyword", :placeholder => "キーワードから探す", :type => "search", :value => "",:height => "36"}
         .i.icon-search
           = image_tag "search.jpg", class: "search"
+    .pc-header-nav-box-clearfix
+      .pc-header-nav-root
+        %nav.l-left
+          %ul.pc-header-nav
+            %li
+              %h2
+                %a.pc-header-nav-root{:href => "https://www.mercari.com/jp/category/"} カテゴリーから探す
+            %li
+              %h2
+                %a.pc-header-nav-root{:href => "https://www.mercari.com/jp/brand/"} ブランドから探す
+            %li.l-right
+              %ul.pc-header-user-nav
+                %li.one
+                  %a.sp-header-user-icon.pc-header-nav-root マイページ
+                %li.two
+                  %a.sp-header-user-icon.pc-header-nav-root お知らせ
+                  .i
+                    = image_tag "belle.jpg", class: "belle"
+                %li.three
+                  %a.sp-header-user-icon.pc-header-nav-root やることリスト
+                  .i
+                    = image_tag "check.jpg", class: "check"
 
 
-  .pc-header-nav-box-clearfix
 .bread-crumbs
+  %ul
+    %li
+      %span メルカリ
+    %li
+      .i
+        = image_tag "arrow.jpg", class: "arrow"
+        %span マイページ
+    %li
+      .i
+        = image_tag "arrow.jpg", class: "arrow"
+        %span ログアウト
+
+
+
+
 
 
 
@@ -20,8 +56,33 @@
 
 .l-container-clearfix
   .l-content
-    .l-chapter-container
-      .l-single-content
-        .btn-default
-        .btn-red ログアウト
+    .l-chaptermypage-nav-container
+      .l-single-inner
+        .l-single-content
+          .btn-default.btn-red ログアウト
+
+  .l-side
+    .nav.mypage-nav
+      .ul.mypage-nav-list
+        %li
+          %a.mypage-nav-list-item マイページ
+        .li お知らせ
+        .li やることリスト
+        .li いいね！一覧
+        .li 出品する
+        .li 出品した商品 - 出品中
+        .li 出品した商品 - 取引中
+        .li 出品した商品 - 売却済み
+        .li 購入した商品 - 取引中
+        .li 購入した商品 - 過去の取引
+        .li ニュース一覧
+        .li 評価一覧
+        .li ガイド
+        .li お問い合わせ 
+
+
+
+
+
+
 
