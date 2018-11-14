@@ -1,0 +1,68 @@
+#account-page.account-page
+  .account-page__inner
+    .single-head
+      %a{href: "http://13.230.105.155/"}
+        = image_tag "mercari_top.svg"
+      %nav.progress-bar.signup-bar
+        %ol
+          %li.red
+            会員情報
+            .progress-status-true
+          %li
+            電話番号認証
+            .progress-status
+          %li
+            住所入力
+            .progress-status
+          %li
+            支払い方法
+            .progress-status
+          %li
+            完了
+            .progress-status-fin
+    .account-page__inner--center
+      %h2.secound-head 会員情報入力
+      .account-page__inner--right.user-form
+        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+          = devise_error_messages!
+          .field
+            .field-label__user_name
+              = f.label :name, ('ニックネーム')
+              %span.form-require 必須
+            .field-input
+              = f.text_field :nickname, autofocus: true, autocomplete: "nickname", placeholder: "例）メルカリ太郎", class: "input-default"
+          .field
+            .field-label__email
+              = f.label :email, ('メールアドレス')
+              %span.form-require 必須
+            .field-input
+              = f.email_field :email, placeholder: 'PC・携帯どちらでも可'
+          .field
+            .field-label__password
+              = f.label :password, ('パスワード')
+              %span.form-require 必須
+              %i
+            .field-input
+              = f.password_field :password, autocomplete: "off", placeholder: '6文字以上'
+          .field
+            .field-label__password_confirmation
+              = f.label :password_confirmation, ('パスワード(確認)')
+              %span.form-require 必須
+            .field-input
+              = f.password_field :password_confirmation, autocomplete: "off", placeholder: '6文字以上'
+          .actions
+            = f.submit "会員登録", class: 'btn'
+    %footer.single-footer
+      %nav
+        %ul.clearfix
+          %li
+            %a{href: "https://www.mercari.com/jp/privacy/"} プライバシーポリシー
+          %li
+            %a{href: "https://www.mercari.com/jp/tos/"} メルカリ利用規約
+          %li
+            %a{href: "https://www.mercari.com/jp/tokutei/"} 特定商取引に関する表記
+      %a.single-footer-logo{:href => "https://www.mercari.com/jp/"}
+      = link_to "http://13.230.105.155/", class: "single-footer-logo" do
+        = image_tag "mercari_footer.svg"
+      %p
+        %small © 2018 Mercari
