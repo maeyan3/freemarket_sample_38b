@@ -1,8 +1,5 @@
 .single-container
-  %header.single-header
-    %h1
-      %a{href: "http://13.230.105.155/"}
-        = image_tag "mercari_top.svg"
+  = render partial: './subheader'
   %main.single-main
     %section.single-main__l-single-container
       %h2.single-main__l-single-container__l-single-head 新規会員登録
@@ -17,16 +14,4 @@
           %button#google-login.btn-default.btn-sns.btn-sns-google
             %i.fab.fa-google-plus-g
             Googleで登録
-  %footer.single-footer
-    %nav
-      %ul.single-footer__lists.clearfix
-        %li.single-footer__lists__a-list
-          = link_to 'プライバシーポリシー',  "https://www.mercari.com/jp/privacy/", class: "link-style"
-        %li.single-footer__lists__a-list
-          = link_to 'メルカリ利用規約', "https://www.mercari.com/jp/tos/", class: "link-style"
-        %li.single-footer__lists__a-list
-          = link_to '特定商取引に関する表記', "https://www.mercari.com/jp/tokutei/", class: "link-style"
-    = link_to "http://13.230.105.155/", class: "single-footer-logo" do
-      = image_tag "mercari_footer.svg"
-    %p
-      %small © 2018 Mercari
+  = render partial: './subfooter'
