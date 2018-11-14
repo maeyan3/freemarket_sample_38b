@@ -6,9 +6,9 @@
         %a{:href => "https://www.mercari.com/jp/"}
           %img{:alt => "mercari", :height => "36", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?4139329709", :width => "134"}
       %form.pc-header-form.l-right{:action => "https://www.mercari.com/jp/search/"}
-        %input.input-default{:name => "keyword", :placeholder => "キーワードから探す", :type => "search", :value => "",:height => "36"}
-        .i.icon-search
-          = image_tag "search.jpg", class: "search"
+        .search-box
+          %input.input-default{:name => "keyword", :placeholder => "キーワードから探す", :type => "search", :value => "",:height => "36"}
+          %i.fas.fa-search
     .pc-header-nav-box-clearfix
       .pc-header-nav-root
         %nav.l-left
@@ -22,15 +22,18 @@
             %li.l-right
               %ul.pc-header-user-nav
                 %li.one
-                  %a.sp-header-user-icon.pc-header-nav-root マイページ
+                  %a.sp-header-user-icon.pc-header-nav-root
+                    マイページ
                 %li.two
-                  %a.sp-header-user-icon.pc-header-nav-root お知らせ
-                  .i
-                    = image_tag "belle.jpg", class: "belle"
+                  %a.sp-header-user-icon.pc-header-nav-root
+                    %i.far.fa-bell
+                      お知らせ
                 %li.three
-                  %a.sp-header-user-icon.pc-header-nav-root やることリスト
-                  .i
-                    = image_tag "check.jpg", class: "check"
+                  %a.sp-header-user-icon.pc-header-nav-root
+                    %i.fas.fa-check
+                      やることリスト
+
+
 
 
 .bread-crumbs
@@ -38,13 +41,9 @@
     %li
       %span メルカリ
     %li
-      .i
-        = image_tag "arrow.jpg", class: "arrow"
-        %span マイページ
+      %i.fas.fa-angle-right
     %li
-      .i
-        = image_tag "arrow.jpg", class: "arrow"
-        %span ログアウト
+      %i.fas.fa-angle-right
 
 
 
@@ -63,22 +62,120 @@
 
   .l-side
     .nav.mypage-nav
-      .ul.mypage-nav-list
+      %ul.mypage-nav-list
         %li
-          %a.mypage-nav-list-item マイページ
-        .li お知らせ
-        .li やることリスト
-        .li いいね！一覧
-        .li 出品する
-        .li 出品した商品 - 出品中
-        .li 出品した商品 - 取引中
-        .li 出品した商品 - 売却済み
-        .li 購入した商品 - 取引中
-        .li 購入した商品 - 過去の取引
-        .li ニュース一覧
-        .li 評価一覧
-        .li ガイド
-        .li お問い合わせ 
+          %a.mypage-nav-list-item
+            マイページ
+            %i.fas.fa-angle-right
+        %li
+          %a.mypage-nav-list-item
+            お知らせ
+            %i.fas.fa-angle-right
+        %li
+          %a.mypage-nav-list-item
+            やることリスト
+            %i.fas.fa-angle-right
+        %li
+          %a.mypage-nav-list-item
+            いいね！一覧
+            %i.fas.fa-angle-right
+        %li
+          %a.mypage-nav-list-item
+            出品する
+            %i.fas.fa-angle-right
+        %li
+          %a.mypage-nav-list-item
+            出品した商品 - 出品中
+            %i.fas.fa-angle-right
+        %li
+          %a.mypage-nav-list-item
+            出品した商品 - 取引中
+            %i.fas.fa-angle-right
+        %li
+          %a.mypage-nav-list-item
+            出品した商品 - 売却済み
+            %i.fas.fa-angle-right
+        %li
+          %a.mypage-nav-list-item
+            購入した商品 - 取引中
+            %i.fas.fa-angle-right
+        %li
+          %a.mypage-nav-list-item
+            購入した商品 - 過去の取引
+            %i.fas.fa-angle-right
+        %li
+          %a.mypage-nav-list-item
+            ニュース一覧
+            %i.fas.fa-angle-right
+        %li
+          %a.mypage-nav-list-item
+            評価一覧
+            %i.fas.fa-angle-right
+        %li
+          %a.mypage-nav-list-item
+            ガイド
+            %i.fas.fa-angle-right
+        %li
+          %a.mypage-nav-list-item
+            お問い合わせ 
+            %i.fas.fa-angle-right
+
+        %h3 売上・ポイント
+        .mypage-nav-head
+          %ul.mypage-nav-list
+            %li
+              %a.mypage-nav-list-item
+                売上・振込申請
+                %i.fas.fa-angle-right
+            %li
+              %a.mypage-nav-list-item
+                ポイント
+                %i.fas.fa-angle-right
+        %h3 設定
+        .mypage-nav-head
+          %ul.mypage-nav-list
+            %li
+              %a.mypage-nav-list-item
+                プロフィール
+                %i.fas.fa-angle-right
+            %li
+              %a.mypage-nav-list-item
+                住所変更
+                %i.fas.fa-angle-right
+            %li
+              %a.mypage-nav-list-item
+                支払い方式
+                %i.fas.fa-angle-right
+            %li
+              %a.mypage-nav-list-item
+                メール/パスワード
+                %i.fas.fa-angle-right
+            %li
+              %a.mypage-nav-list-item
+                本人情報
+                %i.fas.fa-angle-right
+            %li
+              %a.mypage-nav-list-item
+                電話番号の確認
+                %i.fas.fa-angle-right
+            %li
+              %a.mypage-nav-list-item
+                ログアウト
+                %i.fas.fa-angle-right
+
+
+
+%aside.app-banner
+  = image_tag "mercari_banner.jpg"
+  .app-banner-pc
+    .app-banner-pc-inner
+      %h2 スマホでかんたんフリマアプリ
+      %p 今すぐ無料ダウンロード！
+      .app-banner-icon
+    %figure
+      = image_tag "cellphone.png"
+
+
 
 
 

@@ -1,7 +1,8 @@
-.body{
-  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
-}
-header{
+body{
+  margin:0;
+
+
+  header{
   width:1280px;
   height:90px;
   background-repeat: no-repeat;
@@ -34,38 +35,35 @@ header{
     margin:0;
 
   }
-
-  input.input-default{
-    height:36px;
-    width:870px;
-    float:right;
-    -webkit-appearance: textarea;
-    position:relative;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    background: #fff;
-    line-height: 1.5;
-    font-size: 16px;
+  .search-box {
     height: 36px;
-    padding: 9px 32px 9px 8px;
-    background: #fafafa;
+    width: 1000px;
+    margin:0;
+    position:relative;
+    .input-default{
+      height:36px;
+      width:850px;
+      float:right;
+      -webkit-appearance: textarea;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      background: #fff;
+      line-height: 1.5;
+      font-size: 16px;
+      height: 36px;
+      padding: 9px 32px 9px 8px;
+      background: #fafafa;
+
+    }
+    i.fas.fa-search{
+      float:right;
+      position:absolute;
+      right: 0;
+      margin:10px;
+    }
   }
 }
 
- .i.icon-search{
-        width:36px;
-        height:36px;
-        position:absolute;
-        margin-left:984px;
-
-    }
-
-.search{
-  width:14px;
-  height:14px;
-  margin:0 auto;
-  margin-top:10px;
-}
 
 
 
@@ -138,6 +136,7 @@ nav.l-left{
         width:112px;
         height:38px;
         cursor: pointer;
+        font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
                }
               }
       li.two{
@@ -148,20 +147,13 @@ nav.l-left{
         a{
         width:112px;
         height:38px;
+        margin-left:10px;
         cursor: pointer;
-               }
-        .i{
-          width:30px;
-          height:25px;
-          float:left;
-          .belle{
-            width:20px;
-            height:18.66px;
-          }
-        }
+        font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+            }
               }
       li.three{
-        width:130px;
+        width:140px;
         height:38px;
         list-style:none;
         float:right;
@@ -169,17 +161,9 @@ nav.l-left{
         width:112px;
         height:38px;
         cursor: pointer;
+        font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
              }
             }
-        .i{
-          width:30px;
-          height:25px;
-          float:left;
-          .check{
-            width:20px;
-            height:18.66px;
-          }
-        }
           }
         }
       }
@@ -208,10 +192,8 @@ nav.l-left{
       display: inline-block;
       font-size: 14px;
       line-height:16px;
-      .arrow{
-        height:6.14px;
-        width:10px;
-
+      span{
+        font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
       }
     }
   }
@@ -267,27 +249,68 @@ nav.l-left{
     {
     width:280px;
     height:1252px;
+    ul.mypage-nav-list{
 
-    li{
+      li{
+        width:280px;
+        height:49px;
+        border-top: 1px solid #eee;
+        list-style: none;
+
+          a.mypage-nav-list-item{
+            position: relative;
+            display: block;
+            min-height: 48px;
+            padding: 16px;
+            background: #fff;
+            color: #333;
+            margin:0 auto;
+            box-sizing:content-box;
+            text-decoration: none;
+            font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+            border-style: solid;
+            border-width: 0;
+            i{
+              position: absolute;
+              right: 16px;
+              color: #ccc;
+              height:8.59px;
+              width:14px;
+              margin-bottom:10px;
+            }
+          }
+        }
+      }
+      h3.mypage-nav-head{
       width:280px;
-      height:49px;
-      border-top: 1px solid #eee;
-      list-style: none;
-        a.mypage-nav-list-item{
-          position: relative;
-          display: block;
-          min-height: 48px;
-          padding: 16px;
-          background: #fff;
-          color: #333;
-          margin:0 auto;
-          box-sizing:content-box;
-
-
+      height:16px;
+      font-size: 16px;
+      margin: 40px 0 0;
+      display: block;
         }
       }
     }
+
+aside.app-banner{
+  margin-top:25px;
+  width:1280px;
+  height:260px;
+  margin:0 auto;
+
+  .app-banner-pc{
+    width:750px;
+    height:260px;
+    margin:0 auto;
+    top: 0;
+    overflow: hidden;
+    display: none;
+    position:relative;
+
+    }
   }
+}
+
+
 
 
 
