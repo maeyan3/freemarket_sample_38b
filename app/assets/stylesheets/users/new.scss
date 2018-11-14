@@ -1,0 +1,290 @@
+// 新規登録画面
+.single-container {
+  padding: 0 0 200px;
+  &__header {
+    height: 10px;
+    text-align: center;
+  }
+  .single-header {
+  height: 128px;
+  text-align: center;
+    h1 {
+      margin: 40px 0 0;
+      display: inline-block;
+    }
+    a {
+      width: 185px;
+      height: 49px;
+      line-height: 49px;
+      display: inline-block;
+      margin: 0 8px 0 0;
+    }
+    img {
+      width: 185px;
+      height: 49px;
+    }
+  }
+}
+
+.single-main__l-single-container {
+  width: 700px;
+  margin: 0 auto;
+  background: #fff;
+  &__l-single-head {
+     font-weight:bold;
+    border-bottom: 1px solid #f5f5f5;
+    padding: 32px 16px;
+    font-size: 22px;
+    line-height: 1.5;
+    text-align: center;
+  }
+  &__l-single-inner {
+    padding: 55px;
+  }
+}
+
+.l-single-content {
+  max-width: 320px;
+  margin: 0 auto;
+    i.far.fa-envelope{
+    margin:15px;
+    float: left;
+    font-size: 1.5em;
+    opacity: 0.1;
+    }
+    .registration_mail {
+      margin-right: 45px;
+    }
+  .btn-sns-facebook:first-child {
+    margin: 0;
+  }
+.btn-sns-facebook {
+  margin: 16px 0 0;
+  background: #385185;
+  color: #fff;
+  background: #385185;
+      i.fab.fa-facebook{
+      float: left;
+      font-size: 1.5em;
+    }
+        a {
+  color: #fff;
+  text-decoration: none;
+  touch-action: manipulation;
+}
+  }
+  .btn-sns {
+    position: relative;
+  }
+    .btn-sns i {
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  }
+  .btn-default {
+    display: block;
+    width: 100%;
+    line-height: 48px;
+    font-size: 14px;
+    text-align: center;
+  }
+  .btn-sns-google {
+    margin: 16px 0 0;
+    background: #dc4e41;
+    color: #fff;
+      i.fab.fa-google-plus-g{
+      float: left;
+      font-size: 1.5em;
+    }
+  }
+  .btn-mail {
+    position: relative;
+    margin: 16px 0 0;
+    background: #eee;
+    color: #000;
+  }
+}
+
+.single-footer {
+  width: 460px;
+  position: relative;
+  margin: 200px auto 0;
+  text-align: center;
+    li {
+    display: inline-block;
+    font-size: 12px;
+    margin: 0 0 0 16px;
+  }
+  a {
+    display: block;
+    color: #333;
+  }
+  &__list {
+    font-size: 12px;
+    &__a-list {
+      display: inline-block;
+      margin: 0 0 0 16px;
+    }
+  }
+  .link-style {
+    color: #333;
+    display: block;
+  }
+
+  .single-footer-logo {
+    width: 80px;
+    // height: 65px;
+    margin: 40px auto 0;
+  }
+  small {
+    font-size: 10px;
+  }
+}
+
+
+//アカウント作成済みユーザーログイン画面
+.single-main{
+  width: 100%;
+  background-color: #f5f5f5;
+  .login-panel{
+    .login-no-account{
+      padding: 40px 64px;
+      background-color: white;
+      width: 300px;
+      margin: 0px auto;
+      border-bottom: 1px solid #f5f5f5;
+      p{
+        font-size: 14px;
+        text-align: center;
+      }
+      a{
+        width: 300px;
+        display: block;
+        margin: 0 auto;
+        line-height: 48px;
+        font-size: 14px;
+        color: white;
+        background-color: #0099e8;
+        text-align: center;
+        padding: 0px 10px;
+      }
+    }
+    .login-form-inner{
+      width: 300px;
+      margin: 0 auto;
+      padding: 32px 64px;
+      background-color: white;
+      border-bottom: 1px solid #f5f5f5;
+      .btn-sns-facebook{
+        width: 300px;
+        display: block;
+        margin: 0 auto;
+        line-height: 48px;
+        font-size: 14px;
+        color: white;
+        background-color: #385185;
+        text-align: center;
+        padding: 0px 10px;
+        i.fab.fa-facebook{
+          float: left;
+          margin: 15px 0px;
+          font-size: 1.5em;
+        }
+      }
+      .btn-sns-google{
+        margin-top: 16px;
+        width: 300px;
+        display: block;
+        margin: 16px auto;
+        line-height: 48px;
+        font-size: 14px;
+        color: white;
+        background-color: #dc4e41;
+        text-align: center;
+        padding: 0px 10px;
+        i.fab.fa-google-plus-g{
+          float: left;
+          margin: 15px 0px;
+          font-size: 1.5em;
+        }
+      }
+    }
+    .no-robot {
+  margin-top: 24px;
+  width: 300px;
+  height: 78px;
+  border: 1px solid #d3d3d3;
+  border-radius: 3px;
+  background: rgb(245, 245, 245);
+  &__left {
+    float: left;
+    &__checkbox {
+      margin: 24px 0 0 10px;
+      height: 24px;
+      position: absolute;
+      width: 24px;
+    }
+    p {
+      padding: 24px 0 0 50px;
+    }
+  }
+  &__right {
+    float: right;
+    width: 120px;
+    padding-top: 15px;
+    img {
+      width: 32px;
+      height: 32px;
+      display:table-cell;
+      margin: 0 auto;
+    }
+    p {
+      font-size: 8px;
+      color: #c1c1c1;
+      text-align: center;
+    }
+  }
+}
+    .login-meil{
+      width: 300px;
+      height: 300px;
+      margin: 0 auto;
+      padding: 24px 64px 32px;
+      background-color: white;
+      .form{
+        width: 100%;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        .input-default{
+          width: 300px;
+          height: 40px;
+          display: block;
+          margin: 16px auto;
+          line-height: 48px;
+          font-size: 14px;
+          text-align: left;
+          padding: 0px 10px;
+        }
+        .login-submit{
+          margin-top: 16px;
+          width: 300px;
+          display: block;
+          margin: 16px auto;
+          line-height: 48px;
+          font-size: 14px;
+          color: white;
+          background-color: #ea352d;
+          text-align: center;
+          padding: 0px 10px;
+        }
+        a{
+          color: blue;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
+
