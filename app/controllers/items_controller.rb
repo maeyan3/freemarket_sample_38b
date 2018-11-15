@@ -4,12 +4,12 @@ class ItemsController < ApplicationController
   end
 
   def new
+    @item        = Item.new
     @categories  = Category.all
     @sizes       = Size.all
     @brands      = Brand.all
     @prefectures = Prefecture.all
-    @item        = Item.new
-    4.times { @item.item_image_build }
+    4.times { @item.item_images.build }
   end
 
   def create
