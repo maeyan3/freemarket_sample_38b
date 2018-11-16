@@ -1,4 +1,4 @@
 class Size < ApplicationRecord
-  has_many :items_sizes
-  has_many :sizes, through: :items_sizes
+  has_many :items_sizes, dependent: :destroy
+  has_many :items, through: :items_sizes
 end

@@ -1,12 +1,12 @@
 class Item < ApplicationRecord
-  has_many :item_comments
-  has_many :item_images
-  has_many :items_categories
+  has_many :item_comments,    dependent: :destroy
+  has_many :item_images  ,    dependent: :destroy
+  has_many :items_categories, dependent: :destroy
   has_many :categories, through: :items_categories
-  has_many :items_sizes
+  has_many :items_sizes, dependent: :destroy
   has_many :sizes, through: :items_sizes
-  has_many :likes
-  has_many :items_brands
+  has_many :likes,        dependent: :destroy
+  has_many :items_brands, dependent: :destroy
   has_many :brands, through: :items_brands
   has_one  :order
   belongs_to :user
@@ -27,6 +27,9 @@ class Item < ApplicationRecord
                                                            less_than_or_equal_to: 9999999 }
   validates :status,       presence: true, numericality: { greater_than_or_equal_to: 0,
                                                            less_than_or_equal_to: 5 }
+
+  enum status: [:listing, :pending_delivary, :pending_recieve, :pending_evalute, :completed, :stop_listing]
+
   def sizes_present?
     self.sizes.present?
   end
