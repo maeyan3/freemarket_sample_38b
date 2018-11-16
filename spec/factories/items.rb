@@ -1,6 +1,7 @@
 FactoryBot.define do
 
   factory :item do
+    sequence(:id) {|n| n }
     item_name   Faker::Food.spice
     detail      Faker::Food.description
     price       Faker::Number.between(300, 9999999)
@@ -11,6 +12,8 @@ FactoryBot.define do
     status      0
     user
     prefecture
+    created_at { Faker::Time.between(2.days.ago, Time.now, :all) }
+    updated_at { Faker::Time.between(2.days.ago, Time.now, :all) }
 
     after(:build) do |item|
       3.times { item.categories << build(:category) }
