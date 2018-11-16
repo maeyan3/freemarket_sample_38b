@@ -45,6 +45,7 @@ group :development, :test do
   gem 'capistrano-rbenv'
   gem 'capistrano3-unicorn'
   gem 'rspec-rails'
+  gem 'rails-controller-testing'
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'pry-rails'
@@ -68,4 +69,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'hamlit-rails'
 gem 'erb2haml'
 gem 'devise'
+gem "carrierwave"
+gem "mini_magick"
+gem 'fog-aws'
 gem 'rack', '>= 2.0.6'

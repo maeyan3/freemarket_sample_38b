@@ -49,9 +49,9 @@ __※Optionにnull許可の記載が無いものは全てnull:falseをつける_
 - has_many :items_sizes
 - has_many :sizes, through: :items_sizes
 - has_many :likes
+- has_many :items_brand
+- has_many :brand, through: :items_brand
 - has_one  :order
-- has_one  :items_brand
-- has_one  :brand, through: :items_brand
 - belongs_to :user
 - belongs_to :prefecture
 
