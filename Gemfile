@@ -72,3 +72,4 @@ gem 'devise'
 gem "carrierwave"
 gem "mini_magick"
 gem 'fog-aws'
+gem 'rack', '>= 2.0.6'
