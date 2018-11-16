@@ -329,8 +329,8 @@ DEPENDENCIES
   puma (~> 3.7)
   rack (>= 2.0.6)
   rails (~> 5.1.6)
-  recaptcha
   rails-controller-testing
+  recaptcha
   rspec-rails
   sass-rails (~> 5.0)
   selenium-webdriver
