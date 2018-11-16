@@ -24,15 +24,8 @@
           .form
             = f.password_field :password, autocomplete: "current-password", class: "input-default", placeholder: "パスワード"
             / %input{type: "password", class: "input-default", name: "password", placeholder: "パスワード"}
-          .no-robot
-            .no-robot__left
-              %input.no-robot__left__checkbox{:type => "checkbox"}
-              %p
-                私はロボットでは</br>ありません。
-            .no-robot__right
-              = image_tag "reCAPTCHA.png"
-              %p reCAPTCHA
-              %p プライバシー・利用規約
+          .form
+            = recaptcha_tags
           .form
             = f.submit "ログイン",class: "login-submit"
             %a パスワードをお忘れの方
