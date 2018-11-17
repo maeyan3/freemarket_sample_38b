@@ -1,0 +1,17 @@
+.single-container
+  = render partial: './subheader'
+  %main.single-main
+    %section.single-main__l-single-container
+      %h2.single-main__l-single-container__l-single-head 新規会員登録
+      .single-main__l-single-container__l-single-inner
+        .l-single-content
+          = link_to "/users/sign_up", class: "btn-default btn-mail" do
+            %i.far.fa-envelope
+            %span.registration_mail メールアドレスで登録
+          %button#facebook-login.btn-default.btn-sns.btn-sns-facebook
+            %i.fab.fa-facebook
+            = link_to "Facebookで登録"
+          %button#google-login.btn-default.btn-sns.btn-sns-google
+            %i.fab.fa-google-plus-g
+            Googleで登録
+  = render partial: './subfooter'
