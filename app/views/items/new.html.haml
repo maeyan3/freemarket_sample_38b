@@ -104,19 +104,22 @@
                     .l-right -
 
 
-            .modal
-              .modal-inner
 
             .sell-content.sell-btn-box
-              %p 禁止されている出品、行為を必ずご確認ください。
-              %a
-              %p またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。
-              %a
-              %p また、出品をもちまして加盟店規約に同意したことになります。
-              %a
+              %p
+                = link_to "禁止されている出品", root_path, class: "link-color"
+                、
+                = link_to "行為", root_path, class: "link-color"
+                を必ずご確認ください。
+              %p
+                またブランド品でシリアルナンバー等がある場合はご記載ください。
+                = link_to "偽ブランドの販売", root_path, class: "link-color"
+                は犯罪であり処罰される可能性があります。
+              %p
+                また、出品をもちまして
+                = link_to "加盟店規約", root_path, class: "link-color"
+                に同意したことになります。
 
-              %button.btn-default.btn-red 出品する
-              %a.btn-default.btn-gray もどる
               = f.submit '出品する', class: 'btn-default btn-red'
               = link_to "もどる", root_path, class: "btn-default btn-gray"
 
