@@ -1,7 +1,6 @@
 .single-container
-  .single-header
-    %h1 Items new
-    %a
+  = render partial: "/subheader"
+
 
   .single-main
     %section.l-single-container.buy-item-container
@@ -123,15 +122,7 @@
 
 
   .single-footer
-    %nav
-      %ul.clearfix
-        %li プライバシーポリシー
-        %li メルカリ利用規約
-        %li 特定商取引に関する表記
-    %a.single-footer-logo
-    %p
-    %small © 2018 Mercari
-
+    = render partial: "/subfooter"
 
 
 
