@@ -101,7 +101,75 @@
             }
           }
 
-    height: 150px;
+          .sell-content{
+            .form-group{
+              .form-label{
+                font-weight: bold;
+                float: left;
+              }
+              .form-require{
+                @include font_basic(#fff, 12px, bold);
+                background: #ea352d;
+                margin: 0 0 0 8px;
+                padding: 2px 4px;
+                vertical-align: top;
+              }
+            }
+            border-top: #f5f5f5 solid 1px;
+            padding: $sell-padding $sell-padding 0 $sell-padding;
+            #brand{
+              @include font_basic(null, 16px, null, 1.5);
+              @include div_basic(400px);
+              margin: 8px 0 $sell-padding 0;
+              padding: 10px 16px 8px 16px;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+            }
+            .sell-form-box{
+              float: right;
+              .size{
+                margin-top: $sell-padding;
+              }
+              .select-wrap{
+                padding-bottom: $sell-padding;
+                position: relative;
+                .select-default{
+                  -webkit-appearance: none;
+                  @include div_basic(400px, 48px, #fff);
+                  border: 1px solid #ccc;
+                  line-height: 1.5;
+                  cursor: pointer;
+                  margin: 8px 0 0 0;
+                  padding: 10px 16px 8px 16px;
+                }
+              }
+              .select-wrap::after{
+                z-index: 1;
+                @include absolute(20px, 20px, null, null);
+                @include font_basic(#888, 30px);
+                content: "\f107";
+                font-family: "FontAwesome";
+              }
+              .select_category{
+                padding-bottom: 4px;
+                position: relative;
+                .select-default{
+                  -webkit-appearance: none;
+                  @include div_basic(400px, 48px, #fff);
+                  border: 1px solid #ccc;
+                  line-height: 1.5;
+                  cursor: pointer;
+                  margin: 8px 0 0 0;
+                  padding: 10px 16px 8px 16px;
+                }
+              }
+              .select_category::after{
+                z-index: 1;
+                @include font_basic(#888, 30px);
+                @include absolute(20px, 20px, null, null);
+                content: "\f107";
+                font-family: "FontAwesome";
+              }
 
               .sell-price{
                 .form-group{
