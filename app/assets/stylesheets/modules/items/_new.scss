@@ -1,0 +1,267 @@
+.clearfix:after{
+  content: "";
+  clear: both;
+  display: block;
+}
+
+.form-free{
+  @include font_basic(#fff, 12px, bold);
+  background: gray;
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  vertical-align: top;
+}
+
+.input-default{
+  @include font_basic(null, 16px, null, 1.5);
+  @include div_basic(calc(700px - 80px),null, #fff);
+  margin: 8px 0 10px 0;
+  padding: 10px 16px 8px 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.textarea-default{
+  @include div_basic(calc(700px - 80px), 216px);
+  resize: vertical;
+  margin: 8px 0 $sell-padding 0;
+  border: 1px solid #ccc;
+  padding: 10px 16px 8px 16px;
+}
+
+.sell-sub-head{
+  @include font_basic(#888, null, bold);
+  float: left;
+}
+
+.question-color:link, .question-color:visited, .question-color:hover, .question-color:active {
+  @include font_basic(white, 12px, null, 14px, center);
+  background: #0099E8;
+  border-radius: 50%;
+  display: inline-block;
+  width: 15px;
+}
+
+.link-color:link, .link-color:visited, .link-color:hover, .link-color:active {
+  color: #0099E8;
+}
+
+
+
+
+.single-container{
+  background-color: #f5f5f5;
+  @include font_basic(#333, 14px, null, null, null);
+  .single-main{
+    @include div_basic($sell-width, null, #fff);
+    max-width: $sell-width;
+    margin: 0 auto;
+    .buy-item-container{
+      #sell-container{
+
+        h2{
+          @include font_basic(null, 22px, bold, null, center);
+          padding: $sell-padding 0;
+        }
+
+        #sell-form{
+          height: 100%;
+          .sell-upload-box{
+            border-top: #f5f5f5 solid 1px;
+            padding: $sell-padding;
+            height: 250px;
+
+            .sell-upload-head{
+              float: left;
+              @include font_basic(null, 16px, bold, null, null);
+            }
+            p{
+              clear: both;
+              padding-top: 5px;
+              padding-bottom: 12px;
+            }
+            .sell-dropbox-container{
+              .sell-upload-drop-box {
+                @include div_basic(150px, 184px, #f5f5f5);
+                float: left;
+                flex: 1;
+                position: relative;
+                min-height: 116px;
+                border: 1px dashed #ccc;
+                font-size: 0;
+                text-align: center;
+                transition: box-shadow ease-out .3s;
+                cursor: pointer;
+                .sell-upload-drop-file{
+                  @include div_basic(150px, 184px);
+                  opacity: 0.01;
+                }
+
+              }
+            }
+          }
+
+          .sell-content{
+            .form-group{
+              .form-label{
+                font-weight: bold;
+                float: left;
+              }
+              .form-require{
+                @include font_basic(#fff, 12px, bold);
+                background: #ea352d;
+                margin: 0 0 0 8px;
+                padding: 2px 4px;
+                vertical-align: top;
+              }
+            }
+            border-top: #f5f5f5 solid 1px;
+            padding: $sell-padding $sell-padding 0 $sell-padding;
+            #brand{
+              @include font_basic(null, 16px, null, 1.5);
+              @include div_basic(400px);
+              margin: 8px 0 $sell-padding 0;
+              padding: 10px 16px 8px 16px;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+            }
+            .sell-form-box{
+              float: right;
+              .size{
+                margin-top: $sell-padding;
+              }
+              .select-wrap{
+                padding-bottom: $sell-padding;
+                position: relative;
+                .select-default{
+                  -webkit-appearance: none;
+                  @include div_basic(400px, 48px, #fff);
+                  border: 1px solid #ccc;
+                  line-height: 1.5;
+                  cursor: pointer;
+                  margin: 8px 0 0 0;
+                  padding: 10px 16px 8px 16px;
+                }
+              }
+              .select-wrap::after{
+                z-index: 1;
+                @include absolute(20px, 20px, null, null);
+                @include font_basic(#888, 30px);
+                content: "\f107";
+                font-family: "FontAwesome";
+              }
+              .select_category{
+                padding-bottom: 4px;
+                position: relative;
+                .select-default{
+                  -webkit-appearance: none;
+                  @include div_basic(400px, 48px, #fff);
+                  border: 1px solid #ccc;
+                  line-height: 1.5;
+                  cursor: pointer;
+                  margin: 8px 0 0 0;
+                  padding: 10px 16px 8px 16px;
+                }
+              }
+              .select_category::after{
+                z-index: 1;
+                @include font_basic(#888, 30px);
+                @include absolute(20px, 20px, null, null);
+                content: "\f107";
+                font-family: "FontAwesome";
+              }
+
+              .sell-price{
+                .form-group{
+                  @include font_basic(null, null, null, 60px, null);
+                  display: list-item;
+                  float: right;
+                  border-bottom: #888 solid 1px;
+                  width: 400px;
+                  padding: 12px 0;
+                  .l-left{
+                    font-weight: bold;
+                    float: left;
+                  }
+                  .l-right{
+                    float: right;
+                    font-weight: normal;
+                    .sell-price-input{
+                    float: right;
+                    font-size: 12px;
+                    margin-right: 8px;
+                    }
+                  }
+                  .input-default{
+                    width: 160px;
+                    float: right;
+                    font-size: 14px;
+                    text-align: right;
+                  }
+                }
+                .commission{
+                  @include font_basic(null, null, null, 40px, null);
+                  display: list-item;
+                  float: right;
+                  border-bottom: #888 solid 1px;
+                  width: 400px;
+                  padding: 12px 0;
+                  .l-left{
+                    float: left;
+                  }
+                  .l-right{
+                    float: right;
+                  }
+                  .input-default{
+                    width: 160px;
+                    float: right;
+                  }
+                }
+                .profit{
+                  @include font_basic(null, 16px, bold, 50px, null);
+                  display: list-item;
+                  float: right;
+                  width: 400px;
+                  padding: 12px 0 40px 0;
+                  .l-left{
+                    float: left;
+                    font-size:16px;
+                  }
+                  .l-right{
+                    float: right;
+                  }
+                }
+              }
+            }
+
+          }
+
+
+          .sell-btn-box{
+            padding: 40px;
+            .btn-default{
+              @include font_basic(#fff, 14px, null, 48px, center);
+              display: block;
+              border: 1px solid transparent;
+              transition: all ease-out .3s;
+              cursor: pointer;
+            }
+            .btn-red{
+              @include div_basic(100%, null, #ea352d);
+              margin-top: 40px;
+            }
+            .btn-gray{
+              @include div_basic(45%, null, #aaa);
+              margin: 24px auto 0;
+              text-decoration: none;
+            }
+          }
+
+
+        }
+
+      }
+    }
+  }
+}
+
