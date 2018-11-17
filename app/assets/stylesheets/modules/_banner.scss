@@ -1,0 +1,21 @@
+aside.app-banner{
+  margin-top:30px;
+  width:1280px;
+  height:260px;
+  margin:0 auto;
+
+  .app-banner-pc{
+    width:750px;
+    height:260px;
+    margin:0 auto;
+    top: 0;
+    overflow: hidden;
+    display: none;
+    position:relative;
+
+    .app-banner-pc-inner{
+      position:absolute;
+
+      }
+    }
+  }
