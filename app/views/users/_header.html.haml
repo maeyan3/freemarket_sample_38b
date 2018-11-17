@@ -1,0 +1,81 @@
+%header.pc-header.visible-sp
+  .pc-header-inner
+    .clearfix
+      %h1.l.left
+        %a{:href => "https://www.mercari.com/jp/", :height => "36", :width => "134"}
+          %img{:alt => "mercari", :height => "36", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?4139329709", :width => "134"}
+      %form.pc-header-form.l-right{:action => "https://www.mercari.com/jp/search/"}
+        .search-box
+          %input.input-default{:name => "keyword", :placeholder => "キーワードから探す", :type => "search", :value => "",:height => "36"}
+          %i.fas.fa-search
+    .pc-header-nav-box-clearfix
+      .pc-header-nav-root
+        %nav.l-left
+          %ul.pc-header-nav
+            %li.one
+              %h2
+                %a.pc-header-nav-root{:href => "https://www.mercari.com/jp/category/"}
+                  カテゴリーから探す
+                  / %ul.pc-header-nav-parent-wrap
+                  /   %li.pc-header-nav-parent
+                  /     %h3
+                  /       %a
+                  /         レディース
+                  /         %ul.pc-header-nav-child-wrap
+                  /           %li.pc-header-nav-child
+                  /             %a
+                  /               トップス
+                  /               %ul.pc-header-nav-grand-child-wrap
+                  /                 %li.pc-header-nav-child
+                  /                   %a
+                  /                     Tシャツ/カットソー(半袖/袖なし)
+
+
+            %li.two
+              %h2
+                %a.pc-header-nav-root{:href => "https://www.mercari.com/jp/brand/"}
+                  ブランドから探す
+            /       %ul.pc-header-nav-parent-wrap
+            /         %li.pc-header-nav-parent
+            /           %a{:href => "#"}
+            /             シャネル
+            /         %li
+            /           %a{:href => "#"}
+            /             ナイキ
+            /         %li
+            /           %a{:href => "#"}
+            /             ルイヴィトン
+
+            %li.l-right
+              %ul.pc-header-user-nav
+                %li.one
+                  %a.sp-header-user-icon.pc-header-nav-root{:href => "https://www.mercari.com/jp/mypage/"}
+                    %figure
+                      %img{:alt => "", :src => "//static-mercari-jp-imgtr2.akamaized.net/thumb/members/265703178.jpg?1507845787", :width => "32"}
+                    %div
+                      マイページ
+                %li.two
+                  %a.sp-header-user-icon.pc-header-nav-root
+                    %i.far.fa-bell
+                      お知らせ
+                %li.three
+                  %a.sp-header-user-icon.pc-header-nav-root
+                    %i.fas.fa-check
+                      やることリスト
+
+
+
+
+
+
+.bread-crumbs
+  %ul
+    %li
+      %span メルカリ
+    %li
+      %i.fas.fa-angle-right
+        マイページ
+    %li
+      %i.fas.fa-angle-right
+        ログアウト
+
