@@ -7,20 +7,21 @@
       #sell-container
         .sell-container-inner
           %h2.l-single-head 商品の情報を入力
-          %form.sell-form
+
+          = form_for @item, html:{id: 'sell-form'} do |f|
 
             .sell-upload-box
               %h3.sell-upload-head 出品画像
-              %span.form-rewuire 必須
+              %span.form-require 必須
               %p 最大４枚までアップロードできます
-              .sell-dropbox-container.clearfix
+              .sell-dropbox-container
                 .sell-upload-items
                   %ul
-                  .sell-upload-drop-box
-                    %input.sell-upload-drop-file
-                    %pre.visible-pc
-                    %i.icon-camera
-
+                    %li.sell-upload-drop-box#preview1
+                    %li.sell-upload-drop-box#preview2
+                    %li.sell-upload-drop-box#preview3
+                    %li.sell-upload-drop-box#preview4
+                      / = f.file_field :item_images, class: "sell-upload-drop-file", style: "none"
             .sell-content
               .form-group
                 %label 商品名

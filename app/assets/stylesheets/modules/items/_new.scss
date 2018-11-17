@@ -1,71 +1,105 @@
+.clearfix:after{
+  content: "";
+  clear: both;
+  display: block;
+}
 
-$sell-width: 700px;
+.form-free{
+  @include font_basic(#fff, 12px, bold);
+  background: gray;
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  vertical-align: top;
+}
 
-// @mixin font_basic($color: #333, $size: 16px, $weight: null, $line: null, $aline: null) {
-//   color      : $color;
-//   font-size  : $size;
-//   font-weight: $weight;
-//   line-height: $line;
-//   text-align : $aline;
-// }
+.input-default{
+  @include font_basic(null, 16px, null, 1.5);
+  @include div_basic(calc(700px - 80px),null, #fff);
+  margin: 8px 0 10px 0;
+  padding: 10px 16px 8px 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
 
+.textarea-default{
+  @include div_basic(calc(700px - 80px), 216px);
+  resize: vertical;
+  margin: 8px 0 $sell-padding 0;
+  border: 1px solid #ccc;
+  padding: 10px 16px 8px 16px;
+}
 
+.sell-sub-head{
+  @include font_basic(#888, null, bold);
+  float: left;
+}
 
+.question-color:link, .question-color:visited, .question-color:hover, .question-color:active {
+  @include font_basic(white, 12px, null, 14px, center);
+  background: #0099E8;
+  border-radius: 50%;
+  display: inline-block;
+  width: 15px;
+}
 
 .link-color:link, .link-color:visited, .link-color:hover, .link-color:active {
   color: #0099E8;
 }
 
+
+
+
 .single-container{
-  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
   background-color: #f5f5f5;
-  color: #333;
-
-  .single-header{
-    width: $sell-width;
-    max-width: $sell-width;
-    margin: 0 auto;
-    height: 130px;
-
-    h1{
-      // font-size: 14px;
-      text-align: center;
-    }
-  }
-
+  @include font_basic(#333, 14px, null, null, null);
   .single-main{
-    width: $sell-width;
+    @include div_basic($sell-width, null, #fff);
     max-width: $sell-width;
-    background-color: #fff;
     margin: 0 auto;
-
-    .l-single-container{
-
-    }
     .buy-item-container{
-
       #sell-container{
-        .sell-container-inner{
-          h2{
-            font-size: 22px;
-            text-align: center;
-            padding: 45px;
-            font-weight: bold;
 
-          }
+        h2{
+          @include font_basic(null, 22px, bold, null, center);
+          padding: $sell-padding 0;
         }
-        .sell-form{
+
+        #sell-form{
           height: 100%;
-        }
-      }
-    }
-  }
+          .sell-upload-box{
+            border-top: #f5f5f5 solid 1px;
+            padding: $sell-padding;
+            height: 250px;
 
+            .sell-upload-head{
+              float: left;
+              @include font_basic(null, 16px, bold, null, null);
+            }
+            p{
+              clear: both;
+              padding-top: 5px;
+              padding-bottom: 12px;
+            }
+            .sell-dropbox-container{
+              .sell-upload-drop-box {
+                @include div_basic(150px, 184px, #f5f5f5);
+                float: left;
+                flex: 1;
+                position: relative;
+                min-height: 116px;
+                border: 1px dashed #ccc;
+                font-size: 0;
+                text-align: center;
+                transition: box-shadow ease-out .3s;
+                cursor: pointer;
+                .sell-upload-drop-file{
+                  @include div_basic(150px, 184px);
+                  opacity: 0.01;
+                }
 
-  .single-footer{
-    width: $sell-width;
-    max-width: $sell-width;
-    margin: 0 auto;
+              }
+            }
+          }
 
     height: 150px;
 
