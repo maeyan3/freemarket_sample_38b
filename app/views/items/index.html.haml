@@ -21,10 +21,12 @@
                 = image_tag 'google-play.svg', size: "170x50"
             = image_tag 'main_content_pc.png', class: "main-banner-content__image"
   .main-content
-    .pick-up
-      .item-container
+    .item-container
+      .pick-up
         %h2.pick-up__title ピックアップカテゴリー
-        %h3.pick-up__category レディース 新着アイテム
+        /TODO カテゴリの商品一覧へリンク
+        = link_to "#", class: "pick-up__category" do
+          レディース 新着アイテム
         .item-boxes
           .item-box
             /TODO リンク先 "/items/#{item.id}"
@@ -42,7 +44,7 @@
                     /TODO item.likes.count
                     %span 10
         .item-container__view-all
-    .pickup
-      %h2.pick-up__title ピックアップブランド
-      %h3.pick-up__category
+      .pickup
+        %h2.pick-up__title ピックアップブランド
+        %h3.pick-up__category
 %script{src: "https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js", type: "text/javascript"}

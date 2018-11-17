@@ -1,0 +1,23 @@
+.wrapper {
+  .main-content {
+    width: 890px;
+    height: 1000px;
+    margin: 0 auto;
+    .item-container {
+      .pick-up {
+        &__title {
+          font-size: 28px;
+          font-weight: bold;
+          text-align: center;
+        }
+        &__category {
+          font-size: 22px;
+          font-weight: bold;
+          color: $category_blue;
+          text-align: center;
+          display: block;
+        }
+      }
+    }
+  }
+}
