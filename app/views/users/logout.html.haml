@@ -86,9 +86,10 @@
   .l-content
     .l-single-inner
       .l-single-content
-        .btn-default.btn-red
-          = link_to destroy_user_session_path, method: :delete do
+        = link_to destroy_user_session_path, method: :delete do
+          .btn-default.btn-red
             ログアウト
+
 
   .pc-header-nav-root
 

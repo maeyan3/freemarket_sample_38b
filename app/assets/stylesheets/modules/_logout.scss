@@ -300,6 +300,9 @@ nav.l-left{
       height:50px;
       max-width: 320px;
       margin: 0 auto;
+      a{
+          text-decoration: none;
+          color:$white;
       .btn-red
       {
         background: #ea352d;
@@ -318,9 +321,6 @@ nav.l-left{
         transition: all ease-out .3s;
         cursor: pointer;
         text-align: center;
-        a{
-          text-decoration: none;
-          color:$white;
         }
       }
     }

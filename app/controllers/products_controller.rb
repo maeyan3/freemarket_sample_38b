@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   def index
   end
 
-  def userlogout
+  def user_logout
 
   end
 end
