@@ -1,3 +1,6 @@
+@import "reset";
 @import "config/variables";
-@import "./modules/logout";
-@import "./users/mypage";
+@import "modules/logout";
+@import "users/mypage";
+@import "users/new";
+@import "users/registrations";
