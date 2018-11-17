@@ -3,10 +3,35 @@ require 'rails_helper'
 describe ItemsController, type: :controller do
 
   describe 'GET #index' do
-    it "populates an array of item ordered by created_at DESC" do
+
+    let(:user) { create(:user) }
+    let(:items) { create_list(:item, 5, user_id: user.id) }
+    context 'ログイン中' do
+      before do
+        login user
+        get :index
+      end
+
+      it "populates an array of item ordered by created_at DESC" do
+        expect(assigns(:items)).to match(items.sort{ |a, b| b.created_at <=> a.created_at })
+      end
+
+      it "renders the :index template" do
+        expect(response).to render_template :index
+      end
     end
 
-    it "renders the :index template" do
+    context 'ログアウト中' do
+      before do
+        get :index
+      end
+      it "populates an array of item ordered by created_at DESC" do
+        expect(assigns(:items)).to match(items.sort{ |a, b| b.created_at <=> a.created_at })
+      end
+
+      it "renders the :index template" do
+        expect(response).to render_template :index
+      end
     end
   end
 
