@@ -68,4 +68,31 @@ $sell-width: 700px;
 
   }
 
+
+          .sell-btn-box{
+            padding: 40px;
+            .btn-default{
+              @include font_basic(#fff, 14px, null, 48px, center);
+              display: block;
+              border: 1px solid transparent;
+              transition: all ease-out .3s;
+              cursor: pointer;
+            }
+            .btn-red{
+              @include div_basic(100%, null, #ea352d);
+              margin-top: 40px;
+            }
+            .btn-gray{
+              @include div_basic(45%, null, #aaa);
+              margin: 24px auto 0;
+              text-decoration: none;
+            }
+          }
+
+
+        }
+
+      }
+    }
+  }
 }
