@@ -1,0 +1,39 @@
+.default-container
+
+  = render 'header.html.haml'
+
+.l-container-clearfix
+  .right-content
+    .mypage-user-icon
+      %a
+        %figure
+          %img{:alt => "", :height => "60", :src => "//static-mercari-jp-imgtr2.akamaized.net/thumb/members/265703178.jpg?1507845787", :width => "60"}
+        %h2.bold
+          【衣類2枚目350円〜★】絵海
+        .mypage-number
+          %div
+            評価
+            %span.bold
+              363
+          %div
+            出品数
+            %span.bold
+              339
+    .mypage-tab-container-notification-todo
+
+
+
+
+
+    %ul.mypage-tag
+      %li.active
+
+
+
+
+
+  = render 'l-side.html.haml'
+
+= render 'footer.html.haml'
+
+= render 'sellbtn.html.haml'

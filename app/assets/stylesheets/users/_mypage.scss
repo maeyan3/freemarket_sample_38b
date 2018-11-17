@@ -1,0 +1,55 @@
+.l-container-clearfix{
+  .right-content{
+    width:700px;
+    height:932px;
+    float:right;
+    background-color:$white;
+    .mypage-user-icon{
+      width:700px;
+      height: 200px;
+      background-image:url(/assets/small_background.jpg);
+      position: relative;
+      background-repeat: no-repeat;
+      background-size: cover;
+      text-align: center;
+
+        a{
+          display: block;
+          position: absolute;
+          top: 50%;
+          left: 0;
+          right: 0;
+          -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+          color: #333;
+          text-decoration: none;
+          figure{
+              img{
+             border-radius: 50%;
+           }
+          }
+          h2.bold{
+            margin: 8px 0 0;
+            font-size: 14px;
+          }
+          .mypage-number{
+            width:700px;
+            height:16px;
+            margin: 8px 0 0;
+            font-size: 0;
+            div{
+              display: inline-block;
+              font-size: 14px;
+              margin: 0 0 0 16px;
+              span.bold{
+                margin: 0 0 0 8px;
+                font-size: 16px;
+                font-weight: 600;
+              }
+            }
+           }
+         }
+        }
+      }
+    }
+

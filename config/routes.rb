@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :items, only: [:index, :new, :create]
   get 'users/new', to: 'users#new'
   get '/logout' => 'users#logout'
+  get '/mypage' => 'users#mypage'
 end
