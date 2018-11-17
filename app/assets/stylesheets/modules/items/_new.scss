@@ -69,7 +69,70 @@ $sell-width: 700px;
 
     height: 150px;
 
-  }
+              .sell-price{
+                .form-group{
+                  @include font_basic(null, null, null, 60px, null);
+                  display: list-item;
+                  float: right;
+                  border-bottom: #888 solid 1px;
+                  width: 400px;
+                  padding: 12px 0;
+                  .l-left{
+                    font-weight: bold;
+                    float: left;
+                  }
+                  .l-right{
+                    float: right;
+                    font-weight: normal;
+                    .sell-price-input{
+                    float: right;
+                    font-size: 12px;
+                    margin-right: 8px;
+                    }
+                  }
+                  .input-default{
+                    width: 160px;
+                    float: right;
+                    font-size: 14px;
+                    text-align: right;
+                  }
+                }
+                .commission{
+                  @include font_basic(null, null, null, 40px, null);
+                  display: list-item;
+                  float: right;
+                  border-bottom: #888 solid 1px;
+                  width: 400px;
+                  padding: 12px 0;
+                  .l-left{
+                    float: left;
+                  }
+                  .l-right{
+                    float: right;
+                  }
+                  .input-default{
+                    width: 160px;
+                    float: right;
+                  }
+                }
+                .profit{
+                  @include font_basic(null, 16px, bold, 50px, null);
+                  display: list-item;
+                  float: right;
+                  width: 400px;
+                  padding: 12px 0 40px 0;
+                  .l-left{
+                    float: left;
+                    font-size:16px;
+                  }
+                  .l-right{
+                    float: right;
+                  }
+                }
+              }
+            }
+
+          }
 
 
           .sell-btn-box{
@@ -99,3 +162,4 @@ $sell-width: 700px;
     }
   }
 }
+

@@ -85,24 +85,23 @@
                   %i.icon-arrow-bottom
 
 
-            .sell-content.clearfix
-              %h3.sell-sub-head 販売価格（300~9,999,999）
-              %a.form-question
+            .sell-content
+              %h3.sell-sub-head 販売価格(300~9,999,999)
+              = link_to "?", root_path, class: "question-color"
               .sell-form-box
                 %ul.sell-price
                   %li.form-group
-                    .clearfix
-                      %label.l-left 価格
-                      %span.form-rewuire 必須
-                      .l-right.sell-price-input ¥
-                      %input.input-default
-                  %li.clearfix
+                    = f.label :price, "価格", class: 'l-left'
+                    %span.form-require 必須
+                    = f.text_field :price, class: 'input-default', id: "amount", placeholder: "例）300"
+                    .l-right
+                      .sell-price-input ¥
+                  %li.commission
                     .l-left 販売手数料（10％）
-                    .l-right -
-                  %li.clearfix.bold
+                    .l-right#commission  -
+                  %li.profit
                     .l-left 販売利益
-                    .l-right -
-
+                    .l-right#sales-profit -
 
 
             .sell-content.sell-btn-box
