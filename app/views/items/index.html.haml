@@ -1,3 +1,4 @@
+= render './header'
 .wrapper
   .slide-box
     %ul.slider
@@ -21,9 +22,9 @@
                 = image_tag 'google-play.svg', size: "170x50"
             = image_tag 'main_content_pc.png', class: "main-banner-content__image"
   .main-content
-    .item-container
+    .pick-up-container
+      %h2.pick-up-container__title ピックアップカテゴリー
       .pick-up
-        %h2.pick-up__title ピックアップカテゴリー
         /TODO カテゴリの商品一覧へリンク
         = link_to "#", class: "pick-up__category" do
           レディース 新着アイテム
@@ -32,19 +33,100 @@
             /TODO リンク先 "/items/#{item.id}"
             = link_to "#" do
               /TODO 画像参照 "#{item.item_image.item_image_src}"
-              = image_tag 'main_content_pc.png', class: "main-banner-content__image", size: "200x200"
+              %img{ src: "/images/test.jpeg", class: "item-box-image" }
               .item-box-content
                 /TODO item.item_name
                 %h4.item-box-content__name ダウンジャケット
                 .item-info
                   /TODO item.price
-                  %p.item-info__price 1000
-                  .item-likes
+                  .price-box
+                    %p.price-box__price
+                      = 1000.to_s(:currency, unit: "¥", precision: 0)
+                    %p.price-box__tax (税込)
+                  .likes-box
                     %i{ class: "far fa-heart" }
                     /TODO item.likes.count
                     %span 10
-        .item-container__view-all
-      .pickup
-        %h2.pick-up__title ピックアップブランド
-        %h3.pick-up__category
+        .pick-up__view-all
+          = link_to "すべての商品を見る", "#"
+      .pick-up
+        /TODO カテゴリの商品一覧へリンク
+        = link_to "#", class: "pick-up__category" do
+          レディース 新着アイテム
+        .item-boxes
+          .item-box
+            /TODO リンク先 "/items/#{item.id}"
+            = link_to "#" do
+              /TODO 画像参照 "#{item.item_image.item_image_src}"
+              %img{ src: "/images/test.jpeg", class: "item-box-image" }
+              .item-box-content
+                /TODO item.item_name
+                %h4.item-box-content__name ダウンジャケット
+                .item-info
+                  /TODO item.price
+                  .price-box
+                    %p.price-box__price
+                      = 1000.to_s(:currency, unit: "¥", precision: 0)
+                    %p.price-box__tax (税込)
+                  .likes-box
+                    %i{ class: "far fa-heart" }
+                    /TODO item.likes.count
+                    %span 10
+          .item-box
+            /TODO リンク先 "/items/#{item.id}"
+            = link_to "#" do
+              /TODO 画像参照 "#{item.item_image.item_image_src}"
+              = image_tag 'main_content_pc.png', class: "main-banner-content__image", size: "220x220"
+              .item-box-content
+                /TODO item.item_name
+                %h4.item-box-content__name ダウンジャケット
+                .item-info
+                  /TODO item.price
+                  .price-box
+                    %p.price-box__price
+                      = 1000.to_s(:currency, unit: "¥", precision: 0)
+                    %p.price-box__tax (税込)
+                  .likes-box
+                    %i{ class: "far fa-heart" }
+                    /TODO item.likes.count
+                    %span 10
+          .item-box
+            /TODO リンク先 "/items/#{item.id}"
+            = link_to "#" do
+              /TODO 画像参照 "#{item.item_image.item_image_src}"
+              = image_tag 'main_content_pc.png', class: "main-banner-content__image", size: "220x220"
+              .item-box-content
+                /TODO item.item_name
+                %h4.item-box-content__name ダウンジャケット
+                .item-info
+                  /TODO item.price
+                  .price-box
+                    %p.price-box__price
+                      = 1000.to_s(:currency, unit: "¥", precision: 0)
+                    %p.price-box__tax (税込)
+                  .likes-box
+                    %i{ class: "far fa-heart" }
+                    /TODO item.likes.count
+                    %span 10
+          .item-box
+            /TODO リンク先 "/items/#{item.id}"
+            = link_to "#" do
+              /TODO 画像参照 "#{item.item_image.item_image_src}"
+              = image_tag 'main_content_pc.png', class: "main-banner-content__image", size: "220x220"
+              .item-box-content
+                /TODO item.item_name
+                %h4.item-box-content__name ダウンジャケット
+                .item-info
+                  /TODO item.price
+                  .price-box
+                    %p.price-box__price
+                      = 1000.to_s(:currency, unit: "¥", precision: 0)
+                    %p.price-box__tax (税込)
+                  .likes-box
+                    %i{ class: "far fa-heart" }
+                    /TODO item.likes.count
+                    %span 10
+        .pick-up__view-all
+          = link_to "すべての商品を見る", "#"
+= render './footer'
 %script{src: "https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js", type: "text/javascript"}

@@ -54,7 +54,7 @@ body{
       height: 36px;
       padding: 9px 32px 9px 8px;
       background: #fafafa;
-
+      margin-bottom: 0;
     }
     i.fas.fa-search{
       float:right;
@@ -78,12 +78,9 @@ body{
     line-height: 32px;
     nav.l-left{
       ul.pc-header-nav{
-          list-style:none;
-
+        list-style:none;
         li.two{
-
         }
-
         ul.pc-header-nav-parent-wrap{
               padding-left:0px;
               position: absolute;
