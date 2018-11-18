@@ -69,7 +69,10 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'hamlit-rails'
 gem 'erb2haml'
 gem 'devise'
+gem 'recaptcha', require: "recaptcha/rails"
 gem "carrierwave"
 gem "mini_magick"
 gem 'fog-aws'
 gem 'rack', '>= 2.0.6'
+gem 'jquery-rails'
+gem 'font-awesome-rails'
