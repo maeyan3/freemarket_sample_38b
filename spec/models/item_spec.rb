@@ -49,13 +49,33 @@ describe Item do
         expect(item).to be_valid
       end
 
-      it '取引の状態が0で保存できる' do
-        item = build(:item, status: 0)
+      it '取引の状態がlistingで保存できる' do
+        item = build(:item, status: :listing)
         expect(item).to be_valid
       end
 
-      it '取引の状態が5で保存できる' do
-        item = build(:item, status: 5)
+      it '取引の状態がpending_delivaryで保存できる' do
+        item = build(:item, status: :pending_delivary)
+        expect(item).to be_valid
+      end
+
+      it '取引の状態がpending_recieveで保存できる' do
+        item = build(:item, status: :pending_recieve)
+        expect(item).to be_valid
+      end
+
+      it '取引の状態がpending_evaluteで保存できる' do
+        item = build(:item, status: :pending_evalute)
+        expect(item).to be_valid
+      end
+
+      it '取引の状態がcompletedで保存できる' do
+        item = build(:item, status: :completed)
+        expect(item).to be_valid
+      end
+
+      it '取引の状態がstop_listingで保存できる' do
+        item = build(:item, status: :stop_listing)
         expect(item).to be_valid
       end
     end
@@ -195,19 +215,6 @@ describe Item do
         2.times { item.brands << build(:brand) }
         item.valid?
         expect(item.errors[:brands]).to include('is too long (maximum is 1 character)')
-      end
-
-      # 取引の状態は出品中,発送待ち,受取待ち,評価待ち,完了,出品停止の6種で区別するため
-      it '取引の状態が6では保存できない' do
-        item = build(:item, status: 6)
-        item.valid?
-        expect(item.errors[:status]).to include("must be less than or equal to 5")
-      end
-
-      it '取引の状態が-1では保存できない' do
-        item = build(:item, status: -1)
-        item.valid?
-        expect(item.errors[:status]).to include("must be greater than or equal to 0")
       end
 
     end

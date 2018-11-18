@@ -1,4 +1,6 @@
 class Item < ApplicationRecord
+  enum status: [:listing, :pending_delivary, :pending_recieve, :pending_evalute, :completed, :stop_listing]
+
   has_many :item_comments,    dependent: :destroy
   has_many :item_images  ,    dependent: :destroy
   has_many :items_categories, dependent: :destroy
@@ -25,10 +27,8 @@ class Item < ApplicationRecord
   validates :brands,       length: { maximum: 1 }
   validates :price,        presence: true, numericality: { greater_than_or_equal_to: 300,
                                                            less_than_or_equal_to: 9999999 }
-  validates :status,       presence: true, numericality: { greater_than_or_equal_to: 0,
-                                                           less_than_or_equal_to: 5 }
+  validates :status,       presence: true, inclusion: { in: Item.statuses.keys }
 
-  enum status: [:listing, :pending_delivary, :pending_recieve, :pending_evalute, :completed, :stop_listing]
 
   def sizes_present?
     self.sizes.present?
