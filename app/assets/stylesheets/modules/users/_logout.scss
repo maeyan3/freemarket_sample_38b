@@ -419,59 +419,51 @@ aside.app-banner{
         margin: 10px 0 0;
         font-size: 35px;
         color:$white;
-
       }
       .app-banner-icon{
         width:420px;
         height:68px;
         margin: 20px 0 0;
-        position:relative;
-        figure{
+        display: flex;
+        figure.icon-image{
           width:68px;
           height:68px;
-          float:left;
-          position:absolute;
-          margin-left:0px;
+          margin:0;
           img{
-            float:left;
             width:68px;
             height:68px;
-            position:absolute;
-
           }
         }
         ul.banner{
-          width:400px;
           height:68px;
-          float:left;
-          margin: 0 0 0 24px;
           line-height: 68px;
           list-style: none;
-
-
-
+          display: flex;
           li{
             width:133px;
             height:68px;
-            margin-left:35px;
-            float:left;
-             a:hover{
+            a:hover{
               opacity:0.8;
               float:left;
+            }
+            img {
+              width:133px;
+              height:68px;
+            }
           }
-        img{
-            width:133px;
-            height:68px;
-            float:left;
+        }
+        ul.banner li {
+          padding-left:1.5em;
+        }
+        ul.banner li + li {
+          padding-left: 1em;
         }
       }
     }
-  }
-}
 
 
 
-    figure{
+    figure.phone-image{
       width:300px;
       height:262px;
       margin:0;
@@ -495,7 +487,7 @@ footer.global-footer{
        color:$white;
        height:617px;
        .nav{
-        width:1020px;
+        width:1180px;
         height:402px;
         margin:0 auto;
         ul{
