@@ -1,4 +1,5 @@
 .l-container-clearfix{
+  height:100%;
   .right-content{
     width:700px;
     height:932px;
@@ -23,6 +24,14 @@
           transform: translate(0, -50%);
           color: #333;
           text-decoration: none;
+          :hover{
+            cursor:pointer;
+            opacity:0.5;
+            text-decoration: underline;
+
+          }
+        }
+
           figure{
               img{
              border-radius: 50%;
@@ -45,11 +54,308 @@
                 margin: 0 0 0 8px;
                 font-size: 16px;
                 font-weight: 600;
-              }
             }
            }
          }
         }
-      }
-    }
+        .mypage-tab-container-notification-todo
+        {
+          width:700px;
+          height:579px;
+          ul.mypage-tabs{
+            width:700px;
+            height:74px;
+            border: 0;
+            background:$grey;
+            font-size: 0;
+            list-style:none;
+            li.active{
+              width:350px;
+              height:74px;
+              float:left;
+
+              h3{
+                width:350px;
+                height:74px;
+                #mypage-tab-notification{
+                  cursor: pointer;
+                  border-top: 2px solid $red;
+
+                a{
+                  width:350px;
+                  position: relative;
+                  display: block;
+                  color: #333;
+                  font-size: 16px;
+                  line-height: 72px;
+                  text-decoration: none;
+                  font-weight:bold;
+                  text-align:center;
+                }
+                 a:hover{
+                    opacity:0.7;
+                    touch-action: manipulation;
+                    background-color:$white;
+                    border-top: 2px solid $red;
+                  }
+              }
+          .mypage-tab-notification.mypage-item-list
+          {
+
+          }
+
+            }
+
+            }
+             li{
+              width:350px;
+              height:74px;
+              float:left;
+              h3{
+                width:350px;
+                height:74px;
+                a{
+                  width:350px;
+                  position: relative;
+                  display: block;
+                  color: #333;
+                  font-size: 16px;
+                  line-height: 72px;
+                  text-decoration: none;
+                  font-weight:bold;
+                  text-align:center;
+                  &:hover{
+                    opacity:0.7;
+                    touch-action: manipulation;
+                    background-color:$white;
+                    border-top: 2px solid $red;
+                  }
+
+                }
+
+              }
+
+            }
+            li.ChangeElem_Panel.two{
+            }
+
+
+          }
+          div.tab-content{
+            width:700px;
+            height:504.44px;
+            box-sizing:content-box;
+            position:relative;
+            ul#mypage-tab-notification.mypage-item-list{
+                  width:700px;
+                  height:504.44px;
+                  list-style: none;
+              li.ChangeElem_Panel{
+                width:700px;
+                height:94px;
+                border-bottom: 1px solid #eee;
+                position: relative;
+                a.mypage-item-link{
+                  figure{
+                    position: relative;
+                    overflow: hidden;
+                    float: left;
+                    width: 48px;
+                    height: 48px;
+                    img{
+                      position: absolute;
+                      top: 0;
+                      right: 0;
+                      bottom: 0;
+                      left: 0;
+                      z-index: 1;
+                      width: 100%;
+                    }
+
+                  }
+                  div.mypage-item-body{
+                        margin: 0 40px 0 68px;
+                        width:560px;
+                        height:60px;
+                        position:relative;
+
+
+                    div.mypage-item-text{
+                      width:560px;
+                      height:42px;
+                      overflow: hidden;
+                      display: block;
+                      display: -webkit-box;
+                      max-height: 4.4em;
+                      -webkit-line-clamp: 3;
+                      -webkit-box-orient: vertical;
+                      text-overflow: ellipsis;
+                      line-height: 1.5;
+                      position:absolute;
+                      top:14px;
+                      left:30px;
+
+                    }
+                     time{
+                            width:61.77px;
+                            height:17.44px;
+                            display: inline-block;
+                            color: #888;
+                      }
+
+
+                  }
+                  i.fas.fa-angle-right.fa-1{
+                     position: absolute;
+                    top: 50%;
+                    right: 16px;
+                    -webkit-transform: translate(0, -50%);
+                    transform: translate(0, -50%);
+                  }
+
+                }
+
+              }
+
+              li.mypage-go-list{
+                width:700px;
+                height:88px;
+                border: 0;
+                padding:16px;
+                bottom: 0px;
+
+                a{
+                  width:668px;
+                  height:56px;
+                  display: block;
+                  background: $grey;
+                  color: $black;
+                  line-height: 56px;
+                  text-align: center;
+                  &:hover{
+                    opacity:0.5;
+                    cursor:pointer;
+                  }
+                }
+
+              }
+
+            }
+
+
+          }
+
+          }
+        }
+      section.mypage-tab-container{
+        width:700px;
+        height:82px;
+        margin: 40px 0 0;
+        background: #fafafa;
+        float:right;
+
+        h2.mypage-tab-head{
+          width:700px;
+          height: 82px;
+          font-size: 16px;
+          line-height: 72px;
+          font-weight:bold;
+          padding-left:16px;
+
+        }
+        ul.mypage-tabs{
+          width:700px;
+          height:74px;
+
+          li.active{
+            width:50%;
+            height:74px;
+            border: 0;
+            background:$grey;
+            font-size: 0;
+            float:left;
+            h3{
+                font-size: 22px;
+                width:350px;
+                height:74px;
+                font-weight:bold;
+                text-align:center;
+              a{
+                height:74px;
+                position: relative;
+                display: block;
+                color: $black;
+                font-size: 16px;
+                line-height: 72px;
+                &:hover{
+                  background-color:$white;
+                  border-top: 2px solid $red;
+                  cursor:pointer;
+                   }
+                }
+
+              }
+            }
+
+          }
+          li{
+            width:50%;
+            height:74px;
+            border: 0;
+            background:$grey;
+            font-size: 0;
+            float:left;
+            h3{
+              font-size: 22px;
+              width:350px;
+              height:74px;
+              font-weight:bold;
+              text-align:center;
+
+              a{
+                height:74px;
+                position: relative;
+                display: block;
+                color: $black;
+                font-size: 16px;
+                line-height: 72px;
+                &:hover{
+                  background-color:$white;
+                  border-top: 2px solid $red;
+                  cursor:pointer;
+                   }
+                }
+              }
+            }
+          div.tab-content{
+            ul#mypage-tab-transaction-now.mypage-item-list.tab-pane.active{
+              width:700px;
+              height:150px;
+              background-color:$white;
+              li.mypage-item-not-found.bold{
+                background-color:$white;
+                width:700px;
+                height:150px;
+                text-align: center;
+                font-size: 16px;
+                color: #ccc;
+                background-repeat: no-repeat;
+                background-image:url(/assets/grey_logo.png);
+                background-position: center 40px;
+                background-size: 78px 85px;
+
+              }
+               h3{
+                  margin:0 auto;
+
+                }
+
+
+            }
+
+          }
+          }
+        }
+
+
 

@@ -20,13 +20,125 @@
             %span.bold
               339
     .mypage-tab-container-notification-todo
+      %ul.mypage-tabs
+        %li.active
+          %h3.ChangeElem_Btn
+            %a{"data-toggle" => "tab", :href => "#mypage-tab-notification"}
+              お知らせ
+
+        %li
+          %h3.ChangeElem_Btn
+            %a{"data-toggle" => "tab", :href => "#mypage-tab-todo"}
+              やることリスト
+
+      %div.tab-content
+        %ul#mypage-tab-notification.mypage-item-list
+          %li.ChangeElem_Panel
+            %a.mypage-item-link
+              %figure
+                = image_tag "grey_mercari_icon.png",:size => "48x48"
+              %div.mypage-item-body
+                %div.mypage-item-text
+                  【機能のご紹介】「いつもの説明」を簡単入力 ！テンプレート機能をぜひお試しください
+                  %time
+                    %i.far.fa-clock
+                    %span ３日前
+              %i.fas.fa-angle-right.fa-1.5x
+          %li.ChangeElem_Panel
+            %a.mypage-item-link
+              %figure
+                = image_tag "grey_mercari_icon.png",:size => "48x48"
+              %div.mypage-item-body
+                %div.mypage-item-text
+                  事務局から個別メッセージ
+                  %br
+                  %time
+                    %i.far.fa-clock
+                    %span ３日前
+              %i.fas.fa-angle-right.fa-1.5x
+          %li.ChangeElem_Panel
+            %a.mypage-item-link
+              %figure
+                = image_tag "grey_mercari_icon.png",:size => "48x48"
+              %div.mypage-item-body
+                %div.mypage-item-text
+                  事務局から個別メッセージ
+                  %br
+                  %time
+                    %i.far.fa-clock
+                    %span ３日前
+              %i.fas.fa-angle-right.fa-1.5x
+          %li.ChangeElem_Panel
+            %a.mypage-item-link
+              %figure
+                = image_tag "grey_mercari_icon.png",:size => "48x48"
+              %div.mypage-item-body
+                %div.mypage-item-text
+                  事務局から個別メッセージ
+                  %br
+                  %time
+                    %i.far.fa-clock
+                    %span ３日前
+              %i.fas.fa-angle-right.fa-1.5x
+          %li.ChangeElem_Panel
+            %a.mypage-item-link
+              %figure
+                = image_tag "grey_mercari_icon.png",:size => "48x48"
+              %div.mypage-item-body
+                %div.mypage-item-text
+                  事務局から個別メッセージ
+                  %br
+                  %time
+                    %i.far.fa-clock
+                    %span ３日前
+              %i.fas.fa-angle-right.fa-1.5x
+          %li.ChangeElem_Panel
+            %a.mypage-item-link
+              %figure
+                = image_tag "grey_mercari_icon.png",:size => "48x48"
+              %div.mypage-item-body
+                %div.mypage-item-text
+                  事務局から個別メッセージ
+                  %br
+                  %time
+                    %i.far.fa-clock
+                    %span ３日前
+              %i.fas.fa-angle-right.fa-1.5x
+          %li.mypage-go-list
+            %a
+              一覧を見る
+    %ul#mypage-tab-notification.mypage-item-list
+      %li.ChangeElem_Panel
+        %h4
+          お知らせはありません
 
 
 
 
-
-    %ul.mypage-tag
+  %section.mypage-tab-container
+    %h2.mypage-tab-head
+      購入した商品
+    %ul.mypage-tabs
       %li.active
+        %h3
+          %a
+            取引中
+      %li
+        %h3
+          %a
+            過去の取引
+    %div.tab-content
+      %ul#mypage-tab-transaction-now.mypage-item-list.tab-pane.active
+        %li.mypage-item-not-found.bold
+          %h3
+            取引中の商品がありません
+
+
+
+
+
+
+
 
 
 
