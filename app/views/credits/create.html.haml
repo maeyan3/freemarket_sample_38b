@@ -1,24 +1,33 @@
-.default-container
+/ .default-container
 
-  = render './header.html.haml'
+/   = render './header.html.haml'
 
-.l-container-clearfix
-  .l-content
-    .l-chapter-container
-      %h2.l-chapter-head 登録が終了しました。
-      .l-single-inner
-        .l-single-content
-          %h3.l-chapter-sub-head クレジットカード一覧
-        %ul.settings-payment-list
-        .l-single-content
-          .btn-default.btn-red.submit_button
-          = link_to root_path, method: :get do
-            .btn-default.btn-red
-              %i.icon-card
-              トップにもどる
+/ .l-container-clearfix
+/   .l-content_credit
+/     .l-chapter-container_credit
+/       %h2.l-chapter-head_credit 支払い方法
+/       .l-single-inner_credit
+/         .l-single-content_credit
+/           %h3.l-chapter-sub-head_credit クレジットカード一覧
+/         %ul.settings-payment-list
+/           - if user_signed_in? && current_user.id == @credit.user_id
+/             %li.card_list
+/               .l-single-content_credit
+/                 = link_to credit_path(@credit.id), class: "card_delete", method: :delete do
+/                   %p.delete 削除する
+/         / .l-single-content_credit
+/         /   .btn-default.btn-red.submit_button
+/         /   = link_to new_credit_path, class: "btn-link", method: :get do
+/         /     .btn-default.btn-red
+/         /       %i.far.fa-credit-card
+/         /       クレジットカードを追加する
+/         .settings-not-regist_credit
+/           = link_to root_path, class: "question-link", method: :get do
+/             %span.question_credit 支払い方法について
+/             %i.fas.fa-angle-right
+
+/   = render 'users/l-side.html.haml'
 
 
-  = render 'users/l-side.html.haml'
+/ = render './footer.html.haml'
 
-
-= render './footer.html.haml'
