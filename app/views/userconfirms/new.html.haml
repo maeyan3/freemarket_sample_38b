@@ -1,0 +1,47 @@
+= render './header'
+.l-container-clearfix
+  = render './users/l-side'
+  .userconfirm-box
+    .user-confirm-title
+      %h2.user-confirm-title__title
+      %h4.user-confirm-title__subtitle
+    .address-box
+      %h4.address-box__label 住所
+      %p.address-box__postal-code 〒123-4567
+      %p.address-box__address 大阪府大阪市天王寺区3-2-1
+      %p.address-box__name 山田太郎
+      /TODO addresses editへ
+      = link_to '編集', '/'
+    = form_with do |f|
+      .birth-box
+        .birth-label-box
+          %h4.birth-label-box__label 生年月日
+          %span.birth-label-box__require 必須
+        .birthday-form
+          %select{ name: "birth_year" }
+            %option{ value: "" } ---
+            - year = 1900
+            - while year <= 2018 do
+              %option{ value: "#{year}"}
+                = year
+              - year += 1
+          %span.birthday-form__year 年
+          %select{ name: "birth_month" }
+            %option{ value: "" } ---
+            - month = 1
+            - while month <= 12 do
+              %option{ value: "#{month}"}
+                = month
+              - month += 1
+          %span.birthday-form__year 月
+          %select{ name: "birth_day" }
+            %option{ value: "" } ---
+            - day = 1
+            - while day <= 31 do
+              %option{ value: "#{day}"}
+                = day
+              - day += 1
+          %span.birthday-form__year 日
+        %p.birth-box__notice ※出品されたことがある、本人情報未登録のお客さまもご対象となります。
+        = f.submit "登録する"
+= render './footer'
