@@ -1,0 +1,104 @@
+
+.question-link:link, .question-link:visited, .question-link:hover, .question-link:active {
+  color: #0099E8;
+  text-decoration: none;
+}
+
+
+.l-container-clearfix{
+    margin: 40px auto 0;
+    width: 1020px;
+    padding: 0 0 40px;
+
+  .l-content_credit{
+    width:700px;
+    float:right;
+    background-color:$white;
+    .l-chapter-container_credit{
+      .l-chapter-head_credit{
+        @include font_basic(#333, 24px, bold, null, center);
+        padding: 12px 0;
+      }
+      .l-single-inner_credit{
+        padding: 64px;
+        border-top: #f5f5f5 solid 2px;
+        .l-single-content_credit{
+          width:320px;
+          max-width: 320px;
+          margin: 0 auto;
+          .l-chapter-sub-head_credit{
+            @include font_basic(#333, 16px, bold);
+          }
+
+          .btn-link{
+              text-decoration: none;
+              color:$white;
+            .btn-red{
+              background: #ea352d;
+              border: 1px solid #ea352d;
+              color: $white;
+            }
+            .btn-default{
+              margin:24px 0;
+              display: block;
+              width: 100%;
+              line-height: 48px;
+              font-size: 14px;
+              border: 1px solid transparent;
+              -webkit-transition: all ease-out .3s;
+              transition: all ease-out .3s;
+              cursor: pointer;
+              text-align: center;
+            }
+          }
+
+        }
+        .settings-payment-list{
+          .card_list{
+            padding: 30px;
+            width:320px;
+            max-width: 320px;
+            margin: 0 auto;
+            position: relative;
+            .l-single-content_credit{
+              float: left;
+              .card_number{
+                font-size: 16px;
+              }
+              .card_limit{
+                float: left;
+              }
+            }
+            .card_delete:link, .card_delete:visited, .card_delete:hover, .card_delete:active {
+              color: #ea352d;
+              text-decoration: none;
+              .delete{
+                @include absolute(30px, 10px, null, null);
+                padding: 4px 6px;
+                border: 1px solid #ea352d;
+                border-radius: 4px;
+                @include font_basic(#ea352d, 14px, null, null, center);
+                @include div_basic(70px,30px);
+              }
+            }
+
+          }
+        }
+      }
+
+      .settings-not-regist_credit{
+        margin-top: 40px;
+        padding-top: 40px;
+        border-top: #f5f5f5 solid 1px;
+        @include font_basic(#333, 14px, null, null, right);
+        .question-link{
+          .fa-angle-right{
+            margin-left: 8px;
+          }
+        }
+      }
+
+    }
+  }
+
+}
