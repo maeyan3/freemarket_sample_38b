@@ -6,23 +6,23 @@
       %p
         今すぐ無料ダウンロード！
       .app-banner-icon
-        %figure
+        %figure.icon-image
           = image_tag "mercari_icon.png"
-          %ul.banner
-            %li
-              %a{:href => "https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8", :target => "_blank"}
-                %img{:alt => "", :height => "40", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/app-store.svg?1700725199", :width => "133"}
-            %li
-              %a{:href => "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja", :target => "_blank"}
-                %img{:alt => "", :height => "40", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/google-play.svg?1700725199", :width => "133"}/
+        %ul.banner
+          %li
+            %a{:href => "https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8", :target => "_blank"}
+              %img{:alt => "", :height => "40", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/app-store.svg?1700725199", :width => "133"}
+          %li
+            %a{:href => "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja", :target => "_blank"}
+              %img{:alt => "", :height => "40", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/google-play.svg?1700725199", :width => "133"}/
 
 
-    %figure
+    %figure.phone-image
       = image_tag "cellphone.png"
 
 %footer.global-footer
   .nav
-    %ul
+    %ul.fotter-contents
       %li.footer-cell
         %h2.footer-head
           メルカリについて
@@ -143,14 +143,7 @@
     %small
       © 2018 Mercari
 
-
-
-
-
-
-
-
-
-
-
-
+  = link_to new_item_path, class: "footer-sell-btn" do
+    %div
+      出品
+    %i.fas.fa-camera.fa-5x
