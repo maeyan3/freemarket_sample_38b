@@ -15,3 +15,32 @@ $(function(){
 });
 
 
+
+$(function() {
+
+    $("#input_credit_number").on('keyup', function() {
+      if($("#input_credit_number").val() == "") {
+        $(".input_error_message_1").html('必須項目です');
+        $(".input_error_message_1").css('color','red');
+      } else if(!$("#input_credit_number").val().match(/^\d+$/)) {
+        $(".input_error_message_1").html('半角数字で入力してください');
+        $(".input_error_message_1").css('color','red');
+      } else if($("#input_credit_number").val().match(/^\d+$/)) {
+        $(".input_error_message_1").empty();
+      }
+    })
+
+    $("#input_security_code").on('keyup', function() {
+      if($("#input_security_code").val() == "") {
+        $(".input_error_message_2").html('必須項目です');
+        $(".input_error_message_2").css('color','red');
+      } else if(!$("#input_security_code").val().match(/^\d+$/)) {
+        $(".input_error_message_2").html('半角数字で入力してください');
+        $(".input_error_message_2").css('color','red');
+      } else if($("#input_security_code").val().match(/^\d+$/)) {
+        $(".input_error_message_2").empty();
+      }
+    })
+
+});
+
