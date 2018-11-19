@@ -91,8 +91,39 @@
                 @include font_basic(#0099E8, 12px, null, 14px, center);
               }
             }
-            .signup-seqcode-info{
+            #modal-open {
+              position: relative;
             }
+            .modal{
+              position: fixed;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              display: none;
+              width: 100%;
+              height: 100%;
+              background-color: rgba(0, 0, 0, 0);
+            }
+            #modal_overlay{
+              position: absolute;
+              top: 110%;
+              left: 63%;
+              -webkit-transform: translate(-50%, -50%);
+              display: none;
+              width: 270px;
+              height: 130px;
+              max-width: 270px;
+              padding: 30px;
+              background-color: #ccc;
+              border-radius: 8px;
+              .modal_inner{
+                &__text{
+                  padding-bottom: 5px;
+                }
+
+              }
+            }
+
 
           }
 

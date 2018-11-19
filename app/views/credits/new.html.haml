@@ -44,7 +44,11 @@
             .signup-seqcode
               %p.question_card_number カード裏面の番号とは？
               %p.question-card ?
-            .signup-seqcode-info
+            .modal
+            #modal_overlay
+              .modal_inner
+                %p.modal_inner__text カードの裏面をご参照ください
+                = image_tag 'seq-card.png',   size: "240x105"
 
           .form-submit_credit
             = f.submit '追加する', class: 'btn-default btn-red'
