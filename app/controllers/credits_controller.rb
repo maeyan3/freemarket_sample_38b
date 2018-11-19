@@ -9,8 +9,11 @@ class CreditsController < ApplicationController
 
   def create
     @credit = Credit.new(credit_params)
-    @credit.save
-    redirect_to credits_path
+    if @credit.save
+      redirect_to credits_path
+    else
+      render action: :new
+    end
   end
 
   def destroy
