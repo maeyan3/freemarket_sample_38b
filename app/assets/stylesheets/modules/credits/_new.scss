@@ -1,48 +1,188 @@
+
+
+// .question_card:link, .question_card:visited, .question_card:hover, .question_card:active {
+//   @include font_basic(white, 12px, null, 14px, center);
+//   background: #0099E8;
+//   border-radius: 50%;
+//   display: inline-block;
+//   width: 15px;
+//   text-decoration: none;
+// }
+
+
+
 .l-container-clearfix{
     margin: 40px auto 0;
     width: 1020px;
     padding: 0 0 40px;
 
   .l-content_credit{
-      width:700px;
-      height:300px;
-      float:right;
-      background-color:$white;
-      .l-chapter-container{
-        width:600px;
-        .l-chapter-head{
-          font-size: 18px;
-        }
-      .l-single-content
-      {
-        width:320px;
-        height:50px;
-        max-width: 320px;
-        margin: 0 auto;
-        a{
-            text-decoration: none;
-            color:$white;
-        .btn-red
-        {
-          background: #ea352d;
-          border: 1px solid #ea352d;
-          color: $white;
-        }
-        .btn-default
-        {
-          margin:50px 50px;
-          display: block;
-          width: 100%;
-          line-height: 48px;
-          font-size: 14px;
-          border: 1px solid transparent;
-          -webkit-transition: all ease-out .3s;
-          transition: all ease-out .3s;
-          cursor: pointer;
-          text-align: center;
+    width:700px;
+    float:right;
+    background-color:$white;
+    .l-chapter-container_credit{
+      .l-chapter-head_credit{
+        @include font_basic(#333, 24px, bold, null, center);
+        padding: 12px 0;
+      }
+      #card-form{
+        padding: 24px 64px 64px 64px;
+        border-top: #f5f5f5 solid 2px;
+        .l-single-content_input{
+          margin: 0 126px;
+          .form-group_card{
+            @include div_basic(320px, null);
+            @include font_basic(#333, 14px, null, null);
+            margin-top: 40px;
+            .form-label{
+              font-weight: bold;
+              float: left;
+            }
+            .form-require{
+              @include font_basic(#fff, 12px, bold);
+              background: #ea352d;
+              margin: 0 0 0 8px;
+              padding: 2px 4px;
+              vertical-align: top;
+            }
+            .input-default{
+              @include font_basic(null, 16px, null, 1.5);
+              @include div_basic(320px,48px, #fff);
+              margin: 8px 0 10px 0;
+              padding: 10px 16px 8px 16px;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+            }
+            .signup-card-list{
+              &__visa, &__master, &__card, &__jcb, &__dinersclub, &__discover{
+                display: inline;
+              }
+            }
+            .select-wrap{
+              margin-top: 8px;
+              position: relative;
+              width: 140px;
+              .select-default{
+                -webkit-appearance: none;
+                @include div_basic(112px,48px, #fff);
+                padding: 10px 16px 8px 16px;
+                cursor: pointer;
+              }
+              .fa-angle-down{
+                @include absolute(10px, null, null, 80px);
+                color: #888;
+                font-size: 30px;
+              }
+              .card_month, .card_year{
+                padding-left: 8px;
+              }
+            }
+            .signup-seqcode{
+              .question-card{
+                @include font_basic(white, 12px, null, 14px, center);
+                background: #0099E8;
+                border-radius: 50%;
+                display: inline-block;
+                width: 15px;
+                float: right;
+              }
+              .question_card_number{
+                float: right;
+                @include font_basic(#0099E8, 12px, null, 14px, center);
+              }
+            }
+            .signup-seqcode-info{
+            }
+
+          }
+
+        .form-submit_credit{
+          margin-top: 64px;
+          .btn-red{
+            background: #ea352d;
+            border: 1px solid #ea352d;
+            color: $white;
+          }
+          .btn-default{
+            margin:24px 0;
+            display: block;
+            width: 100%;
+            line-height: 48px;
+            font-size: 14px;
+            border: 1px solid transparent;
+            -webkit-transition: all ease-out .3s;
+            transition: all ease-out .3s;
+            cursor: pointer;
+            text-align: center;
           }
         }
+
+
+
+        }
+
+
+
+
+
+
+
+      // }
+      // .l-single-inner_credit{
+      //   padding: 64px;
+      //   border-top: #f5f5f5 solid 2px;
+      //   .l-single-content_credit{
+      //     width:320px;
+      //     max-width: 320px;
+      //     margin: 0 auto;
+      //     .l-chapter-sub-head_credit{
+      //       @include font_basic(#333, 16px, bold);
+      //     }
+
+      //     .btn-link{
+      //         text-decoration: none;
+      //         color:$white;
+      //       .btn-red{
+      //         background: #ea352d;
+      //         border: 1px solid #ea352d;
+      //         color: $white;
+      //       }
+      //       .btn-default{
+      //         margin:24px 0;
+      //         display: block;
+      //         width: 100%;
+      //         line-height: 48px;
+      //         font-size: 14px;
+      //         border: 1px solid transparent;
+      //         -webkit-transition: all ease-out .3s;
+      //         transition: all ease-out .3s;
+      //         cursor: pointer;
+      //         text-align: center;
+      //       }
+      //     }
+
+      //   }
+      // }
+
+        // .settings-not-regist_credit{
+        //   margin-top: 40px;
+        //   padding-top: 40px;
+        //   border-top: #f5f5f5 solid 1px;
+        //   @include font_basic(#333, 14px, null, null, right);
+        //   .question-link{
+        //     .fa-angle-right{
+        //       margin-left: 8px;
+        //     }
+        //   }
+        // }
+
+
+
+
+
+
       }
     }
   }
+
 }
