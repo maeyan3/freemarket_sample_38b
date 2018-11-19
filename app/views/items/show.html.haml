@@ -1,17 +1,13 @@
-%body
-  /商品見出しから、いいね機能もここに
+.container
+  = render './header.html.haml'
+  = render './bread_crumb'
   .default-container
     %section.item-box-container.l-single-container
       %h1.item-name 正規品！COACH【コーチ】★★大きめ ミニシグネチャー ショルダーバッグ
-
-      /商品画像、詳細box
       .item-main-content.clearfix
-        /商品画像部分
         .item-photo
           .owl-carousel.owl-loaded.owl-drag
-            /メイン画像
             .owl-stage-outer
-              /hoverイベントで使う
               .owl-stage
                 .owl-item.active
                   .owl-item-inner
@@ -22,10 +18,7 @@
                   .owl-item-inner.is-higher-width
                 .owl-item
                   .owl-item-inner.is-higher-width
-
-            /?
             .owl-nav.disabred
-            /hoverイベントをかける画像４枚
             .owl-dots
               .owl-dot
                 %span
@@ -35,34 +28,21 @@
                 %span
                 .owl-dot-inner
                   = image_tag "COACH3.jpeg", size: "75x75", class: "owl"
-
               .owl-dot
                 %span
                 .owl-dot-inner
                   = image_tag "COACH2.jpeg", size: "75x75", class: "owl"
-
               .owl-dot
                 %span
                 .owl-dot-inner
                   = image_tag "COACH1.jpeg", size: "75x75", class: "owl"
-            /画像、説明書きここまで
-
-        /値段表示
         .item-price-box.text-center.visible-sp
           %span.item-price
           %span.item-tax
           %span.item-shipping-fee
-        /購入画面へjump
         %section.visible-sp
           %a.item-buy-btn.f18-24
-          /jumpパターンが２つ??
-          / %a.item-btn-client{:href => "https://www.mercari.com/jp/login/?login_callback=https%3A%2F%2Fwww.mercari.com%2Fjp%2Ftransaction%2Fbuy%2Fm70068440240%2F"}
-          /   %div{"data-client" => "visible"}
-          /     購入画面に進む
-          / %a.item-action-text{"data-action" => "item/openDetail", "data-adjust-url" => "http://app.adjust.io/xio2ii?campaign=iOS&adgroup=items.buy_button1", "data-key" => "id=m70068440240", "data-play-id" => "com.kouzoh.mercari", "data-toggle" => "open-app", "data-url-scheme" => "mercari://"}
-          /     アプリで購入
 
-        /商品詳細
         %table.item-detail-table
           %tbody
             %tr
@@ -72,7 +52,7 @@
                 %div
                   .item-user-ratings
                     %i.fas.fa-grin.smile
-                    %span 534
+                    %span 536
                   .item-user-ratings
                     %i.fas.fa-meh.meh
                     %span 20
@@ -113,16 +93,14 @@
               %th 発送日の目安
               %td 1~2日で発送
 
-      /値段表示
       .item-price-box.text-center
-        %span.item-price ¥3,600
+        %span.item-price ¥ 3,380
         %span.item-tax (税込)
         %span.item-shipping-fee 送料込み
 
       %a.item-buy-btn.f18-24 購入画面に進む
       %a.item-btn-client
 
-      /出品者記入項目
       .item-description.f14
         %p.item-description-inner
           ■商品ご覧頂き、誠にありがとうございます。
@@ -165,29 +143,21 @@
           、お願い致します^_^
           ※自宅保管、素人検品、素人寸法の誤差などにご理解がない方、神経質な方、完璧な物が欲しい方は購入お控えください。
 
-          シンプル #かわいい #大き目 #かばん #バッグ
+          "#シンプル #かわいい #大き目 #かばん #バッグ"
 
-
-
-      /いいね機能、報告url、取り組みurl
       .item-button-container.clearfix
         .item-button-left
           %a.item-button.item-button-like
             %i.far.fa-heart
             %span いいね!
-            %span 1
-          /不適切報告
+            %span 13
           %a.item-button.item-button-report.clearfix
             %i.far.fa-flag
             %span 不適切な商品の報告
-        /取り組みurl
         .item-button-right
           %a.description-page{href: "https://www.mercari.com/jp/safe/description/"}
             %i.fas.fa-lock
             %span あんしん・あんぜんへの取り組み
-
-
-
 
 .item-detail-message
   .message-container
@@ -219,9 +189,58 @@
     %li
       %a
         %i{class: 'fab fa-pinterest-square sns-icon pinterest-icon'}
-  .item-in-user-profile
+.item-in-user-profile
+  .items-profile.items-box-content.clearfix
     %h2.items-box-head.bold
       %a
       = link_to href: "https://www.mercari.com/jp/u/387561164/", class: 'user-page-pro' do
         BOON!@90s古着トレジャーハンターさんのその他の出品
-    .items-profile.items-box-content.clearfix
+        .item-boxes
+          .item-box
+            = link_to "#" do
+              /TODO src "#{item.item_images[0].item_image_src}"
+              / %img{ src: "images/test.jpeg", class: "item-box-image" }
+              = image_tag "COACH1.jpeg", size: "220x220", alt: "コーチ"
+              .item-box-content
+                %h4.item-box-content__name
+                .item-info
+                  .price-box
+                    %p.price-box__price
+                      = 100000.to_s(:currency, unit: "¥", precision: 0)
+                    %p.price-box__tax (税込)
+                  .likes-box
+                    %i{ class: "far fa-heart" }
+                    %span 100
+            = link_to "#" do
+              /TODO src "#{item.item_images[0].item_image_src}"
+              / %img{ src: "images/test.jpeg", class: "item-box-image" }
+              = image_tag "COACH1.jpeg", size: "220x220", alt: "コーチ"
+              .item-box-content
+                %h4.item-box-content__name
+                .item-info
+                  .price-box
+                    %p.price-box__price
+                      = 50000.to_s(:currency, unit: "¥", precision: 0)
+                    %p.price-box__tax (税込)
+                  .likes-box
+                    %i{ class: "far fa-heart" }
+                    %span 100
+            = link_to "#" do
+              /TODO src "#{item.item_images[0].item_image_src}"
+              / %img{ src: "images/test.jpeg", class: "item-box-image" }
+              = image_tag "COACH1.jpeg", size: "220x220", alt: "コーチ"
+              .item-box-content
+                %h4.item-box-content__name
+                .item-info
+                  .price-box
+                    %p.price-box__price
+                      = 10000.to_s(:currency, unit: "¥", precision: 0)
+                    %p.price-box__tax (税込)
+                  .likes-box
+                    %i{ class: "far fa-heart" }
+                    %span 100
+
+
+
+= render './footer.html.haml'
+

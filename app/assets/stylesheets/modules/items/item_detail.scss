@@ -25,7 +25,7 @@ body {
 
     .item-box-container {
       background: #fff;
-      margin: 24px auto;
+      margin: 30px auto;
       padding: 24px 40px 60px 24px;
       width: 620px;
 
@@ -40,7 +40,7 @@ body {
       .item-wording {
         margin: 8px 0 0;
         font-size: 14px;
-        color: #888;
+        color: #0099e8;
         line-height: 1.5;
 
         .item-wording a {
@@ -235,14 +235,7 @@ body {
                 }
               }
             }
-            tr {
-              th {
-              }
-              td {
-                a {
-                }
-              }
-            }
+
             tr {
               th {
               }
@@ -584,7 +577,7 @@ body {
       margin-top: 8px;
     }
     .textarea-default{
-      width: 95%;
+      width: 100%;
       max-width: 100%;
       min-height: 100px;
       padding: 10px;
@@ -594,9 +587,10 @@ body {
       background-color: #fff;
     }
     .message-submit{
-      width: 95%;
+      width: 100%;
       margin-top: 8px;
       text-align:center;
+      line-height: 48px;
     }
   }
 
@@ -627,7 +621,7 @@ body {
   background-color: #fff;
     margin: 24px auto;
     padding: 32px 0 24px;
-    width: 700px;
+    width: 680px;
   .social-media-box{
   margin-top: 16px;
   text-align: center;
@@ -666,7 +660,6 @@ body {
 }
 
 .item-in-user-profile{
-  min-width:768px;
     width: 700px;
     margin: 0 auto;
   .items-box-head{
@@ -676,11 +669,54 @@ body {
     color: #0099e8;
     text-decoration: none;
   }
-    .items-profile{
-      margin-bottom: 40px;
-      display: flex;
-    .item-box{
-      margin-right: 20px;
+}
+
+.item-box {
+    margin-left: 15px;
+    background-color: #f5f5f5;
+    margin: 24px auto;
+    padding: 32px 0 24px;
+    width: 680px;
+    display: flex;
+    justify-content: space-between;
+  a:visited {
+    color: black;
+  }
+  a {
+    text-decoration: none;
+    .item-box-image {
+      width: 220px;
+      height: 220px;
+    }
+    .item-box-content {
+      @include div_basic(220px, 110px, #fff);
+      padding: 1em;
+      padding-bottom: 0;
+      &__name {
+        font-size: 16px;
+        height: 50px;
+      }
+      .item-info {
+        display: flex;
+        justify-content: space-between;
+        .price-box {
+          &__price {
+            @include font_basic(black, 20px, bold);
+          }
+          &__tax {
+            font-size: 10px;
+          }
+        }
+        .likes-box {
+          line-height: 35px;
+          i {
+            @include font_basic(#ccc, 20px);
+          }
+          span {
+            font-size: 16px;
+          }
+        }
+      }
     }
   }
 }
