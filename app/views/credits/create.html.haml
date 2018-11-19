@@ -1,0 +1,24 @@
+.default-container
+
+  = render './header.html.haml'
+
+.l-container-clearfix
+  .l-content
+    .l-chapter-container
+      %h2.l-chapter-head 登録が終了しました。
+      .l-single-inner
+        .l-single-content
+          %h3.l-chapter-sub-head クレジットカード一覧
+        %ul.settings-payment-list
+        .l-single-content
+          .btn-default.btn-red.submit_button
+          = link_to root_path, method: :get do
+            .btn-default.btn-red
+              %i.icon-card
+              トップにもどる
+
+
+  = render 'users/l-side.html.haml'
+
+
+= render './footer.html.haml'
