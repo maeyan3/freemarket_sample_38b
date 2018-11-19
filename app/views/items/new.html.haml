@@ -8,7 +8,7 @@
         .sell-container-inner
           %h2.l-single-head 商品の情報を入力
 
-          = form_for @item, html:{id: 'sell-form'} do |f|
+          = form_for @item, html:{class: 'sell-form'} do |f|
 
             .sell-upload-box
               %h3.sell-upload-head 出品画像
@@ -17,11 +17,9 @@
               .sell-dropbox-container
                 .sell-upload-items
                   %ul
-                    %li.sell-upload-drop-box#preview1
-                    %li.sell-upload-drop-box#preview2
-                    %li.sell-upload-drop-box#preview3
-                    %li.sell-upload-drop-box#preview4
-                      / = f.file_field :item_images, class: "sell-upload-drop-file", style: "none"
+                    = f.fields_for :item_images, class: "sell-upload-drop-file", style: "none" do |image|
+                      %li.sell-upload-drop-box.preview
+                        = image.file_field :item_image_src, style: "none"
             .sell-content
               .form-group
                 = f.label :item_name, "商品名", class: 'form-label'
@@ -39,13 +37,19 @@
                   = f.label :categories, "カテゴリー", class: 'form-label'
                   %span.form-require 必須
                 .select_category
-                  = f.select :categories, [["----", "----"],["レディース", "レディース"], ["メンズ", "メンズ"],["キッズ", "キッズ"]],{},{class: "select-default", id: "category"}
+                  %select{ name: "item[category_ids][]", class: "select-default", id: "category" }
+                    = @categories.where(parent_id: 0).each do |category|
+                      %option{ value: "#{category.id}" }
+                        = category.category_name
               .sell-form-box.hidden1
-                .select_category
-                  = f.select :categories, [["----", "----"],["トップス", "トップス"], ["パンツ", "パンツ"],["アウター", "アウター"]],{},{class: "select-default", id: "category2"}
+                .select_category#add-category2
               .sell-form-box.hidden2
-                .select_category
-                  = f.select :categories, [["----", "----"],["Tシャツ", "Tシャツ"], ["カーディガン", "カーディガン"],["ポンチョ", "ポンチョ"]],{},{class: "select-default", id: "category3"}
+                .select_category#add-category3
+                  %select{ name: "item[category_ids][]", class: "select-default", id: "category3" }
+                    = @categories.where(parent_id: 9).each do |category|
+                      %option{ value: "#{category.id}" }
+                        = category.category_name
+
               .sell-form-box.hidden3
                 .form-group.size
                   = f.label :sizes, "サイズ", class: 'form-label'

@@ -6,15 +6,21 @@ class ItemsController < ApplicationController
 
   def new
     @item        = Item.new
+    4.times { @item.item_images.build }
     @categories  = Category.all
     @sizes       = Size.all
     @brands      = Brand.all
     @prefectures = Prefecture.all
-    4.times { @item.item_images.build }
+    respond_to do |format|
+      format.html
+      # binding.pry
+      format.json { @categories = Category.where(parent_id: params[:parent_id]) }
+    end
   end
 
   def create
     @item = Item.new(item_params)
+    binding.pry
     render :new unless @item.save
   end
 

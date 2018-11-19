@@ -1,5 +1,18 @@
 $(function(){
 
+  function build_category2(categories, category_num) {
+    // console.log(categories);
+    let options = ""
+    categories.forEach(function(category) {
+      options += `<option value="${category.id}">${category.name}</option>`
+    })
+    console.log(options)
+    let html = `<select class="select-default" id="category${category_num}" name="item[category_ids][]">
+                  ${options}
+                </select>`
+    console.log(html)
+    $('#add-category2').append(html);
+  }
 
   $(function() {
     $('.hidden1').css("display", "none");
@@ -17,8 +30,28 @@ $(function(){
        $('.hidden2').hide();
        $('.hidden3').hide();
        $('.hidden4').hide();
+
     } else{
       $('.hidden1').show();
+      $('#add-category2').empty();
+      let category2_parent_id = $(this).val();
+
+      $.ajax({
+        url: '/items/new',
+        type: 'GET',
+        dataType: 'json',
+        data: {parent_id: category2_parent_id},
+      })
+      .done(function(categories2) {
+        build_category2(categories2, 2);
+      })
+      .fail(function() {
+        console.log("error");
+      })
+      .always(function() {
+        console.log("complete");
+      });
+
     }
   });
 
@@ -29,6 +62,8 @@ $(function(){
        $('.hidden4').hide();
     } else{
       $('.hidden2').show();
+      $('#add-category3').empty();
+      let category3_parent_id = $(this).val();
     }
   });
 
