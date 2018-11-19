@@ -18,7 +18,7 @@
                     %p
                       = credit.credit_number
                   .card_limit
-                    %p #{credit.limit_month} / #{credit.limit_year}
+                    %p #{credit.limit_month}  月 / #{credit.limit_year}  年
                 = link_to credit_path(credit.id), class: "card_delete", method: :delete do
                   %p.delete 削除する
 

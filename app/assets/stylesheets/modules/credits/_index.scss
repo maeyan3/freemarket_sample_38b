@@ -15,6 +15,7 @@
     float:right;
     background-color:$white;
     .l-chapter-container_credit{
+
       .l-chapter-head_credit{
         @include font_basic(#333, 24px, bold, null, center);
         padding: 12px 0;
