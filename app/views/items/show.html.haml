@@ -48,7 +48,7 @@
             %tr
               %th 出品者
               %td
-                %a{href: "https://www.mercari.com/jp/u/387561164/"} BOON!@90s古着トレジャーハンター
+                = link_to "BOON!@90s古着トレジャーハンター", "https://www.mercari.com/jp/u/387561164/"
                 %div
                   .item-user-ratings
                     %i.fas.fa-grin.smile
@@ -74,7 +74,7 @@
             %tr
               %th ブランド
               %td
-                %a{href: "https://www.mercari.com/jp/brand/539/"} コーチ
+                = link_to "コーチ", "https://www.mercari.com/jp/brand/539/"
             %tr
               %th 商品の状態
               %td やや傷や汚れあり
@@ -88,7 +88,7 @@
             %tr
               %th 配送元地域
               %td
-                %a{href: "https://www.mercari.com/jp/area/27/"} 大阪府
+                = link_to "大阪府", "https://www.mercari.com/jp/area/27/"
             %tr
               %th 発送日の目安
               %td 1~2日で発送
@@ -179,27 +179,21 @@
   %ul.social-media-box
     %li
       %a
-        %i{class: 'fab fa-facebook-square sns-icon facebook-icon'}
+        = fa_icon 'facebook-square' , class: 'sns-icon facebook-icon'
     %li
       %a
-        %i{class: 'fab fa-twitter sns-icon twitter-icon'}
+        = fa_icon 'twitter' , class: 'sns-icon twitter-icon'
     %li
       %a
-        %i{class: 'fab fa-line sns-icon line-icon'}
-    %li
-      %a
-        %i{class: 'fab fa-pinterest-square sns-icon pinterest-icon'}
+        = fa_icon 'pinterest-square' , class: 'sns-icon pinterest-icon'
 .item-in-user-profile
   .items-profile.items-box-content.clearfix
     %h2.items-box-head.bold
-      %a
       = link_to href: "https://www.mercari.com/jp/u/387561164/", class: 'user-page-pro' do
         BOON!@90s古着トレジャーハンターさんのその他の出品
         .item-boxes
           .item-box
             = link_to "#" do
-              /TODO src "#{item.item_images[0].item_image_src}"
-              / %img{ src: "images/test.jpeg", class: "item-box-image" }
               = image_tag "COACH1.jpeg", size: "220x220", alt: "コーチ"
               .item-box-content
                 %h4.item-box-content__name
@@ -212,8 +206,6 @@
                     %i{ class: "far fa-heart" }
                     %span 100
             = link_to "#" do
-              /TODO src "#{item.item_images[0].item_image_src}"
-              / %img{ src: "images/test.jpeg", class: "item-box-image" }
               = image_tag "COACH1.jpeg", size: "220x220", alt: "コーチ"
               .item-box-content
                 %h4.item-box-content__name
@@ -226,8 +218,6 @@
                     %i{ class: "far fa-heart" }
                     %span 100
             = link_to "#" do
-              /TODO src "#{item.item_images[0].item_image_src}"
-              / %img{ src: "images/test.jpeg", class: "item-box-image" }
               = image_tag "COACH1.jpeg", size: "220x220", alt: "コーチ"
               .item-box-content
                 %h4.item-box-content__name
