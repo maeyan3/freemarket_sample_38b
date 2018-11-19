@@ -1,8 +1,9 @@
 @import "./reset";
 @import "./mixin/basic";
 @import "./config/variables";
-@import "./modules/logout";
-@import "./users/new";
-@import "./users/registrations";
-@import "font-awesome";
-@import "./modules/items/new"
+// @import "./modules/logout";
+// @import "./users/new";
+// @import "./users/registrations";
+// @import "font-awesome";
+// @import "./modules/items/new"
+@import "modules/items/item_detail"
