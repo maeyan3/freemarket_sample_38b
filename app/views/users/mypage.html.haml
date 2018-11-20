@@ -11,14 +11,12 @@
         %h2.bold
           【衣類2枚目350円〜★】絵海
         .mypage-number
-          %div
-            評価
-            %span.bold
-              363
-          %div
-            出品数
-            %span.bold
-              339
+          評価
+          %span.bold
+            363
+          出品数
+          %span.bold
+            339
     .mypage-tab-container-notification-todo
       %ul.mypage-tabs
         %li
@@ -31,19 +29,19 @@
             %a{"data-toggle" => "tab"}
               やることリスト
 
-      %div.tab-content
+      .tab-content
         %ul#mypage-tab-notification.mypage-item-list
           %li.ChangeElem_Panel
             %a.mypage-item-link
               %figure
                 = image_tag "grey_mercari_icon.png",:size => "48x48"
-              %div.mypage-item-body
-                %div.mypage-item-text
+              .mypage-item-body
+                .mypage-item-text
                   【機能のご紹介】「いつもの説明」を簡単入力 ！テンプレート機能をぜひお試しください
                   %time
                     = fa_icon ("clock"),class: 'icon'
                     %span ３日前
-                  = fa_icon ("angle-right 1x"),class: 'icon'
+                  = fa_icon ("angle-right"),class: 'icon'
           %li.ChangeElem_Panel
             %a.mypage-item-link
               %figure
@@ -55,19 +53,7 @@
                   %time
                     = fa_icon ("clock"),class: 'icon'
                     %span ３日前
-                  = fa_icon ("angle-right 1x"),class: 'icon'
-          %li.ChangeElem_Panel
-            %a.mypage-item-link
-              %figure
-                = image_tag "grey_mercari_icon.png",:size => "48x48"
-              %div.mypage-item-body
-                %div.mypage-item-text
-                  事務局から個別メッセージ
-                  %br
-                  %time
-                    = fa_icon ("clock"),class: 'icon'
-                    %span ３日前
-                  = fa_icon ("angle-right 1x"),class: 'icon'
+                  = fa_icon ("angle-right"),class: 'icon'
           %li.ChangeElem_Panel
             %a.mypage-item-link
               %figure
@@ -79,19 +65,31 @@
                   %time
                     = fa_icon ("clock"),class: 'icon'
                     %span ３日前
-                  = fa_icon ("angle-right 1x"),class: 'icon'
+                  = fa_icon ("angle-right"),class: 'icon'
           %li.ChangeElem_Panel
             %a.mypage-item-link
               %figure
                 = image_tag "grey_mercari_icon.png",:size => "48x48"
-              %div.mypage-item-body
-                %div.mypage-item-text
+              .mypage-item-body
+                .mypage-item-text
                   事務局から個別メッセージ
                   %br
                   %time
                     = fa_icon ("clock"),class: 'icon'
                     %span ３日前
-                  = fa_icon ("angle-right 1x"),class: 'icon'
+                  = fa_icon ("angle-right"),class: 'icon'
+          %li.ChangeElem_Panel
+            %a.mypage-item-link
+              %figure
+                = image_tag "grey_mercari_icon.png",:size => "48x48"
+              .mypage-item-body
+                .mypage-item-text
+                  事務局から個別メッセージ
+                  %br
+                  %time
+                    = fa_icon ("clock"),class: 'icon'
+                    %span ３日前
+                  = fa_icon ("angle-right"),class: 'icon'
           %li.mypage-go-list
             %a
               一覧を見る
@@ -130,7 +128,7 @@
             .mypage-item-text
               %span
                 「Afternoon Tea Living♥ペアグラス」を購入しました。取引が完了しました
-              = fa_icon ("angle-right 1x"),class: 'icon'
+              = fa_icon ("angle-right"),class: 'icon'
             .bold
               取引完了
 
@@ -141,11 +139,12 @@
             .mypage-item-text
               %span
                 「入浴剤」を購入しました。取引が完了しました
-              = fa_icon ("angle-right 1x"),class: 'icon'
+              = fa_icon ("angle-right"),class: 'icon'
             .bold
               取引完了
 
-= render 'l-side.html.haml'
+
+  = render 'l-side.html.haml'
 
 = render './footer.html.haml'
 
