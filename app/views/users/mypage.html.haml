@@ -41,9 +41,9 @@
                 %div.mypage-item-text
                   【機能のご紹介】「いつもの説明」を簡単入力 ！テンプレート機能をぜひお試しください
                   %time
-                    %i.far.fa-clock
+                    = fa_icon ("clock"),class: 'icon'
                     %span ３日前
-              %i.fas.fa-angle-right.fa-1.5x
+                  = fa_icon ("angle-right 1x"),class: 'icon'
           %li.ChangeElem_Panel
             %a.mypage-item-link
               %figure
@@ -53,9 +53,9 @@
                   事務局から個別メッセージ
                   %br
                   %time
-                    %i.far.fa-clock
+                    = fa_icon ("clock"),class: 'icon'
                     %span ３日前
-              %i.fas.fa-angle-right.fa-1.5x
+                  = fa_icon ("angle-right 1x"),class: 'icon'
           %li.ChangeElem_Panel
             %a.mypage-item-link
               %figure
@@ -65,9 +65,21 @@
                   事務局から個別メッセージ
                   %br
                   %time
-                    %i.far.fa-clock
+                    = fa_icon ("clock"),class: 'icon'
                     %span ３日前
-              %i.fas.fa-angle-right.fa-1.5x
+                  = fa_icon ("angle-right 1x"),class: 'icon'
+          %li.ChangeElem_Panel
+            %a.mypage-item-link
+              %figure
+                = image_tag "grey_mercari_icon.png",:size => "48x48"
+              .mypage-item-body
+                .mypage-item-text
+                  事務局から個別メッセージ
+                  %br
+                  %time
+                    = fa_icon ("clock"),class: 'icon'
+                    %span ３日前
+                  = fa_icon ("angle-right 1x"),class: 'icon'
           %li.ChangeElem_Panel
             %a.mypage-item-link
               %figure
@@ -77,21 +89,9 @@
                   事務局から個別メッセージ
                   %br
                   %time
-                    %i.far.fa-clock
+                    = fa_icon ("clock"),class: 'icon'
                     %span ３日前
-              %i.fas.fa-angle-right.fa-1.5x
-          %li.ChangeElem_Panel
-            %a.mypage-item-link
-              %figure
-                = image_tag "grey_mercari_icon.png",:size => "48x48"
-              %div.mypage-item-body
-                %div.mypage-item-text
-                  事務局から個別メッセージ
-                  %br
-                  %time
-                    %i.far.fa-clock
-                    %span ３日前
-              %i.fas.fa-angle-right.fa-1.5x
+                  = fa_icon ("angle-right 1x"),class: 'icon'
           %li.mypage-go-list
             %a
               一覧を見る
@@ -128,32 +128,24 @@
             = image_tag "glasses.jpg",:size => "48x48"
           .mypage-item-body
             .mypage-item-text
-              %span「Afternoon Tea Living♥ペアグラス」を購入しました。取引が完了しました
+              %span
+                「Afternoon Tea Living♥ペアグラス」を購入しました。取引が完了しました
+              = fa_icon ("angle-right 1x"),class: 'icon'
             .bold
               取引完了
-          %i.fas.fa-angle-right.fa-1.5x
+
         %li.mypage-item-old
           %figure
             = image_tag "bath.jpg",:size => "48x48"
           .mypage-item-body
             .mypage-item-text
-              %span「入浴剤」を購入しました。取引が完了しました
+              %span
+                「入浴剤」を購入しました。取引が完了しました
+              = fa_icon ("angle-right 1x"),class: 'icon'
             .bold
               取引完了
-          %i.fas.fa-angle-right.fa-1.5x
 
-
-
-
-
-
-
-
-
-
-
-
-  = render 'l-side.html.haml'
+= render 'l-side.html.haml'
 
 = render './footer.html.haml'
 
