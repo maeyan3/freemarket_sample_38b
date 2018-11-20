@@ -7,6 +7,19 @@
                   padding: 16px;
                   cursor: pointer;
                 }
+                .accordion-toggle:after{
+                  font-size: 30px;
+                  content: "\f107";
+                  font-family: FontAwesome;
+                  position: absolute;
+                  top: 8px;
+                  right: 80px;
+                }
+                .accordion-toggle.open:after{
+                  font-size: 30px;
+                  content: "\f106";
+                }
+
                 .accordion-child{
                   display:none;
                   background-color: gray;
