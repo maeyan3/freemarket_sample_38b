@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :items, only: [:index, :new, :create, :show]
   get 'users/new', to: 'users#new'
   get '/logout' => 'users#logout'
+  resources :credits, only: [:index, :new, :create, :destroy]
 end
