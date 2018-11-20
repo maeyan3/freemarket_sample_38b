@@ -1,0 +1,71 @@
+// バナー内 矢印及び下のボタン
+.slick-left-arrow {
+    left: 60px;
+    z-index: 100;
+    width: 31px;
+    height: 46px;
+}
+.slick-right-arrow {
+    right: 60px;
+    z-index: 99;
+    width: 31px;
+    height: 46px;
+}
+.slick-dots {
+  bottom: 10px;
+  li {
+    width: 20px;
+    height: 20px;
+    button:before {
+      font-size: 14px;
+      color: #aaa;
+    }
+  }
+  li.slick-active {
+    opacity: 0.7;
+  }
+}
+
+.slide-box {
+  .slider {
+    &__list {
+      .main-banner {
+        width: 100vw;
+        background-image: image-url("/images/main_bg_pc.jpg");
+        background-size: cover;
+        .main-banner-content {
+          width: 860px;
+          height: 390px;
+          margin: 0 auto;
+          display: flex;
+          position: relative;
+          .main-banner-text {
+            width: 480px;
+            &__title {
+              font-size: 60px;
+              font-weight: bold;
+              margin-top: 1em;
+              line-height: 65px;
+            }
+            &__detail {
+              font-size: 18px;
+              margin-top: 1em;
+            }
+            .main-banner-link {
+              display: flex;
+              margin-top: 2em;
+              img {
+                margin-right: 1em;
+              }
+            }
+          }
+          &__image {
+            width: 440px;
+            position: absolute;
+            right: 0;
+          }
+        }
+      }
+    }
+  }
+}
