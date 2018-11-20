@@ -21,33 +21,15 @@
           %span.label-box__require 必須
         .birthday-form
           .select-box
-            %select{ name: "birth_year" }
-              %option{ value: "" } --
-              - year = 1900
-              - while year <= 2018 do
-                %option{ value: "#{year}"}
-                  = year
-                - year += 1
+            = f.select :birth_year, options_for_select((1900..2018).map{|n| ["#{n}", n]}), prompt: "---"
             %i.fas.fa-angle-down.select-box__arrow
           %span.birthday-form__text 年
           .select-box
-            %select{ name: "birth_month" }
-              %option{ value: "" } --
-              - month = 1
-              - while month <= 12 do
-                %option{ value: "#{month}"}
-                  = month
-                - month += 1
+            = f.select :birth_month, options_for_select((1..12).map{|n| ["#{n}", n]}), prompt: "---"
             %i.fas.fa-angle-down.select-box__arrow
           %span.birthday-form__text 月
           .select-box
-            %select{ name: "birth_day" }
-              %option{ value: "" } --
-              - day = 1
-              - while day <= 31 do
-                %option{ value: "#{day}"}
-                  = day
-                - day += 1
+            = f.select :birth_day, options_for_select((1..31).map{|n| ["#{n}", n]}), prompt: "---"
             %i.fas.fa-angle-down.select-box__arrow
           %span.birthday-form__text 日
         %p.birth-box__notice ※出品されたことがある、本人情報未登録のお客さまもご対象となります。
