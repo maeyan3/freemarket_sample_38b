@@ -1,0 +1,52 @@
+.address-form-wrapper
+  %h2.address-form-wrapper__title 住所変更
+  .address-form-content
+    = form_with class: "address-form-with" do |f|
+      .address-form-box.address-name
+        .label-box
+          %span.label-box__name お名前
+          %span.label-box__option.required 必須
+        = f.text_field :last_name, { class: "address-text-box address-form-box__last-name", placeholder: "例）山田" }
+        = f.text_field :first_name, { class: "address-text-box address-form-box__first-name", placeholder: "例）彩" }
+      .address-form-box.address-name-reading
+        .label-box
+          %span.label-box__name お名前カナ
+          %span.label-box__option.required 必須
+        = f.text_field :last_name_reading, { class: "address-text-box address-form-box__last-name-reading", placeholder: "例）ヤマダ" }
+        = f.text_field :first_name_reading, { class: "address-text-box address-form-box__first-name-reading", placeholder: "例）アヤ" }
+      .address-form-box.address-postal-code
+        .label-box
+          %span.label-box__name 郵便番号
+          %span.label-box__option.required 必須
+        = f.telephone_field :postal_code, { class: "address-text-box address-form-box__postal-code", placeholder: "例）1234567", maxlength: "7" }
+      .address-form-box.address-prefecture
+        .label-box
+          %span.label-box__name 都道府県
+          %span.label-box__option.required 必須
+        .prefecture-select-box
+          = f.collection_select(:prefecture_id, @prefectures, :id, :prefecture_name, {}, { class: "address-text-box" })
+          %i.fas.fa-angle-down.prefecture-select-box__arrow
+      .address-form-box.address-city
+        .label-box
+          %span.label-box__name 市区町村
+          %span.label-box__option.required 必須
+        = f.text_field :city, { class: "address-text-box address-form-box__city", placeholder: "例）横浜市緑区" }
+      .address-form-box.address-block
+        .label-box
+          %span.label-box__name 番地
+          %span.label-box__option.required 必須
+        = f.text_field :block, { class: "address-text-box address-form-box__block", placeholder: "例）青山1-1-1" }
+      .address-form-box.address-building
+        .label-box
+          %span.label-box__name 建物
+          %span.label-box__option.optional 任意
+        = f.fields_for :buildings do |building|
+          = building.text_field :building_name, { class: "address-text-box address-form-box__building", placeholder: "例）柳ビル103" }
+      .address-form-box.address-telephone
+        .label-box
+          %span.label-box__name 電話
+          %span.label-box__option.optional 任意
+        = f.fields_for :address_telephones do |telephone|
+          = telephone.text_field :number, { class: "address-text-box address-form-box__telephone", placeholder: "例）09012345678" }
+      .address-form-box.address-submit
+        = f.submit '変更する', class: "address-form-box__submit"
