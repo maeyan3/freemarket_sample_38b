@@ -1,6 +1,6 @@
 .default-container
 
-  = render 'header.html.haml'
+  = render './header.html.haml'
 
 .l-container-clearfix
   .right-content
@@ -21,14 +21,14 @@
               339
     .mypage-tab-container-notification-todo
       %ul.mypage-tabs
-        %li.active
-          %h3.ChangeElem_Btn
-            %a{"data-toggle" => "tab", :href => "#mypage-tab-notification"}
+        %li
+          %h3.ChangeElem_Btn.is-active
+            %a{"data-toggle" => "tab"}
               お知らせ
 
         %li
           %h3.ChangeElem_Btn
-            %a{"data-toggle" => "tab", :href => "#mypage-tab-todo"}
+            %a{"data-toggle" => "tab"}
               やることリスト
 
       %div.tab-content
@@ -92,25 +92,13 @@
                     %i.far.fa-clock
                     %span ３日前
               %i.fas.fa-angle-right.fa-1.5x
-          %li.ChangeElem_Panel
-            %a.mypage-item-link
-              %figure
-                = image_tag "grey_mercari_icon.png",:size => "48x48"
-              %div.mypage-item-body
-                %div.mypage-item-text
-                  事務局から個別メッセージ
-                  %br
-                  %time
-                    %i.far.fa-clock
-                    %span ３日前
-              %i.fas.fa-angle-right.fa-1.5x
           %li.mypage-go-list
             %a
               一覧を見る
-    %ul#mypage-tab-notification.mypage-item-list
-      %li.ChangeElem_Panel
-        %h4
-          お知らせはありません
+        %ul#mypage-tab-notification.mypage-item-list.todo-content
+          %li.ChangeElem_Panel
+            %h4
+              現在やることリストはありません
 
 
 
@@ -119,19 +107,40 @@
     %h2.mypage-tab-head
       購入した商品
     %ul.mypage-tabs
-      %li.active
-        %h3
+      %li
+        %h3.ChangeElem_Btn_two.is-active
           %a
             取引中
       %li
-        %h3
+        %h3.ChangeElem_Btn_two
           %a
             過去の取引
+
+
     %div.tab-content
-      %ul#mypage-tab-transaction-now.mypage-item-list.tab-pane.active
-        %li.mypage-item-not-found.bold
+      %ul.mypage-item-list-two.negotiation
+        %li.mypage-item-not-found
           %h3
             取引中の商品がありません
+      %ul.mypage-item-list-two.old
+        %li.mypage-item-old
+          %figure
+            = image_tag "glasses.jpg",:size => "48x48"
+          .mypage-item-body
+            .mypage-item-text
+              %span「Afternoon Tea Living♥ペアグラス」を購入しました。
+            .bold
+              取引完了
+          %i.fas.fa-angle-right.fa-1.5x
+        %li.mypage-item-old
+          %figure
+            = image_tag "bath.jpg",:size => "48x48"
+          .mypage-item-body
+            .mypage-item-text
+              %span「入浴剤」を購入しました。
+            .bold
+              取引完了
+          %i.fas.fa-angle-right.fa-1.5x
 
 
 
@@ -146,6 +155,6 @@
 
   = render 'l-side.html.haml'
 
-= render 'footer.html.haml'
+= render './footer.html.haml'
 
 = render 'sellbtn.html.haml'

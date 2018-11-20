@@ -2,7 +2,7 @@
   height:100%;
   .right-content{
     width:700px;
-    height:932px;
+    height:830px;
     float:right;
     background-color:$white;
     .mypage-user-icon{
@@ -28,14 +28,13 @@
             cursor:pointer;
             opacity:0.5;
             text-decoration: underline;
-
           }
         }
 
-          figure{
-              img{
-             border-radius: 50%;
-           }
+          figure {
+            img {
+              border-radius: 50%;
+            }
           }
           h2.bold{
             margin: 8px 0 0;
@@ -45,7 +44,7 @@
             width:700px;
             height:16px;
             margin: 8px 0 0;
-            font-size: 0;
+            // font-size: 0;
             div{
               display: inline-block;
               font-size: 14px;
@@ -54,12 +53,11 @@
                 margin: 0 0 0 8px;
                 font-size: 16px;
                 font-weight: 600;
+              }
             }
-           }
-         }
+          }
         }
-        .mypage-tab-container-notification-todo
-        {
+        .mypage-tab-container-notification-todo{
           width:700px;
           height:579px;
           ul.mypage-tabs{
@@ -67,16 +65,18 @@
             height:74px;
             border: 0;
             background:$grey;
-            font-size: 0;
+            // font-size: 0;
             list-style:none;
-            li.active{
+            li{
               width:350px;
               height:74px;
               float:left;
-
-              h3{
+              h3.ChangeElem_Btn.is-active{
                 width:350px;
                 height:74px;
+                background:$white;
+                border-top: 2px solid $red;
+
                 #mypage-tab-notification{
                   cursor: pointer;
                   border-top: 2px solid $red;
@@ -95,15 +95,10 @@
                  a:hover{
                     opacity:0.7;
                     touch-action: manipulation;
-                    background-color:$white;
-                    border-top: 2px solid $red;
-                  }
+                    cursor:pointer;
+
+                }
               }
-          .mypage-tab-notification.mypage-item-list
-          {
-
-          }
-
             }
 
             }
@@ -127,8 +122,8 @@
                   &:hover{
                     opacity:0.7;
                     touch-action: manipulation;
-                    background-color:$white;
-                    border-top: 2px solid $red;
+                    cursor:pointer;
+
                   }
 
                 }
@@ -136,14 +131,13 @@
               }
 
             }
-            li.ChangeElem_Panel.two{
-            }
+
 
 
           }
           div.tab-content{
             width:700px;
-            height:504.44px;
+            height:500px;
             box-sizing:content-box;
             position:relative;
             ul#mypage-tab-notification.mypage-item-list{
@@ -241,12 +235,31 @@
               }
 
             }
+            ul#mypage-tab-notification.mypage-item-list.todo-content
+            {
+              width:700px;
+              height:200px;
+              li.ChangeElem_Panel{
+                width:700px;
+                height:200px;
+                text-align: center;
+                font-size: 16px;
+                border:none;
+                color: #ccc;
+                background-repeat: no-repeat;
+                background-image:url(/assets/grey_logo.png);
+                background-position: center 40px;
+                background-size: 78px 85px;
+                h4{
+                   font-weight:bold;
+                   font-size:15px;
 
-
-          }
-
-          }
+                }
         }
+      }
+    }
+  }
+}
       section.mypage-tab-container{
         width:700px;
         height:82px;
@@ -267,19 +280,21 @@
           width:700px;
           height:74px;
 
-          li.active{
+          li{
             width:50%;
             height:74px;
             border: 0;
-            background:$grey;
-            font-size: 0;
+            background-color:$grey;
+
             float:left;
-            h3{
+            h3.ChangeElem_Btn_two.is-active{
                 font-size: 22px;
                 width:350px;
                 height:74px;
                 font-weight:bold;
                 text-align:center;
+                border-top: 2px solid $red;
+                background-color:$white;
               a{
                 height:74px;
                 position: relative;
@@ -288,8 +303,7 @@
                 font-size: 16px;
                 line-height: 72px;
                 &:hover{
-                  background-color:$white;
-                  border-top: 2px solid $red;
+                  opacity:0.5;
                   cursor:pointer;
                    }
                 }
@@ -303,9 +317,9 @@
             height:74px;
             border: 0;
             background:$grey;
-            font-size: 0;
+            // font-size: 0;
             float:left;
-            h3{
+            h3.ChangeElem_Btn_two{
               font-size: 22px;
               width:350px;
               height:74px;
@@ -320,19 +334,21 @@
                 font-size: 16px;
                 line-height: 72px;
                 &:hover{
-                  background-color:$white;
-                  border-top: 2px solid $red;
+                  opacity:0.5;
                   cursor:pointer;
                    }
                 }
               }
             }
           div.tab-content{
-            ul#mypage-tab-transaction-now.mypage-item-list.tab-pane.active{
               width:700px;
-              height:150px;
+              height:200px;
               background-color:$white;
-              li.mypage-item-not-found.bold{
+            ul.mypage-item-list-two.negotiation{
+              width:700px;
+              height:100px;
+              background-color:$white;
+              li.mypage-item-not-found{
                 background-color:$white;
                 width:700px;
                 height:150px;
@@ -346,16 +362,64 @@
 
               }
                h3{
-                  margin:0 auto;
-
-                }
-
-
+                  font-weight:bold;
+                  font-size:15px;
+                  margin:auto 0;
+              }
             }
-
+            ul.mypage-item-list-two.old{
+              width:700px;
+              height:74px;
+              li.mypage-item-old{
+                width:700px;
+                height:74px;
+                position:relative;
+                border-bottom: 1px solid $grey;
+                background-color:$white;
+                 figure{
+                  height:48px;
+                  width:48px;
+                  margin:10px;
+                  float:left;
+                }
+                .mypage-item-body{
+                  width:560px;
+                  height:70px;
+                  margin: 0 40px 0 68px;
+                  position:absolute;
+                  .mypage-item-text{
+                    margin-top:20px;
+                    width:560px;
+                    height:60px;
+                    position:relative;
+                    span{
+                      width:560px;
+                      height:60px;
+                    }
+                  }
+                    .bold{
+                    background: #888;
+                    font-weight:bold;
+                    color:$white;
+                    position:absolute;
+                    bottom:10%;
+                    }
+                  }
+                }
+                i.fas.fa-angle-right{
+                  width:50px;
+                  height:50px;
+                  position: absolute;
+                  top: 50%;
+                  right: 16px;
+                  -webkit-transform: translate(0, -50%);
+                  transform: translate(0, -50%);
+                  float:right;
+                }
+              }
+            }
+           }
           }
-          }
-        }
 
 
 
