@@ -1,0 +1,22 @@
+@mixin font_basic($color: #333, $size: 14px, $weight: null, $line: null, $aline: null) {
+  color      : $color;
+  font-size  : $size;
+  font-weight: $weight;
+  line-height: $line;
+  text-align : $aline;
+}
+
+@mixin div_basic($width: null, $height: null, $bgcolor: #fff, $box-sizing: border-box){
+  width: $width;
+  height: $height;
+  background-color: $bgcolor;
+  box-sizing: $box-sizing;
+}
+
+@mixin absolute($top: 0, $right: 0, $bottom: 0, $left: 0, $position: absolute) {
+  position: $position;
+  top   : $top;
+  right : $right;
+  bottom: $bottom;
+  left  : $left;
+}
