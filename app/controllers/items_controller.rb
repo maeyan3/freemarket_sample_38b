@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index]
   def index
-
+    @items = Item.all.includes(:item_images).order("created_at DESC")
   end
 
   def new

@@ -1,0 +1,41 @@
+= render './header'
+= render './bread_crumb'
+.l-container-clearfix
+  .user-confirm-box
+    .user-confirm-title
+      %h2.user-confirm-title__title 本人情報の登録
+      %h4.user-confirm-title__subtitle お客さまのあんしん・あんぜんな取引のため、本人情報のご登録をお願いしております。
+    .address-box
+      .address-label-box.label-box
+        %span.label-box__label 住所
+        %span.label-box__require 必須
+      %p.address-box__postal-code 〒123-4567
+      %p.address-box__address 大阪府大阪市天王寺区3-2-1
+      %p.address-box__name 山田太郎
+      /TODO リンク先 edit_address_path
+      = link_to '編集', '/addresses/1/edit'
+    = form_with do |f|
+      .birth-box
+        .birth-label-box.label-box
+          %span.label-box__label 生年月日
+          %span.label-box__require 必須
+        .birthday-form
+          .select-box
+            = f.select :birth_year, options_for_select((1900..2018).map{|n| ["#{n}", n]}), prompt: "---"
+            %i.fas.fa-angle-down.select-box__arrow
+          %span.birthday-form__text 年
+          .select-box
+            = f.select :birth_month, options_for_select((1..12).map{|n| ["#{n}", n]}), prompt: "---"
+            %i.fas.fa-angle-down.select-box__arrow
+          %span.birthday-form__text 月
+          .select-box
+            = f.select :birth_day, options_for_select((1..31).map{|n| ["#{n}", n]}), prompt: "---"
+            %i.fas.fa-angle-down.select-box__arrow
+          %span.birthday-form__text 日
+        %p.birth-box__notice ※出品されたことがある、本人情報未登録のお客さまもご対象となります。
+        = f.submit "登録する", class: "birth-box__submit"
+      %a.user-confirm-box__about-register
+        %span 本人情報の登録について
+        %i.fas.fa-angle-right
+  = render './users/l-side'
+= render './footer'

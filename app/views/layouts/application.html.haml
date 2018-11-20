@@ -3,9 +3,13 @@
   %head
     %title Mercari
     = csrf_meta_tags
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-    %link{:crossorigin => "anonymous", :href => "https://use.fontawesome.com/releases/v5.5.0/css/all.css", :integrity => "sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU", :rel => "stylesheet"}/
+    %meta{name: "viewport", content: "width=device-width,initial-scale=1"}
+    %link{crossorigin: "anonymous", href: "https://use.fontawesome.com/releases/v5.5.0/css/all.css", integrity: "sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU", rel: "stylesheet"}/
+    %link{href: "https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css", rel: "stylesheet", type: "text/css"}/
+    %link{href: "https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css", rel: "stylesheet", type: "text/css"}/
+    = stylesheet_link_tag    'application'
+    %script{crossorigin: "anonymous", integrity: "sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=", src: "https://code.jquery.com/jquery-3.3.1.min.js"}
     %script{src: "https://www.google.com/recaptcha/api.js"}
+    = javascript_include_tag 'application'
   %body
     = yield

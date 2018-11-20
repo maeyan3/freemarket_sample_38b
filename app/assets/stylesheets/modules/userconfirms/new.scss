@@ -1,0 +1,99 @@
+.label-box {
+  height: 30px;
+  display: flex;
+  &__label {
+    font-weight: bold;
+    padding-top: 2px;
+  }
+  &__require {
+    @include font_basic(white, 0.8em);
+    background-color: $red;
+    height: 1em;
+    padding: 0 5px 8px;
+    margin-left: 8px;
+  }
+}
+
+.user-confirm-box {
+  @include div_basic(700px, 600px, white);
+  float: right;
+  padding: 0 4em;
+  .user-confirm-title {
+    text-align: center;
+    &__title {
+      @include font_basic(black, 24px, bold, null);
+      padding: 10px 0;
+    }
+  }
+  .address-box {
+    padding: 4em 0 3em;
+    .address-label-box {
+      height: 30px;
+    }
+  }
+  .address-box > p {
+    padding-left: 5px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .address-box > a {
+    color: $blue;
+    text-decoration: none;
+    padding-left: 5px;
+  }
+  form {
+    .birth-box {
+      .birthday-form {
+        @include div_basic(100%, 48px);
+        display: flex;
+        .select-box {
+          @include div_basic(140px, 48px);
+          position: relative;
+          select {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 48px;
+            background-color: white;
+            border-color: #ddd;
+            padding-left: 1em;
+            cursor : pointer;
+          }
+          &__arrow {
+            @include absolute(10px, 15px, null, null);
+            @include font_basic(#aaa, 30px);
+            -webkit-text-stroke: 2px white;
+          }
+        }
+        &__text {
+          width: 48px;
+          line-height: 48px;
+          text-align: center;
+        }
+      }
+      &__notice {
+        color: #888;
+        margin: 0.5em 0 3em;
+      }
+      &__submit {
+        width: 580px;
+        height: 48px;
+        background-color: $red;
+        color: white;
+      }
+    }
+  }
+  &__about-register {
+    display: flex;
+    color: $blue;
+    line-height: 30px;
+    text-align: right;
+    margin-top: 3em;
+    justify-content: flex-end;
+    span {
+    }
+    i {
+      font-size: 26px;
+      -webkit-text-stroke: 2px white;
+    }
+  }
+}
