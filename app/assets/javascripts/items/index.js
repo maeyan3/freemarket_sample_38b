@@ -1,5 +1,4 @@
 $(document).on('turbolinks:load', () => {
-  console.log('hello')
   $('.slider').slick({
     autoplay:true,
     autoplaySpeed:4500,
