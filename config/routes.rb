@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   get '/logout' => 'users#logout'
   resources :userconfirms, only: [:new, :create]
   resources :addresses, only: [:new, :create, :edit, :update]
+  resources :credits, only: [:index, :new, :create, :destroy]
 end
