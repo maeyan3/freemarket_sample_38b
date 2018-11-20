@@ -1,6 +1,6 @@
 @import "./reset";
-@import "./mixin/basic";
 @import "./config/variables";
+@import "./mixin/basic";
 @import "font-awesome";
 @import "./modules/subheader";
 @import "./modules/subfooter";
@@ -11,4 +11,5 @@
 @import "./modules/items/index_banner";
 @import "./modules/items/index_content";
 @import "./modules/items/new";
-@import "./modules/userconfirms/new"
+@import "./modules/userconfirms/new";
+@import "./modules/addresses/address_form";

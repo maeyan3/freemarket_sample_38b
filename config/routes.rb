@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   get 'users/new', to: 'users#new'
   get '/logout' => 'users#logout'
   resources :userconfirms, only: [:new, :create]
-  resources :addresses, only: [:new, :create]
+  resources :addresses, only: [:new, :create, :edit, :update]
 end

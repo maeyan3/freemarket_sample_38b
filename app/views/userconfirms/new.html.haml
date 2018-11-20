@@ -7,8 +7,8 @@
       %h4.user-confirm-title__subtitle お客さまのあんしん・あんぜんな取引のため、本人情報のご登録をお願いしております。
     .address-box
       .address-label-box.label-box
-        %span.address-label-box__label 住所
-        %span.address-label-box__require 必須
+        %span.label-box__label 住所
+        %span.label-box__require 必須
       %p.address-box__postal-code 〒123-4567
       %p.address-box__address 大阪府大阪市天王寺区3-2-1
       %p.address-box__name 山田太郎
@@ -17,8 +17,8 @@
     = form_with do |f|
       .birth-box
         .birth-label-box.label-box
-          %span.birth-label-box__label 生年月日
-          %span.birth-label-box__require 必須
+          %span.label-box__label 生年月日
+          %span.label-box__require 必須
         .birthday-form
           .select-box
             %select{ name: "birth_year" }
