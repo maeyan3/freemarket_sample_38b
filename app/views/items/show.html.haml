@@ -1,0 +1,196 @@
+.container
+  = render './header.html.haml'
+  = render './bread_crumb'
+  .default-container
+    %section.item-box-container.l-single-container
+      %h1.item-name 正規品！COACH【コーチ】★★大きめ ミニシグネチャー ショルダーバッグ
+      .item-main-content.clearfix
+        .item-photo
+          .owl-carousel.owl-loaded.owl-drag
+            .owl-stage-outer
+              .owl-stage
+                .owl-item.active
+                  .owl-item-inner
+                    = image_tag "COACH1.jpeg", size: "300x300", alt: "コーチ"
+                .owl-item
+                  .owl-item-inner
+                .owl-item
+                  .owl-item-inner.is-higher-width
+                .owl-item
+                  .owl-item-inner.is-higher-width
+            .owl-nav.disabred
+            .owl-dots
+              .owl-dot
+                %span
+                .owl-dot-inner
+                  = image_tag "COACH4.jpeg", size: "75x75", class: "owl"
+              .owl-dot
+                %span
+                .owl-dot-inner
+                  = image_tag "COACH3.jpeg", size: "75x75", class: "owl"
+              .owl-dot
+                %span
+                .owl-dot-inner
+                  = image_tag "COACH2.jpeg", size: "75x75", class: "owl"
+              .owl-dot
+                %span
+                .owl-dot-inner
+                  = image_tag "COACH1.jpeg", size: "75x75", class: "owl"
+        .item-price-box.text-center.visible-sp
+          %span.item-price
+          %span.item-tax
+          %span.item-shipping-fee
+        %section.visible-sp
+          %a.item-buy-btn.f18-24
+
+        %table.item-detail-table
+          %tbody
+            %tr
+              %th 出品者
+              %td
+                = link_to "BOON!@90s古着トレジャーハンター", "https://www.mercari.com/jp/u/387561164/"
+                %div
+                  .item-user-ratings
+                    %i.fas.fa-grin.smile
+                    %span 536
+                  .item-user-ratings
+                    %i.fas.fa-meh.meh
+                    %span 20
+                  .item-user-ratings
+                    %i.fas.fa-tired.bad
+                    %span 3
+            %tr
+              %th カテゴリー
+              %td
+                %a レディース
+                %a
+                  .item-detail-table-sub-category
+                    %i.fas.fa-angle-right.right
+                    バッグ
+                %a
+                  .item-detail-table-sub-sub-category
+                    %i.fas.fa-angle-right.right
+                    ショルダーバッグ
+            %tr
+              %th ブランド
+              %td
+                = link_to "コーチ", "https://www.mercari.com/jp/brand/539/"
+            %tr
+              %th 商品の状態
+              %td やや傷や汚れあり
+
+            %tr
+              %th 配送料の負担
+              %td 送料込み(出品者負担)
+            %tr
+              %th 配送の方法
+              %td 未定
+            %tr
+              %th 配送元地域
+              %td
+                = link_to "大阪府", "https://www.mercari.com/jp/area/27/"
+            %tr
+              %th 発送日の目安
+              %td 1~2日で発送
+
+      .item-price-box.text-center
+        %span.item-price ¥ 3,380
+        %span.item-tax (税込)
+        %span.item-shipping-fee 送料込み
+
+      %a.item-buy-btn.f18-24 購入画面に進む
+      %a.item-btn-client
+
+      .item-description.f14
+        %p.item-description-inner
+
+      .item-button-container.clearfix
+        .item-button-left
+          %a.item-button.item-button-like
+            = fa_icon 'heart'
+            %span いいね!
+            %span 13
+          %a.item-button.item-button-report.clearfix
+            = fa_icon 'flag'
+            %span 不適切な商品の報告
+        .item-button-right
+          .description-page
+            = link_to "https://www.mercari.com/jp/safe/description/" do
+              = fa_icon 'lock'
+              %span あんしん・あんぜんへの取り組み
+
+.item-detail-message
+  .message-container
+    %form.message-form
+      %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+      %textarea.textarea-default
+      %button.message-submit.btn-default.btn-gray
+        %span コメントする
+%ul.nav-detail-item.clearfix
+  %li.nav-item-link-prev
+    %a
+      = fa_icon 'angle-left', class: 'lock-icon'
+      VANS スニーカー
+  %li.nav-item-link-next
+    %a
+      ATSUGIフラワードット側ストッキング
+      = fa_icon 'angle-right', class: 'lock-icon'
+.item-social-media-box
+  %ul.social-media-box
+    %li
+      %a
+        = fa_icon 'facebook-square' , class: 'sns-icon facebook-icon'
+    %li
+      %a
+        = fa_icon 'twitter' , class: 'sns-icon twitter-icon'
+    %li
+      %a
+        = fa_icon 'pinterest-square' , class: 'sns-icon pinterest-icon'
+.item-in-user-profile
+  .items-profile.items-box-content.clearfix
+    %h2.items-box-head.bold
+      = link_to href: "https://www.mercari.com/jp/u/387561164/", class: 'user-page-pro' do
+        BOON!@90s古着トレジャーハンターさんのその他の出品
+        .item-boxes
+          .item-box
+            = link_to "#" do
+              = image_tag "COACH1.jpeg", size: "220x220", alt: "コーチ"
+              .item-box-content
+                %h4.item-box-content__name
+                .item-info
+                  .price-box
+                    %p.price-box__price
+                      = 100000.to_s(:currency, unit: "¥", precision: 0)
+                    %p.price-box__tax (税込)
+                  .likes-box
+                    %i{ class: "far fa-heart" }
+                    %span 100
+            = link_to "#" do
+              = image_tag "COACH1.jpeg", size: "220x220", alt: "コーチ"
+              .item-box-content
+                %h4.item-box-content__name
+                .item-info
+                  .price-box
+                    %p.price-box__price
+                      = 50000.to_s(:currency, unit: "¥", precision: 0)
+                    %p.price-box__tax (税込)
+                  .likes-box
+                    %i{ class: "far fa-heart" }
+                    %span 100
+            = link_to "#" do
+              = image_tag "COACH1.jpeg", size: "220x220", alt: "コーチ"
+              .item-box-content
+                %h4.item-box-content__name
+                .item-info
+                  .price-box
+                    %p.price-box__price
+                      = 10000.to_s(:currency, unit: "¥", precision: 0)
+                    %p.price-box__tax (税込)
+                  .likes-box
+                    %i{ class: "far fa-heart" }
+                    %span 100
+
+
+
+= render './footer.html.haml'
+
