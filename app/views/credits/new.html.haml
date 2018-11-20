@@ -1,0 +1,64 @@
+.default-container
+
+  = render './header.html.haml'
+
+.l-container-clearfix
+  .l-content_credit
+    .l-chapter-container_credit
+      %h2.l-chapter-head_credit クレジットカード情報入力
+
+      = form_for @credit, html:{id: 'card-form'} do |f|
+        .l-single-content_input
+          .form-group_card
+            = f.label :credit_number, "カード番号", class: 'form-label'
+            %span.form-require 必須
+            = f.text_field :credit_number, class: 'input-default', id: "input_credit_number", placeholder: "半角数字のみ"
+            %p.input_error_message_1
+            %ul.signup-card-list
+              %li.signup-card-list__visa
+                = image_tag 'card_visa.svg',   size: "49x20"
+              %li.signup-card-list__master
+                = image_tag 'card_master-card.svg',   size: "34x20"
+              %li.signup-card-list__card
+                = image_tag 'card_saison-card.svg',   size: "30x20"
+              %li.signup-card-list__jcb
+                = image_tag 'card_jcb.svg',   size: "32x20"
+              %li.signup-card-list__dinersclub
+                = image_tag 'card_dinersclub.svg',   size: "32x20"
+              %li.signup-card-list__discover
+                = image_tag 'card_discover.svg',   size: "32x20"
+          .form-group_card
+            = f.label "有効期限", class: 'form-label'
+            %span.form-require 必須
+            .select-wrap
+              = f.select :limit_month, [["01", "01"],["02", "02"], ["03", "03"],["04", "04"],["05", "05"],["06", "06"],["07", "07"],["08", "08"],["09", "09"],["10", "10"],["11", "11"],["12", "12"]],{},{class: "select-default", id: "size"}
+              %i.fa.fa-angle-down
+              %span.card_month 月
+            .select-wrap
+              = f.select :limit_year, [["18", "18"],["19", "19"], ["20", "20"],["21", "21"], ["22", "22"], ["23", "23"], ["24", "24"], ["25", "25"], ["26", "26"], ["27", "27"], ["28", "28"]],{},{class: "select-default", id: "size"}
+              %i.fa.fa-angle-down
+              %span.card_year 年
+          .form-group_card
+            = f.label :security_code, "セキュリティコード", class: 'form-label'
+            %span.form-require 必須
+            = f.text_field :security_code, class: 'input-default', id: "input_security_code", placeholder: "カード背面背面４桁もしくは３桁の番号"
+            %p.input_error_message_2
+            .signup-seqcode#modal-open
+              %p.question_card_number カード裏面の番号とは？
+              %p.question-card ?
+            .modal
+            #modal_overlay
+              .modal_inner
+                %p.modal_inner__text カードの裏面をご参照ください
+                = image_tag 'seq-card.png',   size: "240x105"
+
+          .form-submit_credit
+            = f.submit '追加する', class: 'btn-default btn-red'
+
+
+
+  = render 'users/l-side.html.haml'
+
+
+= render './footer.html.haml'
+
