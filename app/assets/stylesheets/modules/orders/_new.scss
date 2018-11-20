@@ -1,0 +1,76 @@
+            .buy-accordion{
+              margin-top: 16px;
+              .accordion-parent{
+                position: relative;
+                .accordion-toggle{
+                  border: 1px solid #ccc;
+                  padding: 16px;
+                  cursor: pointer;
+                }
+                .accordion-child{
+                  display:none;
+                  background-color: gray;
+                  padding: 24px 40px;
+                  text-align: left;
+                  .points{
+                    font-weight: bold;
+                  }
+                  .form-group_radio{
+                    .radio-default{
+                      margin-top: 16px;
+
+                      .radio_label{
+                        .radio_button{
+
+                        }
+                      }
+
+
+                      // .label_radio{
+                      //   padding-left: 25px;
+                      //   font-size: 16px;
+                      //   line-height: 28px;
+                      //   display: inline-block;
+                      //   position: relative;
+                      //   // background-color: #fff;
+                      //   // border: solid 2px #333;
+                      //   // border-radius: 5px 5px 5px 5px;
+                      // }
+                      // .label_radio:before{
+                      //   content: '';
+                      //   width: 28px;
+                      //   height: 28px;
+                      //   position: absolute;
+                      //   left: 0;
+                      //   top: 0;
+                      //   background-color: #0099e8;
+                      //   border-radius: 50%;
+                      // }
+                      // #radio_id[type="radio"]{
+                      //   display: none;
+                      // }
+                      // #radio_id[type="radio"]:checked + .label_radio:after{
+                      //   content: '';
+                      //   width: 14px;
+                      //   height: 14px;
+                      //   position: absolute;
+                      //   top: 7px;
+                      //   left: 7px;
+                      //   background-color: #fff;
+                      //   border-radius: 50%;
+                      // }
+
+                    }
+                    .input-default_point{
+                      @include div_basic(240px, 48px, #fff);
+                      padding: 10px 16px 8px 16px;
+                      margin-top: 8px;
+                      font-size: 16px;
+                      border-radius: 4px;
+                      border: 1px solid #ccc;
+                    }
+                  }
+                }
+              }
+            }
+

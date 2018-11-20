@@ -1,0 +1,23 @@
+            %ul.buy-accordion
+              %li.accordion-parent
+                .accordion-toggle ポイントを使う
+                %ul.accordion-child
+                  %li.points 所持ポイント： P 500
+                  %li.form-group_radio
+                    .radio-default
+                      %label.radio_label
+                        %input{type: "radio", name: "consume_point_radio", class: "radio_button", value: "none"}
+                          %span ポイントを使わない
+                    .radio-default
+                      %label.radio_label
+                        %input{type: "radio", name: "consume_point_radio", class: "radio_button", value: "all"}
+                        %input{type: "hidden", class: "radio_button", value: "499"}
+                          %span 全てのポイントを使う
+                          %br P 499
+                    .radio-default
+                      %label.radio_label
+                        %input{type: "radio", name: "consume_point_radio", value: "partial"}
+                          %span 一部のポイントを使う
+                    %input{ class: "input-default_point", placeholder: "使うポイントを入力"}
+                    %input{ type: "hidden", name: "consume_point", value: "0"}
+
