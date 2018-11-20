@@ -1,3 +1,19 @@
+.single-container
+  = render partial: "/subheader"
+
+  .single-main
+    .l-single-container.buy-item-container
+      %h2.l-single-head 購入を確定しますか？
+      .buy-content_confirm.buy-item
+        .buy-content_confirm-inner
+          %h3.buy-item-image
+            = image_tag 'COACH1.jpeg',   size: "148x148"
+          %p.buy-item-name.bold ショルダーバッグ
+
+          / = form_for @item, html:{id: 'sell-form'} do |f|
+          %form.buy-form
+            %p.buy-price-ja ¥499
+            %span.item-shipping-fee 送料込み
             %ul.buy-accordion
               %li.accordion-parent
                 .accordion-toggle ポイントを使う
@@ -21,3 +37,38 @@
                     %input{ class: "input-default_point", placeholder: "使うポイントを入力"}
                     %input{ type: "hidden", name: "consume_point", value: "0"}
 
+            %ul.buy-price-table
+              %li.buy-price-row.buy-you-pay.bold
+                .buy-price-cell_1
+                  支払い金額
+                .buy-price-cell_2
+                  ¥499
+            %button{type: "submit", class: "btn-default btn-red bold"} 購入する
+
+      .buy-content_confirm.buy-user-info
+        .buy-content_confirm-inner
+          %h3.shipping_address 配送先
+          %address.buy-user-info-text
+            〒123-4567
+            %br
+            大阪府あいう市ああああああ
+            %br
+            田中　太郎
+          %p
+          %a.buy-user-info-fix
+            %span.edit 変更する
+            %i.fas.fa-angle-right
+      .buy-content_confirm.buy-user-info
+        .buy-content_confirm-inner
+          %h3.shipping_address 支払い方法
+          %p.buy-user-info-text
+            1234567812345678
+            %br
+            07 / 20
+          %a.buy-user-info-fix
+            %span 変更する
+            %i.fas.fa-angle-right
+
+
+  .single-footer
+    = render partial: "/subfooter"
