@@ -103,61 +103,21 @@
 
       .item-description.f14
         %p.item-description-inner
-          ■商品ご覧頂き、誠にありがとうございます。
-          ※今だけ、フォロワーになって下さった方に、300円のお値引きサービス中！！
-
-          私の商品検索は、
-          Boon・バッグ
-          検索してください。
-
-          質問がありましたらコメントでよろしくお願いします！
-          ■ 商品説明 ■
-          まずはプロフを確認してください☆
-
-          ■ 商品詳細 ■
-          シンプルな落ち着いたお色味でどんな場面にも合い、
-          どんな服にも合わせやすいお鞄です。使用感有！角擦れはございませんが
-          多少の汚れはあります。内側はとても綺麗です☆
-          使わなくなったのでどなたか使っていただける方お願いします。
-          製造番号 H2K-9294
-
-          【ブランド】
-          COACH コーチ
-
-          【商品名】
-          コーチ大き目シンプル
-
-          【仕様】
-          外ポケット１ 内ポケット４
-
-          【サイズ】
-          縦：32
-          横：31
-          幅：7
-          紐：130 多少調節可能
-
-          ＊他にも数多くの商品を出品しているので、ぜひご覧ください。
-          ＊複数購入、お取り置き(５日まで)もできるので、お気軽にお声がけくださいませ。
-          ＊中古品になりますので、予めご理解いただきますよう、お願い致します^_^
-          ※自宅保管、素人検品、素人寸法の誤差などにご理解がない方、神経質な方、完璧な物が欲しい方は購入お控えください。
-          、お願い致します^_^
-          ※自宅保管、素人検品、素人寸法の誤差などにご理解がない方、神経質な方、完璧な物が欲しい方は購入お控えください。
-
-          "#シンプル #かわいい #大き目 #かばん #バッグ"
 
       .item-button-container.clearfix
         .item-button-left
           %a.item-button.item-button-like
-            %i.far.fa-heart
+            = fa_icon 'heart'
             %span いいね!
             %span 13
           %a.item-button.item-button-report.clearfix
-            %i.far.fa-flag
+            = fa_icon 'flag'
             %span 不適切な商品の報告
         .item-button-right
-          %a.description-page{href: "https://www.mercari.com/jp/safe/description/"}
-            %i.fas.fa-lock
-            %span あんしん・あんぜんへの取り組み
+          .description-page
+            = link_to "https://www.mercari.com/jp/safe/description/" do
+              = fa_icon 'lock'
+              %span あんしん・あんぜんへの取り組み
 
 .item-detail-message
   .message-container
