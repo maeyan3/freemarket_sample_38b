@@ -75,7 +75,7 @@
         .mypage-nav-head
           %ul.mypage-nav-list
             %li
-              %a.mypage-nav-list-item
+              = link_to new_user_profile_path, { class: "mypage-nav-list-item" } do
                 プロフィール
                 %i.fas.fa-angle-right
             %li
@@ -91,7 +91,7 @@
                 メール/パスワード
                 %i.fas.fa-angle-right
             %li
-              = link_to new_userconfirm_path, {class: "mypage-nav-list-item"} do
+              = link_to new_user_userconfirm_path, {class: "mypage-nav-list-item"} do
                 本人情報
                 %i.fas.fa-angle-right
             %li
@@ -99,6 +99,6 @@
                 電話番号の確認
                 %i.fas.fa-angle-right
             %li
-              %a.mypage-nav-list-item
+              = link_to "/#{current_user.id}/logout", class: "mypage-nav-list-item" do
                 ログアウト
                 %i.fas.fa-angle-right

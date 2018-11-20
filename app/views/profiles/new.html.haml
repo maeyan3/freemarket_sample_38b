@@ -1,0 +1,9 @@
+= render './header'
+= render './bread_crumb'
+.l-container-clearfix
+  = render './users/l-side'
+= render './footer'
+
+= form_with model: @profile, url: user_profiles_path do |f|
+  = f.text_field :profile_text
+  = f.submit
