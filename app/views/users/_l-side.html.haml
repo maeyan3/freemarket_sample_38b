@@ -75,7 +75,7 @@
         .mypage-nav-head
           %ul.mypage-nav-list
             %li
-              = link_to new_user_profile_path, { class: "mypage-nav-list-item" } do
+              = link_to "/users/#{current_user.id}/profile", { class: "mypage-nav-list-item" } do
                 プロフィール
                 %i.fas.fa-angle-right
             %li

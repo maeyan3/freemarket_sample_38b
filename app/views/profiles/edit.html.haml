@@ -1,0 +1,17 @@
+= render './header'
+= render './bread_crumb'
+.l-container-clearfix
+  = form_with model: @user, url: "/users/#{current_user.id}/profile", local: true do |f|
+    .user-profile-box
+      %h2.user-profile-title プロフィール
+      .user-profile-content
+        .user-profile-name-content
+          .user-profile-name-box
+            .user-profile-name-box__thumbnail
+              = image_tag "sample_thumb.png", size: "60x60"
+            = f.text_field :nickname, class: "user-profile-name-box__name"
+        .user-profile-text-box
+          = f.text_area :profile, placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪", class: "profile-text-input"
+          = f.submit "変更する", class: "profile-text-submit"
+  = render './users/l-side'
+= render './footer'
