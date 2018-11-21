@@ -10,30 +10,32 @@
             = image_tag 'COACH1.jpeg',   size: "148x148"
           %p.buy-item-name.bold ショルダーバッグ
 
-          / = form_for @item, html:{id: 'sell-form'} do |f|
           %form.buy-form
             %p.buy-price-ja ¥499
             %span.item-shipping-fee 送料込み
             %ul.buy-accordion
               %li.accordion-parent
+
                 .accordion-toggle ポイントを使う
                 %ul.accordion-child
                   %li.points 所持ポイント： P 500
                   %li.form-group_radio
                     .radio-default
-                      %label.radio_label
-                        %input{type: "radio", name: "consume_point_radio", class: "radio_button", value: "none"}
-                          %span ポイントを使わない
+                      = f.label for: "radio_button1"
+                      %label{for: "radio_button1"}
+                        %input{type: "radio", name: "consume_point_radio", class: "radio_button", id: "radio_button1", value: "none"}
+                        %span.radio_point1 ポイントを使わない
                     .radio-default
-                      %label.radio_label
-                        %input{type: "radio", name: "consume_point_radio", class: "radio_button", value: "all"}
-                        %input{type: "hidden", class: "radio_button", value: "499"}
-                          %span 全てのポイントを使う
-                          %br P 499
+                      %label{for: "radio_button2"}
+                        %input{type: "radio", name: "consume_point_radio", class: "radio_button", id: "radio_button2", value: "all"}
+                          %span.radio_point2
+                            全てのポイントを使う
+                          %p.point
+                            P 499
                     .radio-default
-                      %label.radio_label
-                        %input{type: "radio", name: "consume_point_radio", value: "partial"}
-                          %span 一部のポイントを使う
+                      %label{for: "radio_button3"}
+                        %input{type: "radio", name: "consume_point_radio", class: "radio_button", id: "radio_button3", value: "partial"}
+                        %span.radio_point1 一部のポイントを使う
                     %input{ class: "input-default_point", placeholder: "使うポイントを入力"}
                     %input{ type: "hidden", name: "consume_point", value: "0"}
 

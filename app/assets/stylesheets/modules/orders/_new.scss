@@ -68,10 +68,9 @@
                   font-size: 30px;
                   content: "\f106";
                 }
-
                 .accordion-child{
                   display:none;
-                  background-color: gray;
+                  background-color: #f5f5f5;
                   padding: 24px 40px;
                   text-align: left;
                   .points{
@@ -80,48 +79,42 @@
                   .form-group_radio{
                     .radio-default{
                       margin-top: 16px;
-
-                      .radio_label{
-                        .radio_button{
-
-                        }
+                      .radio_button{
+                        border-radius: 50%;
+                        position: relative;
+                        width: 30px;
+                        height: 30px;
+                        margin-right: 0.5rem;
+                        cursor: pointer;
+                        transition: all 0.15s ease-out 0s;
+                        color: #0099E8;
+                        border: 1px solid #ccc;
+                        outline: none;
+                        background: #fff;
+                        -webkit-appearance: none;
+                                appearance: none;
                       }
-
-
-                      // .label_radio{
-                      //   padding-left: 25px;
-                      //   font-size: 16px;
-                      //   line-height: 28px;
-                      //   display: inline-block;
-                      //   position: relative;
-                      //   // background-color: #fff;
-                      //   // border: solid 2px #333;
-                      //   // border-radius: 5px 5px 5px 5px;
-                      // }
-                      // .label_radio:before{
-                      //   content: '';
-                      //   width: 28px;
-                      //   height: 28px;
-                      //   position: absolute;
-                      //   left: 0;
-                      //   top: 0;
-                      //   background-color: #0099e8;
-                      //   border-radius: 50%;
-                      // }
-                      // #radio_id[type="radio"]{
-                      //   display: none;
-                      // }
-                      // #radio_id[type="radio"]:checked + .label_radio:after{
-                      //   content: '';
-                      //   width: 14px;
-                      //   height: 14px;
-                      //   position: absolute;
-                      //   top: 7px;
-                      //   left: 7px;
-                      //   background-color: #fff;
-                      //   border-radius: 50%;
-                      // }
-
+                      .radio_button:checked::before{
+                        font-size: 20px;
+                        line-height: 30px;
+                        position: absolute;
+                        display: inline-block;
+                        width: 30px;
+                        height: 30px;
+                        content: '✔';
+                        text-align: center;
+                      }
+                      .radio_point1{
+                        vertical-align: 0.8em;
+                      }
+                      .radio_point2{
+                        vertical-align: 1em;
+                      }
+                      .point{
+                        position: relative;
+                        bottom: 10px;
+                        left: 45px;
+                      }
                     }
                     .input-default_point{
                       @include div_basic(240px, 48px, #fff);
@@ -154,7 +147,6 @@
               }
             }
 
-
             .btn-default{
               @include font_basic(#fff, 14px, null, 48px, center);
               display: block;
@@ -168,14 +160,10 @@
             }
 
 
-
-
           }
 
         }
       }
-
-
 
 
       .buy-user-info{
@@ -198,8 +186,6 @@
           }
         }
       }
-
-
 
     }
   }
