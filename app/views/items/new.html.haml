@@ -38,6 +38,7 @@
                   %span.form-require 必須
                 .select_category
                   %select{ name: "item[category_ids][]", class: "select-default", id: "category" }
+                    %option{ value: "---" } ---
                     = @categories.where(parent_id: 0).each do |category|
                       %option{ value: "#{category.id}" }
                         = category.category_name
@@ -45,11 +46,6 @@
                 .select_category#add-category2
               .sell-form-box.hidden2
                 .select_category#add-category3
-                  %select{ name: "item[category_ids][]", class: "select-default", id: "category3" }
-                    = @categories.where(parent_id: 9).each do |category|
-                      %option{ value: "#{category.id}" }
-                        = category.category_name
-
               .sell-form-box.hidden3
                 .form-group.size
                   = f.label :sizes, "サイズ", class: 'form-label'
@@ -88,7 +84,7 @@
                   = f.label :prefecture_id, "配送元の地域", class: 'form-label'
                   %span.form-require 必須
                 .select-wrap
-                  = f.select :prefecture_id, [["----", "----"],["北海道", "北海道"], ["沖縄", "沖縄"]],{},{class: "select-default"}
+                  = f.collection_select(:prefecture_id, @prefectures, :id, :prefecture_name, {prompt: "---"}, { class: "select-default" })
               .sell-form-box
                 .form-group
                   = f.label :ship_date, "発送までの日数", class: 'form-label'

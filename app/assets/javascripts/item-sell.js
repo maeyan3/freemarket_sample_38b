@@ -1,17 +1,29 @@
 $(function(){
 
-  function build_category2(categories, category_num) {
-    // console.log(categories);
+  function build_category2(categories) {
+    let options = ""
+    categories.forEach(function(category) {
+      options += `<option value="${category.id}">${category.name}</option>`
+    })
+    let html = `<select class="select-default" id="category2" name="item[category_ids][]">
+                  <option value="---">---</option>
+                  ${options}
+                </select>`
+    $('#add-category2').append(html);
+  }
+
+  function build_category3(categories) {
     let options = ""
     categories.forEach(function(category) {
       options += `<option value="${category.id}">${category.name}</option>`
     })
     console.log(options)
-    let html = `<select class="select-default" id="category${category_num}" name="item[category_ids][]">
+    let html = `<select class="select-default" id="category3" name="item[category_ids][]">
+                  <option value="---">---</option>
                   ${options}
                 </select>`
     console.log(html)
-    $('#add-category2').append(html);
+    $('#add-category3').append(html);
   }
 
   $(function() {
@@ -43,7 +55,7 @@ $(function(){
         data: {parent_id: category2_parent_id},
       })
       .done(function(categories2) {
-        build_category2(categories2, 2);
+        build_category2(categories2);
       })
       .fail(function() {
         console.log("error");
@@ -55,23 +67,40 @@ $(function(){
     }
   });
 
-  $("#category2").change(function(){
+  $('#add-category2').on("change", "#category2", function(){
     if ($('#category2').val() == "----" ){
        $('.hidden2').hide();
        $('.hidden3').hide();
        $('.hidden4').hide();
-    } else{
+    } else {
       $('.hidden2').show();
       $('#add-category3').empty();
       let category3_parent_id = $(this).val();
+      console.log(category3_parent_id);
+      $.ajax({
+        url: '/items/new',
+        type: 'GET',
+        dataType: 'json',
+        data: {parent_id: category3_parent_id},
+      })
+      .done(function(categories3) {
+        build_category3(categories3);
+      })
+      .fail(function() {
+        console.log("error");
+      })
+      .always(function() {
+        console.log("complete");
+      });
     }
   });
 
-  $("#category3").change(function(){
+
+  $("#add-category3").on("change", "#category3" ,function(){
     if ($('#category3').val() == "----" ){
        $('.hidden3').hide();
        $('.hidden4').hide();
-    } else{
+    } else {
       $('.hidden3').show();
       $('.hidden4').show();
     }

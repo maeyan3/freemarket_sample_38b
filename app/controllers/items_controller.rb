@@ -13,7 +13,6 @@ class ItemsController < ApplicationController
     @prefectures = Prefecture.all
     respond_to do |format|
       format.html
-      # binding.pry
       format.json { @categories = Category.where(parent_id: params[:parent_id]) }
     end
   end
