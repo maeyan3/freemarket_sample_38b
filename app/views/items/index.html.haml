@@ -1,1 +1,98 @@
-%h1 items#index
+= render './header'
+.wrapper
+  .slide-box
+    %ul.slider
+      %li.slider__list
+        .slider__list--image1
+          = image_tag 'top-banner-1.png'
+      %li.slider__list
+        .slider__list--image2
+          = image_tag 'top-banner-2.png'
+      %li.slider__list
+        .main-banner
+          .main-banner-content
+            .main-banner-text
+              %h1.main-banner-text__title スマホでかんたんフリマアプリ
+              %p.main-banner-text__detail
+                メルカリはスマホアプリからすぐに出品できる
+                %br
+                購入時も安心な独自システムのアプリです
+              .main-banner-link
+                = image_tag 'app-store.svg',   size: "170x50"
+                = image_tag 'google-play.svg', size: "170x50"
+            = image_tag 'main_content_pc.png', class: "main-banner-content__image"
+  .main-content
+    .pick-up-container
+      %h2.pick-up-container__title ピックアップカテゴリー
+      .pick-up
+        /TODO カテゴリの商品一覧へリンク
+        = link_to "#", class: "pick-up__category" do
+          レディース 新着アイテム
+        .item-boxes
+          - @items.limit(4).each do |item|
+            .item-box
+              /TODO リンク先 "/items/#{item.id}"
+              = link_to "#" do
+                %img{ src: "#{item.item_images[0].item_image_src}", class: "item-box-image" }
+                .item-box-content
+                  %h4.item-box-content__name= item.item_name
+                  .item-info
+                    .price-box
+                      %p.price-box__price
+                        = item.price.to_s(:currency, unit: "¥", precision: 0)
+                      %p.price-box__tax (税込)
+                    .likes-box
+                      %i{ class: "far fa-heart" }
+                      /TODO item.likes.count
+                      %span 10
+        .pick-up__view-all
+          /TODO カテゴリの商品一覧へリンク
+          = link_to "すべての商品を見る", "#"
+
+    .pick-up-container
+      .pick-up
+        = link_to "#", class: "pick-up__category" do
+          メンズ 新着アイテム
+        .item-boxes
+          - @items.limit(4).each do |item|
+            .item-box
+              = link_to "#" do
+                %img{ src: "#{item.item_images[0].item_image_src}", class: "item-box-image" }
+                .item-box-content
+                  %h4.item-box-content__name= item.item_name
+                  .item-info
+                    .price-box
+                      %p.price-box__price
+                        = item.price.to_s(:currency, unit: "¥", precision: 0)
+                      %p.price-box__tax (税込)
+                    .likes-box
+                      %i{ class: "far fa-heart" }
+                      %span 10
+        .pick-up__view-all
+          = link_to "すべての商品を見る", "#"
+
+    .pick-up-container
+      %h2.pick-up-container__title ピックアップブランド
+      .pick-up
+        = link_to "#", class: "pick-up__category" do
+          ルイヴィトン 新着アイテム
+        .item-boxes
+          - @items.limit(4).each do |item|
+            .item-box
+              = link_to "#" do
+                %img{ src: "#{item.item_images[0].item_image_src}", class: "item-box-image" }
+                .item-box-content
+                  %h4.item-box-content__name= item.item_name
+                  .item-info
+                    .price-box
+                      %p.price-box__price
+                        = item.price.to_s(:currency, unit: "¥", precision: 0)
+                      %p.price-box__tax (税込)
+                    .likes-box
+                      %i{ class: "far fa-heart" }
+                      %span 10
+        .pick-up__view-all
+          = link_to "すべての商品を見る", "#"
+
+= render './footer'
+%script{src: "https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js", type: "text/javascript"}
