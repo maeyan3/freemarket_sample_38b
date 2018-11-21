@@ -2,13 +2,14 @@ class ProfilesController < ApplicationController
   before_action :profile_user_check
 
   def edit
-    @user = current_user
   end
 
   def update
     @user = current_user
-    if @user.update_columns(nickname: profile_params[:nickname], profile: profile_params[:profile])
-      redirect_to  "/users/#{current_user.id}/profile"
+    @user.nickname = profile_params[:nickname]
+    @user.profile = profile_params[:profile]
+    if @user.save(context: :edit_profile)
+      render :edit
     else
       render :edit
     end
