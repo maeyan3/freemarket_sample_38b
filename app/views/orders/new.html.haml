@@ -10,42 +10,45 @@
             = image_tag 'COACH1.jpeg',   size: "148x148"
           %p.buy-item-name.bold ショルダーバッグ
 
-          %form.buy-form
-            %p.buy-price-ja ¥499
-            %span.item-shipping-fee 送料込み
-            %ul.buy-accordion
-              %li.accordion-parent
+          .buy-form
+            = form_with do |f|
+              %p.buy-price-ja_yen_sign ¥
+              %p.buy-price-ja 499
+              %span.item-shipping-fee 送料込み
+              %ul.buy-accordion
+                %li.accordion-parent
 
-                .accordion-toggle ポイントを使う
-                %ul.accordion-child
-                  %li.points 所持ポイント： P 500
-                  %li.form-group_radio
-                    .radio-default
-                      = f.label for: "radio_button1"
-                      %label{for: "radio_button1"}
-                        %input{type: "radio", name: "consume_point_radio", class: "radio_button", id: "radio_button1", value: "none"}
-                        %span.radio_point1 ポイントを使わない
-                    .radio-default
-                      %label{for: "radio_button2"}
-                        %input{type: "radio", name: "consume_point_radio", class: "radio_button", id: "radio_button2", value: "all"}
-                          %span.radio_point2
-                            全てのポイントを使う
-                          %p.point
-                            P 499
-                    .radio-default
-                      %label{for: "radio_button3"}
-                        %input{type: "radio", name: "consume_point_radio", class: "radio_button", id: "radio_button3", value: "partial"}
-                        %span.radio_point1 一部のポイントを使う
-                    %input{ class: "input-default_point", placeholder: "使うポイントを入力"}
-                    %input{ type: "hidden", name: "consume_point", value: "0"}
+                  .accordion-toggle ポイントを使う
+                  %ul.accordion-child
+                    %li.possession 所持ポイント： P
+                    %li.points 500
+                    %li.form-group_radio
+                      .radio-default
+                        %label{for: "radio_button1"}
+                          %input{type: "radio", name: "consume_point_radio", class: "radio_button", id: "radio_button1", value: "none"}
+                          %span.radio_point1 ポイントを使わない
+                      .radio-default
+                        %label{for: "radio_button2"}
+                          %input{type: "radio", name: "consume_point_radio", class: "radio_button", id: "radio_button2", value: "all"}
+                            %span.radio_point2
+                              全てのポイントを使う
+                            %p.point_1 P
+                            %p.point_2 499
+                      .radio-default
+                        %label{for: "radio_button3"}
+                          %input{type: "radio", name: "consume_point_radio", class: "radio_button", id: "radio_button3", value: "partial"}
+                            %span.radio_point1 一部のポイントを使う
+                        %input{ class: "input-default_point", placeholder: "使うポイントを入力", value: ""}
+                        %input{ type: "hidden", name: "consume_point", value: "0"}
 
-            %ul.buy-price-table
-              %li.buy-price-row.buy-you-pay.bold
-                .buy-price-cell_1
-                  支払い金額
-                .buy-price-cell_2
-                  ¥499
-            %button{type: "submit", class: "btn-default btn-red bold"} 購入する
+              %ul.buy-price-table
+                %li.buy-price-row.buy-you-pay.bold
+                  .buy-price-cell_1
+                    支払い金額
+                  .buy-price-cell_2
+                    %p.yen_sign ¥
+                    %p.total_price 499
+                = f.submit '購入する', class: 'btn-default btn-red'
 
       .buy-content_confirm.buy-user-info
         .buy-content_confirm-inner
