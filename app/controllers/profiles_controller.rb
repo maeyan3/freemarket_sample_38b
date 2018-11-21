@@ -1,18 +1,18 @@
 class ProfilesController < ApplicationController
   before_action :profile_user_check
 
-  def new
-    @profile = Profile.new
+  def edit
+    @user = current_user
   end
 
   def create
-    @profile = Profile.new(profile_params)
-    render :new unless @profile.save
+    @user = current_user(profile_params)
+    render :new unless @profile.update
   end
 
   private
   def profile_params
-    params.require(:profile).permit(:profile_text).merge(user_id: current_user.id)
+    params.require(:user).permit(:nickname, :profile)
   end
 
   def profile_user_check
