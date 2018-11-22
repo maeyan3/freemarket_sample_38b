@@ -74,6 +74,10 @@
           @include div_basic(320px, 48px, $red);
           color: white;
         }
+        &__submit:hover{
+          cursor:pointer;
+          opacity:0.8;
+        }
       }
     }
   }

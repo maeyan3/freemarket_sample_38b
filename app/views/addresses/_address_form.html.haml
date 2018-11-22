@@ -1,7 +1,7 @@
 .address-form-wrapper
   %h2.address-form-wrapper__title 住所変更
   .address-form-content
-    = form_with class: "address-form-with" do |f|
+    = form_with model: [@address,@address_id], url: addresses_path, class: "address-form-with", local: true do |f|
       .address-form-box.address-name
         .label-box
           %span.label-box__name お名前

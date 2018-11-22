@@ -9,12 +9,17 @@
       .address-label-box.label-box
         %span.label-box__label 住所
         %span.label-box__require 必須
-      %p.address-box__postal-code 〒123-4567
-      %p.address-box__address 大阪府大阪市天王寺区3-2-1
-      %p.address-box__name 山田太郎
+      %p.address-box__postal-code
+        = @address.postal_code
+      %p.address-box__address
+        = @address.city
+        = @address.block
+      %p.address-box__name
+        = @address.last_name
+        = @address.first_name
       /TODO リンク先 edit_address_path
-      = link_to '編集', '/addresses/1/edit'
-    = form_with do |f|
+      = link_to '編集', '/addresses/new'
+    = form_with model: [@address, @users], url: address_userconfirms_path(@address), class: "address-form-with", local: true do |f|
       .birth-box
         .birth-label-box.label-box
           %span.label-box__label 生年月日

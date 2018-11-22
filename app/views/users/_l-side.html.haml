@@ -79,7 +79,7 @@
                 プロフィール
                 %i.fas.fa-angle-right
             %li
-              %a.mypage-nav-list-item
+              = link_to edit_address_path(current_user), {class: "mypage-nav-list-item"} do
                 住所変更
                 %i.fas.fa-angle-right
             %li
@@ -91,7 +91,7 @@
                 メール/パスワード
                 %i.fas.fa-angle-right
             %li
-              = link_to new_userconfirm_path, {class: "mypage-nav-list-item"} do
+              = link_to new_address_userconfirm_path(current_user), {class: "mypage-nav-list-item"} do
                 本人情報
                 %i.fas.fa-angle-right
             %li
