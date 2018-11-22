@@ -1,7 +1,7 @@
 = render './header'
 = render './bread_crumb'
 .l-container-clearfix
-  = form_with model: current_user, url: "/users/#{current_user.id}/profile", local: true do |f|
+  = form_with model: current_user, url: user_profile_path, local: true do |f|
     .user-profile-box
       %h2.user-profile-title プロフィール
       .user-profile-content
