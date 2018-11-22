@@ -59,7 +59,8 @@
             %br
             田中　太郎
           %p
-          = link_to edit_address_path(current_user), class: "buy-user-info-fix" do
+          /TODO edit_user_address_path(current_user, @address)
+          = link_to '/', class: "buy-user-info-fix" do
             %span.edit 変更する
             %i.fas.fa-angle-right
       .buy-content_confirm.buy-user-info

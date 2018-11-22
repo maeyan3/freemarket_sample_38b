@@ -11,5 +11,5 @@ Rails.application.routes.draw do
     get 'profile' => 'profiles#edit'
     patch 'profile' => 'profiles#update'
   end
-  get 'logout' => 'users#logout'
+  get 'logout' => 'users#logout' # ログアウトボタンがある画面への遷移
 end

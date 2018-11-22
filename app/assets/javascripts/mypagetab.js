@@ -1,4 +1,4 @@
-$(function () {
+$(document).on('turbolinks:load', function() {
   /*初期表示*/
   $('.ChangeElem_Panel').eq(0).show();
   $('.mypage-item-list.todo-content').hide();
