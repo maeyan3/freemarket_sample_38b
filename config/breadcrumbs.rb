@@ -13,7 +13,7 @@ crumb :logout do
 end
 
 crumb :credit_card do
-  link "クレジットカード", credits_path(current_user)
+  link "支払い方法", credits_path(current_user)
   parent :mypage
 end
 
