@@ -5,10 +5,9 @@ class ProfilesController < ApplicationController
   end
 
   def update
-    @user = current_user
-    @user.nickname = profile_params[:nickname]
-    @user.profile = profile_params[:profile]
-    if @user.save(context: :edit_profile)
+    current_user.nickname = profile_params[:nickname]
+    current_user.profile = profile_params[:profile]
+    if current_user.save(context: :edit_profile)
       render :edit
     else
       render :edit
@@ -16,6 +15,7 @@ class ProfilesController < ApplicationController
   end
 
   private
+
   def profile_params
     params.require(:user).permit(:nickname, :profile)
   end
