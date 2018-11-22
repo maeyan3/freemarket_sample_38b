@@ -39,7 +39,6 @@
                           %input{type: "radio", name: "consume_point_radio", class: "radio_button", id: "radio_button3", value: "partial"}
                             %span.radio_point1 一部のポイントを使う
                         %input{ class: "input-default_point", placeholder: "使うポイントを入力", value: ""}
-                        %input{ type: "hidden", name: "consume_point", value: "0"}
 
               %ul.buy-price-table
                 %li.buy-price-row.buy-you-pay.bold
@@ -60,7 +59,7 @@
             %br
             田中　太郎
           %p
-          %a.buy-user-info-fix
+          = link_to edit_address_path(current_user), class: "buy-user-info-fix" do
             %span.edit 変更する
             %i.fas.fa-angle-right
       .buy-content_confirm.buy-user-info
@@ -70,7 +69,7 @@
             1234567812345678
             %br
             07 / 20
-          %a.buy-user-info-fix
+          = link_to credits_path(current_user), class: "buy-user-info-fix" do
             %span 変更する
             %i.fas.fa-angle-right
 
