@@ -3,10 +3,11 @@ require 'rails_helper'
 describe User do
   describe '#create' do
 
-    it "is valid with a nickname, email, password, password_confirmation" do
+    it "is valid with a nickname, email, profile, password, password_confirmation" do
       user = build(:user)
       expect(user).to be_valid
     end
+
 
 
     it "is invalid without a nickname" do
@@ -96,7 +97,23 @@ describe User do
       expect(user.errors[:password][0]).to include("is too long")
     end
 
+    it "プロフィールがなくても保存できる" do
+      user = build(:user, profile: nil)
+      expect(user).to be_valid
+    end
 
+    it "プロフィールが1000文字で保存できる" do
+      test_profile = "a" * 1000
+      user = build(:user, profile: test_profile)
+      expect(user).to be_valid
+    end
+
+    it "プロフィールが1001文字で保存できない" do
+      test_profile = "a" * 1001
+      user = build(:user, profile: test_profile)
+      user.valid?
+      expect(user.errors[:profile][0]).to include("is too long")
+    end
 
   end
 end

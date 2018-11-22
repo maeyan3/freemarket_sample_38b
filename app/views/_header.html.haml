@@ -44,18 +44,19 @@
             /           %a{:href => "#"}
             /             ルイヴィトン
             %li.l-right
-              %ul.pc-header-user-nav
-                %li.one
-                  %a.sp-header-user-icon.pc-header-nav-root{:href => "https://www.mercari.com/jp/mypage/"}
-                    %figure
-                      %img{:alt => "", :src => "//static-mercari-jp-imgtr2.akamaized.net/thumb/members/265703178.jpg?1507845787", :width => "32"}
-                    %div
-                      マイページ
-                %li.two
-                  %a.sp-header-user-icon.pc-header-nav-root
-                    %i.far.fa-bell
-                      お知らせ
-                %li.three
-                  %a.sp-header-user-icon.pc-header-nav-root
-                    %i.fas.fa-check
-                      やることリスト
+              - if user_signed_in?
+                %ul.pc-header-user-nav
+                  %li.one
+                    = link_to user_mypage_path(current_user), { class: "sp-header-user-icon pc-header-nav-root" } do
+                      %figure
+                        %img{:alt => "", :src => "//static-mercari-jp-imgtr2.akamaized.net/thumb/members/265703178.jpg?1507845787", :width => "32"}
+                      %div
+                        マイページ
+                  %li.two
+                    %a.sp-header-user-icon.pc-header-nav-root
+                      %i.far.fa-bell
+                        お知らせ
+                  %li.three
+                    %a.sp-header-user-icon.pc-header-nav-root
+                      %i.fas.fa-check
+                        やることリスト
