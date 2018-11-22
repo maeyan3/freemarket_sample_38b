@@ -98,7 +98,10 @@
         %span.item-tax (税込)
         %span.item-shipping-fee 送料込み
 
-      %a.item-buy-btn.f18-24 購入画面に進む
+      %a.item-buy-btn.f18-24
+        = form_tag "/orders/pay", method: :post do
+          %script.payjp-button{"data-key" => "pk_test_a592d9f44141f35ab91d8cfd", "data-text" => "購入画面に進む",:src => "https://checkout.pay.jp", :type => "text/javascript"}
+
       %a.item-btn-client
 
       .item-description.f14

@@ -8,4 +8,9 @@ Rails.application.routes.draw do
   resources :addresses, only: [:new, :create, :edit, :update]
   resources :credits, only: [:index, :new, :create, :destroy]
   resources :orders,  only: [:new, :create]
+
+  root 'orders#index'
+  get 'orders' => 'orders#index'
+  post 'orders/pay' => 'orders#pay'
+  get 'orders/pay' => 'orders#pay'
 end
