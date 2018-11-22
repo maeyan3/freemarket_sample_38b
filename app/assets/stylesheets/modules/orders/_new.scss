@@ -1,0 +1,216 @@
+.buy-user-info-fix:link, .buy-user-info-fix:visited, .buy-user-info-fix:hover, .buy-user-info-fix:active{
+  color: #0099E8;
+  text-decoration: none;
+}
+
+
+.single-container{
+  background-color: #f5f5f5;
+  @include font_basic(#333, 14px, null, null, null);
+  .single-main{
+    @include div_basic($sell-width, null, #fff);
+    max-width: $sell-width;
+    margin: 0 auto;
+    padding: 40px 0;
+    .buy-item-container{
+      .l-single-head{
+        @include font_basic(null, 22px, bold, null, center);
+      }
+
+      .buy-content_confirm{
+        padding-top: 24px;
+        margin-top: 40px;
+        border-top: #f5f5f5 solid 1px;
+        .buy-content_confirm-inner{
+          margin: 0 auto;
+          max-width: 320px;
+
+          .buy-item-image{
+            text-align: center;
+            margin-bottom: 5px;
+          }
+          .buy-item-name{
+            @include font_basic(null, 16px, bold, 24px, center);
+          }
+
+          .buy-form{
+            @include font_basic(null, 14px, null, null, center);
+            .buy-price-ja_yen_sign{
+              @include font_basic(null, 28px, null, 42px, center);
+              height: 42px;
+              margin-top: 8px;
+              display: inline-block;
+            }
+            .buy-price-ja{
+              @include font_basic(null, 28px, null, 42px, center);
+              height: 42px;
+              margin-top: 8px;
+              display: inline-block;
+            }
+            .item-shipping-fee{
+              margin-left: 8px;
+              @include font_basic(null, 14px, null, null, center);
+            }
+
+
+            .buy-accordion{
+              margin-top: 16px;
+              .accordion-parent{
+                position: relative;
+                .accordion-toggle{
+                  border: 1px solid #ccc;
+                  padding: 16px;
+                  cursor: pointer;
+                }
+                .accordion-toggle:after{
+                  font-size: 30px;
+                  content: "\f107";
+                  font-family: FontAwesome;
+                  position: absolute;
+                  top: 8px;
+                  right: 80px;
+                }
+                .accordion-toggle.open:after{
+                  font-size: 30px;
+                  content: "\f106";
+                }
+                .accordion-child{
+                  display:none;
+                  background-color: #f5f5f5;
+                  padding: 24px 40px;
+                  text-align: left;
+                  .possession{
+                    font-weight: bold;
+                    display: inline-block;
+                  }
+                  .points{
+                    font-weight: bold;
+                    display: inline-block;
+                  }
+                  .form-group_radio{
+                    .radio-default{
+                      margin-top: 16px;
+                      .radio_button{
+                        border-radius: 50%;
+                        position: relative;
+                        width: 30px;
+                        height: 30px;
+                        margin-right: 0.5rem;
+                        cursor: pointer;
+                        transition: all 0.15s ease-out 0s;
+                        color: #0099E8;
+                        border: 1px solid #ccc;
+                        outline: none;
+                        background: #fff;
+                        -webkit-appearance: none;
+                                appearance: none;
+                      }
+                      .radio_button:checked::before{
+                        font-size: 20px;
+                        line-height: 30px;
+                        position: absolute;
+                        display: inline-block;
+                        width: 30px;
+                        height: 30px;
+                        content: '✔';
+                        text-align: center;
+                      }
+                      .radio_point1{
+                        vertical-align: 0.8em;
+                      }
+                      .radio_point2{
+                        vertical-align: 1em;
+                      }
+                      .point_1{
+                        position: relative;
+                        bottom: 10px;
+                        left: 45px;
+                      }
+                      .point_2{
+                        position: relative;
+                        bottom: 25px;
+                        left: 65px;
+                      }
+                    }
+                    .input-default_point{
+                      @include div_basic(240px, 48px, #fff);
+                      padding: 10px 16px 8px 16px;
+                      margin-top: 8px;
+                      font-size: 16px;
+                      border-radius: 4px;
+                      border: 1px solid #ccc;
+                    }
+                  }
+                }
+              }
+            }
+
+            .buy-price-table{
+                margin: 16px 0 0 0;
+              .buy-price-row{
+                width: 320px;
+                height: 60px;
+                .buy-price-cell_1{
+                  float: left;
+                  width: 200px;
+                  @include font_basic(null, 28px, bold, 60px, left);
+                }
+                .buy-price-cell_2{
+                  float: right;
+                  width: 120px;
+                  @include font_basic(null, 28px, bold, 60px, right);
+                  .yen_sign{
+                    display: inline-block;
+                  }
+                  .total_price{
+                    display: inline-block;
+                  }
+                }
+              }
+            }
+
+            .btn-default{
+              @include font_basic(#fff, 14px, null, 48px, center);
+              display: block;
+              border: 1px solid transparent;
+              transition: all ease-out .3s;
+              cursor: pointer;
+            }
+            .btn-red{
+              @include div_basic(100%, null, #ea352d);
+              margin-top: 16px;
+            }
+
+
+          }
+
+        }
+      }
+
+
+      .buy-user-info{
+        margin-top: 40px;
+        border-top: #f5f5f5 solid 1px;
+        padding: 24px 88px 0 88px;
+        .buy-content_confirm-inner{
+          margin: 0 auto;
+          max-width: 320px;
+          text-align: right;
+          .shipping_address{
+            @include font_basic(null, 14px, bold, null, left);
+          }
+          .buy-user-info-text{
+            @include font_basic(null, 14px, null, 18px, left);
+            margin: 8px 0;
+          }
+          .buy-user-info-fix{
+            @include font_basic(#0099E8, 14px, null, null);
+          }
+        }
+      }
+
+    }
+  }
+}
+
+
