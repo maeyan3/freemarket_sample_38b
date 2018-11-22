@@ -23,6 +23,14 @@ class ItemsController < ApplicationController
     render :new unless @item.save
   end
 
+  def search_brand
+    @brands = Brand.where("brand_name LIKE(?)", "#{params[:keyword]}%")
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
+
   private
   def item_params
     params.require(:item).permit(:item_name, :detail, :price,

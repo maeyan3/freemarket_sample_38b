@@ -1,4 +1,4 @@
-$(function(){
+$(document).on('turbolinks:load',function(){
 
   function build_category2(categories) {
     let options = ""
@@ -17,13 +17,16 @@ $(function(){
     categories.forEach(function(category) {
       options += `<option value="${category.id}">${category.name}</option>`
     })
-    console.log(options)
     let html = `<select class="select-default" id="category3" name="item[category_ids][]">
                   <option value="---">---</option>
                   ${options}
                 </select>`
-    console.log(html)
     $('#add-category3').append(html);
+  }
+
+  function appendBrand(brand) {
+    let html = `<div class="js-brand" data-id="${brand.id}">${brand.name}</div>`
+    $('#add-brands-list').append(html);
   }
 
   $(function() {
@@ -34,16 +37,13 @@ $(function(){
     $('.hidden5').css("display", "none");
   });
 
-
-
   $("#category").change(function(){
     if ($('#category').val() == "----" ){
        $('.hidden1').hide();
        $('.hidden2').hide();
        $('.hidden3').hide();
        $('.hidden4').hide();
-
-    } else{
+    } else {
       $('.hidden1').show();
       $('#add-category2').empty();
       let category2_parent_id = $(this).val();
@@ -63,7 +63,6 @@ $(function(){
       .always(function() {
         console.log("complete");
       });
-
     }
   });
 
@@ -76,7 +75,6 @@ $(function(){
       $('.hidden2').show();
       $('#add-category3').empty();
       let category3_parent_id = $(this).val();
-      console.log(category3_parent_id);
       $.ajax({
         url: '/items/new',
         type: 'GET',
@@ -106,6 +104,38 @@ $(function(){
     }
   });
 
+  $('#brand').on('input', function() {
+    let input = $('#brand').val();
+
+    $.ajax({
+      type: 'GET',
+      url: '/items/search_brand',
+      dataType: 'json',
+      data: { keyword: input }
+    })
+    .done(function(brands) {
+      $('#add-brands-list').empty();
+      if (brands.length !== 0) {
+        brands.forEach(function(brand) {
+          appendBrand(brand);
+        });
+        $('#add-brands-list').addClass('shadow');
+      }
+    })
+    .fail(function(XMLHttpRequest, textStatus, errorThrown) {
+      console.log('failed');
+    })
+  });
+
+  $('#add-brands-list').on('click', '.js-brand', function(e) {
+    let id = $(this).attr('data-id');
+    let name = $(this).text();
+    console.log(name)
+    $('#brand').val(name);
+    $('#brand-hidden').val(id);
+    $('#add-brands-list').empty().removeClass('shadow');
+  });
+
   $("#cost").change(function(){
     if ($('#cost').val() == "----" ){
        $('.hidden5').hide();
@@ -113,10 +143,6 @@ $(function(){
       $('.hidden5').show();
     }
   });
-
-
-
-
 
   $('#amount').on('keyup', function(){
     var amount = $('#amount').val();

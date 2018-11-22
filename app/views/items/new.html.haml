@@ -1,15 +1,11 @@
 .single-container
   = render partial: "/subheader"
-
-
   .single-main
     %section.l-single-container.buy-item-container
       #sell-container
         .sell-container-inner
           %h2.l-single-head 商品の情報を入力
-
           = form_for @item, html:{class: 'sell-form'} do |f|
-
             .sell-upload-box
               %h3.sell-upload-head 出品画像
               %span.form-require 必須
@@ -51,13 +47,15 @@
                   = f.label :sizes, "サイズ", class: 'form-label'
                   %span.form-require 必須
                 .select-wrap
-                  = f.select :sizes, [["----", "----"],["S", "S"], ["M", "M"],["L", "L"]],{},{class: "select-default", id: "size"}
+                  = f.collection_select(:size_ids, @sizes, :id, :size_name, {}, { class: "select-default", name: "item[size_ids][]" })
               .sell-form-box.hidden4
                 .form-group
                   = f.label :brands, "ブランド", class: 'form-label'
                   %span.form-free 任意
-                = f.text_field :brands, class: 'input-default', id: "brand"
-              .sell-form-box
+                %input.input-default#brand
+                #add-brands-list
+                = f.hidden_field :brands, name: "item[brand_ids][]", id: "brand-hidden", value: ""
+              .sell-form-box.item-quality
                 .form-group
                   = f.label :quality, "商品の状態", class: 'form-label'
                   %span.form-require 必須

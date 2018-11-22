@@ -23,7 +23,7 @@ class Item < ApplicationRecord
   validates :quality,      presence: true
   validates :item_images,  presence: true, length: { maximum: 4 }
   validates :categories,   presence: true, length: { is: 3 }
-  validates :sizes,        length: { is: 2 }, if: :sizes_present?
+  validates :sizes,        length: { is: 1 }, if: :sizes_present?
   validates :brands,       length: { maximum: 1 }
   validates :price,        presence: true, numericality: { greater_than_or_equal_to: 300,
                                                            less_than_or_equal_to: 9999999 }

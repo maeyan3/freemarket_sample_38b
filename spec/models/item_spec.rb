@@ -9,9 +9,9 @@ describe Item do
         expect(item).to be_valid
       end
 
-      it 'サイズが2件あっても保存できる' do
+      it 'サイズが1件あっても保存できる' do
         item = build(:item)
-        2.times { item.sizes << build(:size) }
+        item.sizes << build(:size)
         expect(item).to be_valid
       end
 
@@ -196,18 +196,11 @@ describe Item do
         expect(item.errors[:categories]).to include('is the wrong length (should be 3 characters)')
       end
 
-      it 'サイズが3つでは保存できない' do
+      it 'サイズが2つでは保存できない' do
         item = build(:item)
-        3.times { item.sizes << build(:size) }
+        2.times { item.sizes << build(:size) }
         item.valid?
-        expect(item.errors[:sizes]).to include('is the wrong length (should be 2 characters)')
-      end
-
-      it 'サイズが1つでは保存できない' do
-        item = build(:item)
-        item.sizes << build(:size)
-        item.valid?
-        expect(item.errors[:sizes]).to include('is the wrong length (should be 2 characters)')
+        expect(item.errors[:sizes]).to include('is the wrong length (should be 1 character)')
       end
 
       it 'ブランドが2つでは保存できない' do
