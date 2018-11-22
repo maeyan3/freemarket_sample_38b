@@ -1,0 +1,102 @@
+
+.single-container{
+  background-color: #f5f5f5;
+  @include font_basic(#333, 14px, null, null, null);
+
+  .l-single-container_head{
+    margin: 0 auto;
+    padding: 40px 0;
+    @include div_basic(null, null, #ffdead);
+    @include font_basic(null, 14px, normal, null, center);
+    max-width: $sell-width;
+    .buy-content_confirm-inner_head{
+      @include font_basic(red, 18px, bold, px, center);
+      .fa-clock{
+        @include font_basic(red, 26px);
+      }
+      .weit_delivery{
+        display: inline-block;
+        vertical-align: 0.3em;
+      }
+    }
+    .weit_message{
+      padding-top: 8px;
+    }
+  }
+
+  .single-main{
+    @include div_basic($sell-width, null, #fff);
+    max-width: $sell-width;
+    margin: 0 auto;
+    padding: 40px 0;
+
+    .buy-item-container{
+      .l-single-head{
+        @include font_basic(null, 22px, bold, null, center);
+      }
+      .buy-content_confirm{
+        padding-top: 24px;
+        margin-top: 40px;
+        border-top: #f5f5f5 solid 1px;
+        text-align: center;
+        .buy-content_confirm-inner{
+          margin: 0 auto;
+          max-width: 320px;
+          .buy-item-image{
+            margin-bottom: 5px;
+          }
+          .buy-item-name{
+            @include font_basic(null, 16px, bold, 24px, center);
+          }
+        }
+        .buy-price-ja{
+          @include font_basic(null, 28px, null, 42px, center);
+            height: 42px;
+            margin-top: 8px;
+            display: inline-block;
+        }
+        .item-shipping-fee{
+          margin-left: 8px;
+          @include font_basic(null, 14px, null, null, center);
+        }
+      }
+
+      .buy-user-info{
+        margin-top: 40px;
+        border-top: #f5f5f5 solid 1px;
+        padding: 24px 88px 0 88px;
+        .buy-content_confirm-inner{
+          margin: 0 auto;
+          max-width: 320px;
+          text-align: right;
+          .shipping_address{
+            @include font_basic(null, 14px, bold, null, left);
+          }
+          .buy-user-info-text{
+            @include font_basic(null, 14px, null, 18px, left);
+            margin: 8px 0;
+          }
+          .buy-user-info-fix{
+            @include font_basic(#0099E8, 14px, null, null);
+          }
+        }
+        .after_delivery{
+          @include font_basic(null, 14px, null, 22px, center);
+          &__title{
+            @include font_basic(null, 16px, bold, 22px, center);
+          }
+          &__assessment{
+            margin-bottom: 20px;
+          }
+        }
+        .return_mypage:link, .return_mypage:visited, .return_mypage:hover, .return_mypage:active{
+          @include font_basic(#0099E8, 16px, bold, 22px, center);
+          text-decoration: none;
+        }
+      }
+
+    }
+
+  }
+
+}

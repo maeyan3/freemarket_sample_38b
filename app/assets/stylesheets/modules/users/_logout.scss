@@ -19,22 +19,17 @@ body{
     }
   }
 
-
-
-.clearfix{
-  // width:1020px;
-  // height:36px;
-  // position:relative;
-  // margin:0 auto;
-
-    h1.l.left{
+.link-to-root {
+  display: block;
+}
+h1.l.left {
     width:134px;
     height:36px;
     float:left;
     position:absolute;
     box-sizing: content-box;
     margin:0;
-
+    z-index: 2;
   }
   .search-box {
     height: 36px;
@@ -63,7 +58,6 @@ body{
       margin:10px;
     }
   }
-}
 
 
 
