@@ -336,7 +336,8 @@ nav.l-left{
     ul.mypage-nav-list{
 
       padding-left:0px;
-      margin-bottom:20px;
+      margin-bottom:40px;
+      margin-top:20px;
 
       li{
         width:280px;
@@ -366,19 +367,19 @@ nav.l-left{
               margin-bottom:10px;
             }
           }
-        }
-      }
-      h3.mypage-nav-head{
-      width:280px;
-      height:16px;
-      font-size: 14px;
-      position:bottom;
-      display: block;
-      margin-bottom:0px;
-        }
       }
     }
-  }
+        h3.mypage-nav-head{
+
+        width:280px;
+        height:16px;
+        margin-top:20px;
+        display: block;
+
+        }
+      }
+}
+}
 
 aside.app-banner{
   margin-top:30px;
