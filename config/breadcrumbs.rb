@@ -3,7 +3,7 @@ crumb :root do
 end
 
 crumb :mypage do
-  link "マイページ", mypage_path(current_user)
+  link "マイページ", user_mypage_path(current_user)
   parent :root
 end
 
@@ -23,7 +23,7 @@ crumb :credit_card_new do
 end
 
 crumb :address_edit do
-  link "住所変更", credits_path(current_user)
+  link "住所変更", new_user_path(current_user)
   parent :mypage
 end
 
