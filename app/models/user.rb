@@ -6,5 +6,6 @@ class User < ApplicationRecord
 
   validates :nickname, presence: true, length: { in: 1..20 }
   validates :email, presence: true, length: { in: 4..255 }
-  validates :password, presence: true, format: { with: /\A(?=.*?[a-z]{1,})[a-z\d]{6,128}+\z/i }
+  validates :profile, length: { maximum: 1000 }
+  validates :password, presence: true, format: { with: /\A(?=.*?[a-z]{1,})[a-z\d]{6,128}+\z/i }, unless: -> { validation_context == :edit_profile }
 end
