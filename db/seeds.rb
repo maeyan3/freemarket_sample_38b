@@ -1,4 +1,4 @@
-# encoding: utf-8
+# coding: utf-8
 require "csv"
 
 CSV.foreach('db/prefecture1_production.csv', headers: true) do |row|
