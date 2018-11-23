@@ -4,7 +4,7 @@
     .nav.mypage-nav
       %ul.mypage-nav-list
         %li
-          %a.mypage-nav-list-item
+          = link_to user_mypage_path(current_user), class: "mypage-nav-list-item" do
             マイページ
             %i.fas.fa-angle-right
         %li
@@ -83,7 +83,7 @@
                 住所変更
                 %i.fas.fa-angle-right
             %li
-              %a.mypage-nav-list-item
+              = link_to new_credit_path(current_user), class: "mypage-nav-list-item" do
                 支払い方式
                 %i.fas.fa-angle-right
             %li
