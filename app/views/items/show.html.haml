@@ -100,7 +100,7 @@
 
       %a.item-buy-btn.f18-24
         = form_tag "/orders/pay", method: :post do
-          %script.payjp-button{"data-key" => "pk_test_a592d9f44141f35ab91d8cfd", "data-text" => "購入画面に進む",:src => "https://checkout.pay.jp", :type => "text/javascript"}
+          %script.payjp-button{"data-key" => PAYJP_PUBLIC_KEY, "data-text" => "購入画面に進む",:src => "https://checkout.pay.jp", :type => "text/javascript"}
 
       %a.item-btn-client
 
