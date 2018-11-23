@@ -29,7 +29,6 @@
         .item-boxes
           - @items.limit(4).each do |item|
             .item-box
-              /TODO リンク先 "/items/#{item.id}"
               = link_to item_path(item) do
                 %img{ src: "#{item.item_images[0].item_image_src}", class: "item-box-image" }
                 .item-box-content

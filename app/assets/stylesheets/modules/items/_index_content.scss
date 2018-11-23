@@ -35,7 +35,7 @@
             padding: 0;
             min-width: 220px;
             height: 330px;
-            a:visited {
+            a, a:link, a:visited, a:hover {
               color: black;
             }
             a {
