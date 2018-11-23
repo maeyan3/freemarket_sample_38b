@@ -9,7 +9,7 @@ FactoryBot.define do
     ship_method "ゆうパック"
     ship_date   "1〜2日以内に発送"
     quality     "新品、未使用"
-    status      0
+    status      :listing
     user
     prefecture
     created_at { Faker::Time.between(2.days.ago, Time.now, :all) }

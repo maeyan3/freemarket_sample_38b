@@ -9,9 +9,9 @@ describe Item do
         expect(item).to be_valid
       end
 
-      it 'サイズが2件あっても保存できる' do
+      it 'サイズが1件あっても保存できる' do
         item = build(:item)
-        2.times { item.sizes << build(:size) }
+        item.sizes << build(:size)
         expect(item).to be_valid
       end
 
@@ -49,13 +49,33 @@ describe Item do
         expect(item).to be_valid
       end
 
-      it '取引の状態が0で保存できる' do
-        item = build(:item, status: 0)
+      it '取引の状態がlistingで保存できる' do
+        item = build(:item, status: :listing)
         expect(item).to be_valid
       end
 
-      it '取引の状態が5で保存できる' do
-        item = build(:item, status: 5)
+      it '取引の状態がpending_delivaryで保存できる' do
+        item = build(:item, status: :pending_delivary)
+        expect(item).to be_valid
+      end
+
+      it '取引の状態がpending_recieveで保存できる' do
+        item = build(:item, status: :pending_recieve)
+        expect(item).to be_valid
+      end
+
+      it '取引の状態がpending_evaluteで保存できる' do
+        item = build(:item, status: :pending_evalute)
+        expect(item).to be_valid
+      end
+
+      it '取引の状態がcompletedで保存できる' do
+        item = build(:item, status: :completed)
+        expect(item).to be_valid
+      end
+
+      it '取引の状態がstop_listingで保存できる' do
+        item = build(:item, status: :stop_listing)
         expect(item).to be_valid
       end
     end
@@ -176,18 +196,11 @@ describe Item do
         expect(item.errors[:categories]).to include('is the wrong length (should be 3 characters)')
       end
 
-      it 'サイズが3つでは保存できない' do
+      it 'サイズが2つでは保存できない' do
         item = build(:item)
-        3.times { item.sizes << build(:size) }
+        2.times { item.sizes << build(:size) }
         item.valid?
-        expect(item.errors[:sizes]).to include('is the wrong length (should be 2 characters)')
-      end
-
-      it 'サイズが1つでは保存できない' do
-        item = build(:item)
-        item.sizes << build(:size)
-        item.valid?
-        expect(item.errors[:sizes]).to include('is the wrong length (should be 2 characters)')
+        expect(item.errors[:sizes]).to include('is the wrong length (should be 1 character)')
       end
 
       it 'ブランドが2つでは保存できない' do
@@ -195,19 +208,6 @@ describe Item do
         2.times { item.brands << build(:brand) }
         item.valid?
         expect(item.errors[:brands]).to include('is too long (maximum is 1 character)')
-      end
-
-      # 取引の状態は出品中,発送待ち,受取待ち,評価待ち,完了,出品停止の6種で区別するため
-      it '取引の状態が6では保存できない' do
-        item = build(:item, status: 6)
-        item.valid?
-        expect(item.errors[:status]).to include("must be less than or equal to 5")
-      end
-
-      it '取引の状態が-1では保存できない' do
-        item = build(:item, status: -1)
-        item.valid?
-        expect(item.errors[:status]).to include("must be greater than or equal to 0")
       end
 
     end

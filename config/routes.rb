@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'items#index'
+  get  'items/search_brand' => 'items#search_brand'
   resources :items, only: [:index, :new, :create, :show]
   resources :credits, only: [:index, :new, :create, :destroy]
   resources :orders,  only: [:new, :create]
