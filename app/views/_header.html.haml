@@ -11,38 +11,40 @@
     .pc-header-nav-box-clearfix
       .pc-header-nav-root
         %nav.l-left
-          %ul.pc-header-nav
-            %li.one
-              %h2
-                %a.pc-header-nav-root{:href => "https://www.mercari.com/jp/category/"}
-                  カテゴリーから探す
-                  / %ul.pc-header-nav-parent-wrap
-                  /   %li.pc-header-nav-parent
-                  /     %h3
-                  /       %a
-                  /         レディース
-                  /         %ul.pc-header-nav-child-wrap
-                  /           %li.pc-header-nav-child
-                  /             %a
-                  /               トップス
-                  /               %ul.pc-header-nav-grand-child-wrap
-                  /                 %li.pc-header-nav-child
-                  /                   %a
-                  /                     Tシャツ/カットソー(半袖/袖なし)
-            %li.two
-              %h2
-                %a.pc-header-nav-root{:href => "https://www.mercari.com/jp/brand/"}
-                  ブランドから探す
-            /       %ul.pc-header-nav-parent-wrap
-            /         %li.pc-header-nav-parent
-            /           %a{:href => "#"}
-            /             シャネル
-            /         %li
-            /           %a{:href => "#"}
-            /             ナイキ
-            /         %li
-            /           %a{:href => "#"}
-            /             ルイヴィトン
+          %ul.pc-header-nav.menu_category_brand
+            %li.menu_category
+              = link_to root_path, class: "category_list_link" do
+                カテゴリーから探す
+              %ul.menu_category-list
+                %li.menu_category-list__second-level
+                  = link_to '#', class: "init-left" do
+                    レディース
+                %li.menu_category-list__second-level
+                  = link_to '#', class: "init-left" do
+                    メンズ
+                %li.menu_category-list__second-level
+                  = link_to '#', class: "init-left" do
+                    ベビー・キッズ
+                %li.menu_category-list__second-level
+                  = link_to '#', class: "init-left" do
+                    インテリア
+                %li.menu_category-list__second-level
+                  = link_to '#', class: "init-left" do
+                    本
+            %li.menu_brand
+              = link_to root_path, class: "brand_list_link" do
+                ブランドから探す
+              %ul.menu_brand-list
+                %li.menu_brand-list__second-level
+                  = link_to '#', class: "init-right" do
+                    シャネル
+                %li.menu_brand-list__second-level
+                  = link_to '#', class: "init-right" do
+                    ナイキ
+                %li.menu_brand-list__second-level
+                  = link_to '#', class: "init-right" do
+                    ルイヴィトン
+
             %li.l-right
               %ul.pc-header-user-nav
                 %li.one

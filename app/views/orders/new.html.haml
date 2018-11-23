@@ -1,0 +1,79 @@
+.single-container
+  = render partial: "/subheader"
+
+  .single-main
+    .l-single-container.buy-item-container
+      %h2.l-single-head 購入を確定しますか？
+      .buy-content_confirm.buy-item
+        .buy-content_confirm-inner
+          %h3.buy-item-image
+            = image_tag '/images/COACH1.jpeg',   size: "148x148"
+          %p.buy-item-name.bold ショルダーバッグ
+
+          .buy-form
+            = form_with do |f|
+              %p.buy-price-ja_yen_sign ¥
+              %p.buy-price-ja 499
+              %span.item-shipping-fee 送料込み
+              %ul.buy-accordion
+                %li.accordion-parent
+
+                  .accordion-toggle ポイントを使う
+                  %ul.accordion-child
+                    %li.possession 所持ポイント： P
+                    %li.points 500
+                    %li.form-group_radio
+                      .radio-default
+                        %label{for: "radio_button1"}
+                          %input{type: "radio", name: "consume_point_radio", class: "radio_button", id: "radio_button1", value: "none"}
+                          %span.radio_point1 ポイントを使わない
+                      .radio-default
+                        %label{for: "radio_button2"}
+                          %input{type: "radio", name: "consume_point_radio", class: "radio_button", id: "radio_button2", value: "all"}
+                            %span.radio_point2
+                              全てのポイントを使う
+                            %p.point_1 P
+                            %p.point_2 499
+                      .radio-default
+                        %label{for: "radio_button3"}
+                          %input{type: "radio", name: "consume_point_radio", class: "radio_button", id: "radio_button3", value: "partial"}
+                            %span.radio_point1 一部のポイントを使う
+                        %input{ class: "input-default_point", placeholder: "使うポイントを入力", value: ""}
+
+              %ul.buy-price-table
+                %li.buy-price-row.buy-you-pay.bold
+                  .buy-price-cell_1
+                    支払い金額
+                  .buy-price-cell_2
+                    %p.yen_sign ¥
+                    %p.total_price 499
+                = f.submit '購入する', class: 'btn-default btn-red'
+
+      .buy-content_confirm.buy-user-info
+        .buy-content_confirm-inner
+          %h3.shipping_address 配送先
+          %address.buy-user-info-text
+            〒123-4567
+            %br
+            大阪府あいう市ああああああ
+            %br
+            田中　太郎
+          %p
+          /TODO edit_user_address_path(current_user, @address)
+          = link_to '/', class: "buy-user-info-fix" do
+            %span.edit 変更する
+            %i.fas.fa-angle-right
+      .buy-content_confirm.buy-user-info
+        .buy-content_confirm-inner
+          %h3.shipping_address 支払い方法
+          %p.buy-user-info-text
+            1234567812345678
+            %br
+            07 / 20
+          = link_to credits_path(current_user), class: "buy-user-info-fix" do
+            %span 変更する
+            %i.fas.fa-angle-right
+
+
+  .single-footer
+    = render partial: "/subfooter"

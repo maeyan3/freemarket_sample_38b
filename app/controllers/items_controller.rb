@@ -6,16 +6,32 @@ class ItemsController < ApplicationController
 
   def new
     @item        = Item.new
+    4.times { @item.item_images.build }
     @categories  = Category.all
     @sizes       = Size.all
     @brands      = Brand.all
     @prefectures = Prefecture.all
-    4.times { @item.item_images.build }
+    respond_to do |format|
+      format.html
+      format.json { @categories = Category.where(parent_id: params[:parent_id]) }
+    end
   end
 
   def create
     @item = Item.new(item_params)
-    render :new unless @item.save
+    if @item.save
+      redirect_to root_path
+    else
+      render :new
+    end
+  end
+
+  def search_brand
+    @brands = Brand.where("brand_name LIKE(?)", "#{params[:keyword]}%")
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   private

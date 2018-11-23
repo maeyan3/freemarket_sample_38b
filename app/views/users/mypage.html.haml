@@ -2,6 +2,9 @@
 
   = render './header.html.haml'
 
+  - breadcrumb :mypage
+  = render "./bread_crumb"
+
 .l-container-clearfix
   .right-content
     .mypage-user-icon
@@ -142,10 +145,5 @@
               = fa_icon ("angle-right"),class: 'icon'
             .bold
               取引完了
-
-
   = render 'l-side.html.haml'
-
 = render './footer.html.haml'
-
-= render 'sellbtn.html.haml'

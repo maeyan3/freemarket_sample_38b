@@ -1,0 +1,120 @@
+.l-left{
+  .menu_category_brand {
+    margin: 0;
+    padding: 0;
+
+    .menu_category {
+      float: left;
+      position: relative;
+      list-style: none;
+      .category_list_link:link, .category_list_link:visited, .category_list_link:active {
+        @include font_basic(#333, 14px, null, 26px, left);
+        @include div_basic(150px,30px);
+        display: block;
+        text-decoration: none;
+      }
+      .category_list_link:hover{
+        color: #0099E8;
+      }
+      .menu_category-list {
+        z-index: 1;
+        display: none;
+        @include absolute(30px, null, null, 0);
+        .menu_category-list__second-level {
+          float: none;
+          .init-left{
+            @include font_basic(#333, 14px, null, 38px, center);
+            @include div_basic(150px,38px, #fff);
+            display: block;
+            text-decoration: none;
+          }
+
+        }
+      }
+    }
+    .menu_category:hover{
+      float: left;
+      position: relative;
+      list-style: none;
+      .menu_category-list {
+        display: block;
+        .menu_category-list__second-level {
+          float: none;
+          .init-left{
+            @include font_basic(#333, 14px, null, 38px, center);
+            @include div_basic(150px,38px);
+            display: block;
+            text-decoration: none;
+            border-left: solid 1px #ccc;
+            border-right: solid 1px #ccc;
+          }
+          .init-left:hover{
+            @include font_basic(#fff, 14px, null, 38px, center);
+            @include div_basic(150px,38px, red);
+            border: solid 1px red;
+          }
+        }
+      }
+    }
+
+    .menu_brand {
+      float: left;
+      position: relative;
+      list-style: none;
+      .brand_list_link:link, .brand_list_link:visited, .brand_list_link:active {
+        @include font_basic(#333, 14px, null, 26px, center);
+        @include div_basic(150px,30px, #fff);
+        display: block;
+        text-decoration: none;
+      }
+      .brand_list_link:hover{
+        color: #0099E8;
+      }
+      .menu_brand-list {
+        z-index: 1;
+        display: none;
+        @include absolute(30px, null, null, 0);
+        .menu_brand-list__second-level {
+          float: none;
+          .init-right{
+            @include font_basic(#333, 14px, null, 38px, center);
+            @include div_basic(150px,38px, #fff);
+            display: block;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+    .menu_brand:hover{
+      float: left;
+      position: relative;
+      list-style: none;
+      .menu_brand-list {
+        display: block;
+        .menu_brand-list__second-level {
+          float: none;
+          .init-right{
+            z-index: 1;
+            @include font_basic(#333, 14px, null, 38px, center);
+            @include div_basic(150px,38px, #fff);
+            display: block;
+            text-decoration: none;
+            border-left: solid 1px #ccc;
+            border-right: solid 1px #ccc;
+          }
+          .init-right:hover{
+            z-index: 1;
+            @include font_basic(#fff, 14px, null, 38px, center);
+            @include div_basic(150px,38px, red);
+            border: solid 1px red;
+          }
+        }
+      }
+    }
+
+  }
+}
+
+
+
+
