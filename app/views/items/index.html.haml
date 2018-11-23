@@ -4,10 +4,8 @@
     %ul.slider
       %li.slider__list
         .slider__list--image1
-          = image_tag 'top-banner-1.png'
       %li.slider__list
         .slider__list--image2
-          = image_tag 'top-banner-2.png'
       %li.slider__list
         .main-banner
           .main-banner-content
@@ -32,7 +30,7 @@
           - @items.limit(4).each do |item|
             .item-box
               /TODO リンク先 "/items/#{item.id}"
-              = link_to "#" do
+              = link_to item_path(item) do
                 %img{ src: "#{item.item_images[0].item_image_src}", class: "item-box-image" }
                 .item-box-content
                   %h4.item-box-content__name= item.item_name
@@ -48,15 +46,13 @@
         .pick-up__view-all
           /TODO カテゴリの商品一覧へリンク
           = link_to "すべての商品を見る", "#"
-
-    .pick-up-container
       .pick-up
         = link_to "#", class: "pick-up__category" do
           メンズ 新着アイテム
         .item-boxes
           - @items.limit(4).each do |item|
             .item-box
-              = link_to "#" do
+              = link_to item_path(item) do
                 %img{ src: "#{item.item_images[0].item_image_src}", class: "item-box-image" }
                 .item-box-content
                   %h4.item-box-content__name= item.item_name
@@ -70,7 +66,6 @@
                       %span 10
         .pick-up__view-all
           = link_to "すべての商品を見る", "#"
-
     .pick-up-container
       %h2.pick-up-container__title ピックアップブランド
       .pick-up
@@ -79,7 +74,7 @@
         .item-boxes
           - @items.limit(4).each do |item|
             .item-box
-              = link_to "#" do
+              = link_to item_path(item) do
                 %img{ src: "#{item.item_images[0].item_image_src}", class: "item-box-image" }
                 .item-box-content
                   %h4.item-box-content__name= item.item_name
