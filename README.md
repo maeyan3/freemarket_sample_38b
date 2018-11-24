@@ -2,13 +2,14 @@
 __※Optionにnull許可の記載が無いものは全てnull:falseをつける__
 
 ## usersテーブル
-|Column            |Type   |Options |
-|------------------|-------|--------|
-|nickname          |string |        |
-|email             |string |        |
-|password          |string |        |
-|confirm_password  |string |        |
-|confirm_telephone |int    |        |
+|Column            |Type   |Options            |
+|------------------|-------|-------------------|
+|nickname          |string |                   |
+|email             |string |                   |
+|password          |string |                   |
+|profile           |string |(null: false なし) |
+|confirm_password  |string |                   |
+|confirm_telephone |int    |                   |
 
 ### Association
 - has_many :from_user_rates, class_name: 'Rate', foreign_key: 'from_user_id'
@@ -25,7 +26,6 @@ __※Optionにnull許可の記載が無いものは全てnull:falseをつける_
 - has_one  :credit
 - has_one  :address
 - has_one  :user_detail
-- has_one  :profile
 
 ## itemsテーブル
 |Column        |Type       |Options           |
@@ -124,15 +124,6 @@ __※Optionにnull許可の記載が無いものは全てnull:falseをつける_
 - has_one    :transfer
 - belongs_to :user
 - belongs_to :address
-
-## profilesテーブル
-|Column        |Type       |Options           |
-|--------------|-----------|------------------|
-|profile       |string     |                  |
-|user_id       |references |foreign_key: true |
-
-### Assosiation
-- belongs_to :user
 
 ## sales_moneyテーブル
 |Column        |Type       |Options           |
