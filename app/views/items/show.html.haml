@@ -3,7 +3,8 @@
   = render './bread_crumb'
   .default-container
     %section.item-box-container.l-single-container
-      %h1.item-name 正規品！COACH【コーチ】★★大きめ ミニシグネチャー ショルダーバッグ
+      %h1.item-name
+        = @item.item_name
       .item-main-content.clearfix
         .item-photo
           .owl-carousel.owl-loaded.owl-drag
@@ -11,7 +12,8 @@
               .owl-stage
                 .owl-item.active
                   .owl-item-inner
-                    = image_tag "/images/COACH1.jpeg", size: "300x300", alt: "コーチ"
+                    - @item.item_images.each do |item_image|
+                      = image_tag "#{item_image.item_image_src}", size: "300x300"
                 .owl-item
                   .owl-item-inner
                 .owl-item
@@ -20,22 +22,12 @@
                   .owl-item-inner.is-higher-width
             .owl-nav.disabred
             .owl-dots
-              .owl-dot
-                %span
-                .owl-dot-inner
-                  = image_tag "COACH4.jpeg", size: "75x75", class: "owl"
-              .owl-dot
-                %span
-                .owl-dot-inner
-                  = image_tag "COACH3.jpeg", size: "75x75", class: "owl"
-              .owl-dot
-                %span
-                .owl-dot-inner
-                  = image_tag "COACH2.jpeg", size: "75x75", class: "owl"
-              .owl-dot
-                %span
-                .owl-dot-inner
-                  = image_tag "/images/COACH1.jpeg", size: "75x75", class: "owl"
+              - @item.item_images.limit(4).each do |item_image|
+                .owl-dot
+                  %span
+                  .owl-dot-inner
+                    = image_tag "#{item_image.item_image_src}", size: "75x75", class: "owl"
+
         .item-price-box.text-center.visible-sp
           %span.item-price
           %span.item-tax
@@ -48,7 +40,8 @@
             %tr
               %th 出品者
               %td
-                = link_to "BOON!@90s古着トレジャーハンター", "https://www.mercari.com/jp/u/387561164/"
+                = link_to user_mypage_path(@item.user_id) do
+                  = @item.user.nickname
                 %div
                   .item-user-ratings
                     %i.fas.fa-grin.smile
@@ -62,47 +55,59 @@
             %tr
               %th カテゴリー
               %td
-                %a レディース
+                %a
+                - @item.categories.where(parent_id: 0).each do |category|
+                  = category.category_name
                 %a
                   .item-detail-table-sub-category
                     %i.fas.fa-angle-right.right
-                    バッグ
+                    - @item.categories.where(parent_id: 1..2).each do |category|
+                      = category.category_name
                 %a
                   .item-detail-table-sub-sub-category
                     %i.fas.fa-angle-right.right
-                    ショルダーバッグ
+                    - @item.categories.where(parent_id: 3..10).each do |category|
+                      = category.category_name
             %tr
               %th ブランド
-              %td
-                = link_to "コーチ", "https://www.mercari.com/jp/brand/539/"
+              - if @item.brands.present?
+                - @item.brands.each do |brand|
+                  %td #{brand.brand_name}
             %tr
               %th 商品の状態
-              %td やや傷や汚れあり
+              %td
+                = @item.quality
 
             %tr
               %th 配送料の負担
-              %td 送料込み(出品者負担)
+              %td
+                = @item.ship_burden
             %tr
               %th 配送の方法
-              %td 未定
+              %td
+                = @item.ship_method
             %tr
               %th 配送元地域
               %td
-                = link_to "大阪府", "https://www.mercari.com/jp/area/27/"
+                = link_to "#" do
+                  = @item.prefecture.prefecture_name
             %tr
               %th 発送日の目安
-              %td 1~2日で発送
+              %td
+                = @item.ship_date
 
       .item-price-box.text-center
-        %span.item-price ¥ 3,380
+        %span.item-price
+          = @item.price.to_s(:currency, unit: "¥", precision: 0)
         %span.item-tax (税込)
         %span.item-shipping-fee 送料込み
 
-      = link_to "購入画面に進む", new_order_path, class: "item-buy-btn f18-24"
+      = link_to "購入画面に進む", new_order_path(@item.id), class: "item-buy-btn f18-24"
       %a.item-btn-client
 
       .item-description.f14
         %p.item-description-inner
+          = @item.detail
 
       .item-button-container.clearfix
         .item-button-left
@@ -115,7 +120,7 @@
             %span 不適切な商品の報告
         .item-button-right
           .description-page
-            = link_to "https://www.mercari.com/jp/safe/description/" do
+            = link_to "#" do
               = fa_icon 'lock'
               %span あんしん・あんぜんへの取り組み
 
@@ -149,8 +154,8 @@
 .item-in-user-profile
   .items-profile.items-box-content.clearfix
     %h2.items-box-head.bold
-      = link_to href: "https://www.mercari.com/jp/u/387561164/", class: 'user-page-pro' do
-        BOON!@90s古着トレジャーハンターさんのその他の出品
+      = link_to "#", class: 'user-page-pro' do
+        #{@item.user.nickname}さんのその他の出品
         .item-boxes
           .item-box
             = link_to "#" do
