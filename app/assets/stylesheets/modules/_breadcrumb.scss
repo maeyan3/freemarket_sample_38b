@@ -1,0 +1,15 @@
+.pc-header-breadcrumbs{
+  border-top: #f5f5f5 solid 2px;
+  @include div_basic(100%, 50px, #fff);
+  @include font_basic(#333, 16px, null, 16px, left);
+  &__inner{
+    @include div_basic(1020px, 48px, #fff);
+    padding: 16px 10px;
+    margin: 0 auto;
+    a{
+      color: #333;
+      text-decoration: none;
+    }
+  }
+}
+

@@ -50,7 +50,7 @@ class PaymentsController < ApplicationController
   end
 
   def new
-    @payment = Payment.new
+    @credit = Credit.new
   end
 
   def create

@@ -93,8 +93,9 @@
               background-color: rgba(0, 0, 0, 0);
             }
             #modal_overlay{
+              z-index: 1;
               position: absolute;
-              top: 110%;
+              top: 745px;
               left: 63%;
               -webkit-transform: translate(-50%, -50%);
               display: none;

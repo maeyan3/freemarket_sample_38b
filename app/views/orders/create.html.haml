@@ -1,0 +1,46 @@
+.single-container
+  = render partial: "/subheader"
+
+  .l-single-container_head
+    .buy-content_confirm-inner_head
+      %i.far.fa-clock
+      %p.weit_delivery 発送をおまちください
+    %p.weit_message 出品者からの発送通知をお待ちください
+
+  .single-main
+    .l-single-container.buy-item-container
+      %h2.l-single-head 購入が完了しました
+      .buy-content_confirm.buy-item
+        .buy-content_confirm-inner
+          %h3.buy-item-image
+            = image_tag 'COACH1.jpeg',   size: "148x148"
+          %p.buy-item-name.bold ショルダーバッグ
+
+      .buy-content_confirm
+        %p.buy-price-ja ¥499
+        %span.item-shipping-fee 送料込み
+
+      .buy-content_confirm.buy-user-info
+        .buy-content_confirm-inner
+          %h3.shipping_address 配送先
+          %address.buy-user-info-text
+            〒123-4567
+            %br
+            大阪府あいう市ああああああ
+            %br
+            田中　太郎
+
+      .buy-content_confirm.buy-user-info
+        .after_delivery
+          %h3.after_delivery__title 発送通知後の流れ
+          = image_tag 'smile.png',   size: "156x41"
+          %pre.after_delivery__assessment
+            商品を受け取ったら
+            出品者の評価をしましょう。
+            購入代金が出品者に振り込まれます。
+            評価後に取引は完了です。
+        = link_to mypage_path, class: "return_mypage", method: :get do
+          %p マイページへもどる
+
+  .single-footer
+    = render partial: "/subfooter"
