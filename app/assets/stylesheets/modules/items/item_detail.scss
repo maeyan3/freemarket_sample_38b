@@ -130,7 +130,7 @@ body {
                 }
               }
               .owl-dot {
-                float: right;
+                float: left;
                 span {
                 }
                 .owl-dot-inner {
@@ -308,11 +308,12 @@ body {
       }
 
       .item-description.f14 {
-        padding: 32px 0 0;
+        padding: 0 15px;
         line-height: 1.5;
         font-size: 18px;
         p.item-description-inner {
           white-space: pre-wrap;
+          word-wrap: break-word;
         }
       }
       .item-button-container.clearfix {
@@ -671,49 +672,54 @@ body {
   }
 }
 
-.item-box {
-    margin-left: 15px;
-    background-color: #f5f5f5;
-    margin: 24px auto;
-    padding: 32px 0 24px;
-    width: 680px;
-    display: flex;
-    justify-content: space-between;
-  a:visited {
-    color: black;
-  }
-  a {
-    text-decoration: none;
-    .item-box-image {
-      width: 220px;
-      height: 220px;
+.item-boxes{
+  .item-box {
+      flex-flow: row wrap;
+      margin-left: 15px;
+      background-color: #f5f5f5;
+      margin: 24px auto;
+      padding: 32px 0 24px;
+      width: 680px;
+      display: flex;
+      justify-content: flex-start;
+    a:visited {
+      color: black;
     }
-    .item-box-content {
-      @include div_basic(220px, 110px, #fff);
-      padding: 1em;
-      padding-bottom: 0;
-      &__name {
-        font-size: 16px;
-        height: 50px;
+    a {
+      margin-left: 5px;
+      text-decoration: none;
+      .item-box-image {
+        width: 220px;
+        height: 220px;
       }
-      .item-info {
-        display: flex;
-        justify-content: space-between;
-        .price-box {
-          &__price {
-            @include font_basic(black, 20px, bold);
-          }
-          &__tax {
-            font-size: 10px;
-          }
+      .item-box-content {
+        @include div_basic(220px, 110px, #fff);
+        padding: 1em;
+        padding-bottom: 0;
+        margin-bottom: 20px;
+        &__name {
+          font-size: 16px;
+          height: 30px;
         }
-        .likes-box {
-          line-height: 35px;
-          i {
-            @include font_basic(#ccc, 20px);
+        .item-info {
+          display: flex;
+          justify-content: space-between;
+          .price-box {
+            &__price {
+              @include font_basic(black, 20px, bold);
+            }
+            &__tax {
+              font-size: 10px;
+            }
           }
-          span {
-            font-size: 16px;
+          .likes-box {
+            line-height: 35px;
+            i {
+              @include font_basic(#ccc, 20px);
+            }
+            span {
+              font-size: 16px;
+            }
           }
         }
       }
