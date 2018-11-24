@@ -682,10 +682,8 @@ body {
       width: 680px;
       display: flex;
       justify-content: flex-start;
-    a:visited {
+    a, a:visited {
       color: black;
-    }
-    a {
       margin-left: 5px;
       text-decoration: none;
       .item-box-image {

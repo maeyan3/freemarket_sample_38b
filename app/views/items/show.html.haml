@@ -13,7 +13,7 @@
                 .owl-item.active
                   .owl-item-inner
                     - @item.item_images.each do |item_image|
-                      = image_tag "#{item_image.item_image_src}", size: "300x300"
+                      = image_tag "#{item_image.item_image_src}", size: "300x300", id: "main_image"
                 .owl-item
                   .owl-item-inner
                 .owl-item
