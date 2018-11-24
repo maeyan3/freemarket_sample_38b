@@ -102,7 +102,7 @@
         %span.item-tax (税込)
         %span.item-shipping-fee 送料込み
 
-      = link_to "購入画面に進む", new_order_path(@item.id), class: "item-buy-btn f18-24"
+      = link_to "購入画面に進む", new_order_path(@item), class: "item-buy-btn f18-24"
       %a.item-btn-client
 
       .item-description.f14
@@ -158,42 +158,21 @@
         #{@item.user.nickname}さんのその他の出品
         .item-boxes
           .item-box
-            = link_to "#" do
-              = image_tag "/images/COACH1.jpeg", size: "220x220", alt: "コーチ"
-              .item-box-content
-                %h4.item-box-content__name
-                .item-info
-                  .price-box
-                    %p.price-box__price
-                      = 100000.to_s(:currency, unit: "¥", precision: 0)
-                    %p.price-box__tax (税込)
-                  .likes-box
-                    %i{ class: "far fa-heart" }
-                    %span 100
-            = link_to "#" do
-              = image_tag "/images/COACH1.jpeg", size: "220x220", alt: "コーチ"
-              .item-box-content
-                %h4.item-box-content__name
-                .item-info
-                  .price-box
-                    %p.price-box__price
-                      = 50000.to_s(:currency, unit: "¥", precision: 0)
-                    %p.price-box__tax (税込)
-                  .likes-box
-                    %i{ class: "far fa-heart" }
-                    %span 100
-            = link_to "#" do
-              = image_tag "/images/COACH1.jpeg", size: "220x220", alt: "コーチ"
-              .item-box-content
-                %h4.item-box-content__name
-                .item-info
-                  .price-box
-                    %p.price-box__price
-                      = 10000.to_s(:currency, unit: "¥", precision: 0)
-                    %p.price-box__tax (税込)
-                  .likes-box
-                    %i{ class: "far fa-heart" }
-                    %span 100
+            - @items.where.not(id: @item.id).each do |item|
+              = link_to item_path(item) do
+                = image_tag "#{item.item_images[0].item_image_src}", size: "220x220"
+                .item-box-content
+                  %h4.item-box-content__name
+                    = item.item_name
+                  .item-info
+                    .price-box
+                      %p.price-box__price
+                        = item.price.to_s(:currency, unit: "¥", precision: 0)
+                      %p.price-box__tax (税込)
+                    .likes-box
+                      %i{ class: "far fa-heart" }
+                      %span 100
+
 
 
 
