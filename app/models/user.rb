@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_one :credit
+  has_many :sales_moneys
 
   validates :nickname, presence: true, length: { in: 1..20 }
   validates :email, presence: true, length: { in: 4..255 }
