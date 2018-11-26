@@ -3,24 +3,23 @@ class UserconfirmsController < ApplicationController
   before_action :move_to_index, except: :index
 
   def index
-    @user_details = UserDetail.all
+    @user_detail = UserDetail.all
 
   end
 
   def new
-    @users = UserDetail.new
-    @address = Address.find(params[:address_id])
+    @address     = Address.find_or_initialize_by(user_id: current_user.id)
+    @user_detail = UserDetail.find_or_initialize_by(user_id: current_user.id)
   end
 
   def create
-    @address = Address.find(params[:address_id])
-    @users = UserDetail.new(users_params)
-    @users.save
-    redirect_to new_address_userconfirm_path(@address)
-
+    @address = Address.find_by(user_id: current_user.id)
+    @user_detail = UserDetail.find_or_initialize_by(user_id: current_user.id)
+    @user_detail.update(users_params)
+    render :new
   end
 
- private
+  private
     def users_params
       params.require(:user_detail).permit(:birth_day, :birth_month, :birth_year).merge(user_id: current_user.id,address_id: @address.id)
     end

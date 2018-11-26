@@ -64,21 +64,30 @@
     text-align: center;
     border-bottom: 2px solid #f5f5f5;;
   }
-  .address-form-content {
-    padding: 64px;
-    .address-form-with {
-      width: 320px;
-      margin: 0 auto;
-      .address-form-box {
-        &__submit {
-          @include div_basic(320px, 48px, $red);
-          color: white;
-        }
-        &__submit:hover{
-          cursor:pointer;
-          opacity:0.8;
+  .flash {
+    font-size:20px;
+    color:green;
+    background-color:#D0F0D0;
+    font-size:20px;
+    text-align:center;
+  }
+    .address-form-content {
+      padding: 64px;
+      .address-form-with {
+        width: 320px;
+        margin: 0 auto;
+        .address-form-box {
+          &__submit {
+            @include div_basic(320px, 48px, $red);
+            color: white;
+          }
+          &__submit:hover{
+            cursor:pointer;
+            opacity:0.8;
+          }
         }
       }
     }
-  }
 }
+
+

@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
+  before_action :user_confirmed?, only: %i[new create]
+
   def index
     @items = Item.all.includes(:item_images).order("created_at DESC")
   end
@@ -25,5 +27,10 @@ class ItemsController < ApplicationController
                                  :quality, :prefecture_id, brand_ids: [],
                                  item_images_attributes: [:item_image_src],
                                  size_ids: [], category_ids: [] ).merge(status: 0, user_id: current_user.id)
+  end
+
+  def user_confirmed?
+    return true if current_user.user_detail
+    redirect_to new_user_userconfirm_path(current_user.id)
   end
 end
