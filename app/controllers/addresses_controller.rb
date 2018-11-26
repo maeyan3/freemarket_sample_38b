@@ -1,5 +1,5 @@
 class AddressesController < ApplicationController
-before_action :set_address
+before_action :set_address, only: [:new,:create]
 
   def index
      @address = Address.all
@@ -39,8 +39,10 @@ before_action :set_address
 
   def address_params
     params.require(:address).
-    permit(:first_name, :last_name, :first_name_reading, :last_name_reading, :postal_code, :city,:block, :prefecture_id).
-    merge(user_id: current_user.id)
+    permit(:first_name, :last_name, :first_name_reading,
+           :last_name_reading, :postal_code,
+           :city,:block, :prefecture_id).
+            merge(user_id: current_user.id)
   end
 
 
