@@ -115,5 +115,24 @@ describe User do
       expect(user.errors[:profile][0]).to include("is too long")
     end
 
+    it 'uidとproviderの組み合わせが既に存在すると保存できない' do
+      first_user = create(:user)
+      second_user = build(:user, email: "second@gmail.com", uid: first_user.uid, provider: first_user.provider)
+      second_user.valid?
+      expect(second_user.errors[:uid][0]).to include("has already been taken")
+    end
+
+    it 'providerが同じでもuidが違えば保存できる' do
+      first_user = create(:user)
+      second_user = build(:user, email: "second@gmail.com", provider: first_user.provider)
+      expect(second_user).to be_valid
+    end
+
+    it 'uidが同じでもproviderが違えば保存できる' do
+      first_user = create(:user)
+      second_user = build(:user, email: "second@gmail.com", uid: first_user.uid, provider: "google_oauth2")
+      expect(second_user).to be_valid
+    end
+
   end
 end
