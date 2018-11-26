@@ -17,5 +17,13 @@ module Card
     customer = Payjp::Customer.create(card: token.id)
   end
 
+  def create_charge(price)
+    customer_id = Credit.find_by(user_id: current_user.id).customer_id
+    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+    Payjp::Charge.create(
+      amount: price,
+      customer: customer_id,
+      currency: 'jpy',
+    )
+  end
 end
-

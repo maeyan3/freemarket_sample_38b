@@ -10,14 +10,14 @@ class OrdersController < ApplicationController
 
   def new
     @order = Order.new
+    @item = Item.find(params[:item_id])
   end
 
   def create
-    create_charge
+    @item = Item.find(params[:item_id])
+    create_charge(@item.price)
     @order = Order.new
-
-    rescue Payjp::CardError
-      redirect_to new_item_path
+    @sales_money = SalesMoney.new
 
     redirect_to root_path
   end
