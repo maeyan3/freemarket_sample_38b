@@ -124,8 +124,6 @@ describe Address do
         expect(address).to be_valid
       end
 
-
-
     end
   end
 end
