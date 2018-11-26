@@ -10,8 +10,8 @@
             %span.registration_mail メールアドレスで登録
           %button#facebook-login.btn-default.btn-sns.btn-sns-facebook
             %i.fab.fa-facebook
-            = link_to "Facebookで登録"
+            = link_to "Facebookで登録", user_facebook_omniauth_authorize_path
           %button#google-login.btn-default.btn-sns.btn-sns-google
             %i.fab.fa-google-plus-g
-            Googleで登録
+            = link_to "Googleで登録", user_google_oauth2_omniauth_authorize_path
   = render partial: './subfooter'
