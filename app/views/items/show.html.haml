@@ -158,7 +158,7 @@
         #{@item.user.nickname}さんのその他の出品
         .item-boxes
           .item-box
-            - @items.where.not(id: @item.id).each do |item|
+            - @items.each do |item|
               = link_to item_path(item) do
                 = image_tag "#{item.item_images[0].item_image_src}", size: "220x220"
                 .item-box-content
