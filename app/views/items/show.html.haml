@@ -44,13 +44,13 @@
                   = @item.user.nickname
                 %div
                   .item-user-ratings
-                    %i.fas.fa-grin.smile
+                    = fa_icon 'smile', class: "smile"
                     %span 536
                   .item-user-ratings
-                    %i.fas.fa-meh.meh
+                    = fa_icon 'meh', class: "meh"
                     %span 20
                   .item-user-ratings
-                    %i.fas.fa-tired.bad
+                    = fa_icon 'frown', class: "bad"
                     %span 3
             %tr
               %th カテゴリー
@@ -60,12 +60,12 @@
                   = category.category_name
                 %a
                   .item-detail-table-sub-category
-                    %i.fas.fa-angle-right.right
+                    = fa_icon 'angle-right', class: "right"
                     - @item.categories.where(parent_id: 1..2).each do |category|
                       = category.category_name
                 %a
                   .item-detail-table-sub-sub-category
-                    %i.fas.fa-angle-right.right
+                    = fa_icon 'angle-right', class: "right"
                     - @item.categories.where(parent_id: 3..10).each do |category|
                       = category.category_name
             %tr
@@ -170,7 +170,7 @@
                         = item.price.to_s(:currency, unit: "¥", precision: 0)
                       %p.price-box__tax (税込)
                     .likes-box
-                      %i{ class: "far fa-heart" }
+                      = fa_icon 'heart'
                       %span 100
 
 

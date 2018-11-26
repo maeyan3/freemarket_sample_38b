@@ -181,7 +181,7 @@ body {
                   .item-user-ratings {
                     text-align: left;
                     display: inline-block;
-                    .fas.fa-grin.smile {
+                    .smile {
                       font-size: 16px;
                       vertical-align: middle;
                       color: #ef5185;
@@ -194,7 +194,7 @@ body {
                     margin: 8px 0 0 0 ;
                     vertical-align: middle;
                     display: inline-block;
-                    .fas.fa-meh.meh {
+                    .meh {
                       color: #fba933;
                       font-size: 16px;
                     }
@@ -203,7 +203,7 @@ body {
 
                   }
                   .item-user-ratings {
-                    .fas.fa-tired.bad {
+                    .bad {
                       color: #6ab5d8;
                       font-size: 16px;
                     }
@@ -221,15 +221,17 @@ body {
                 }
                 a {
                   .item-detail-table-sub-category {
-                    .fas.fa-angle-right.right {
+                    .right {
                       color: #0099e8;
+                      font-weight: bold;
                     }
                   }
                 }
                 a {
                   .item-detail-table-sub-sub-category {
-                    .fas.fa-angle-right.right {
+                    .right {
                       color: #0099e8;
+                      font-weight: bold;
                     }
                   }
                 }
