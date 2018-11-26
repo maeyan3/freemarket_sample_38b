@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-
+  include Card
   def index
 
   end
@@ -13,13 +13,12 @@ class OrdersController < ApplicationController
   end
 
   def create
-    customer_id = Credit.find_by(user_id: current_user.id).customer_id
-    Payjp.api_key = PAYJP_SECRET_KEY
-    Payjp::Charge.create(
-      amount: 5000,
-      customer: customer_id,
-      currency: 'jpy',
-    )
+    create_charge
+    @order = Order.new
+
+    rescue Payjp::CardError
+      redirect_to new_item_path
+
     redirect_to root_path
   end
 end

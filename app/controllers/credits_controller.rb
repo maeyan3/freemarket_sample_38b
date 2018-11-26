@@ -1,6 +1,7 @@
 class CreditsController < ApplicationController
+  include Card
   def index
-    @credits = Credit.all
+    @credit = current_user.credit
   end
 
   def new
@@ -8,30 +9,16 @@ class CreditsController < ApplicationController
   end
 
   def create
-    Payjp.api_key = 'sk_test_ca3e7381a8b04f1c369683e7'
-
-    #トークン作成
-    number = params[:credit][:number]
-    cvc = params[:credit][:cvc]
-    exp_month = params[:credit][:month]
-    exp_year = "20" + params[:credit][:year]
-    token = Payjp::Token.create(
-      {card: {
-              number: number,
-              cvc: cvc,
-              exp_month: exp_month,
-              exp_year: exp_year,
-            }},
-      'X-Payjp-Direct-Token-Generate': 'true'
-    )
-    # 顧客の作成
-    customer = Payjp::Customer.create(card: token.id)
-    #トークンとアプリのユーザーの紐付け
-    @credit = Credit.new(user_id: current_user.id, customer_id: customer.id)
-    @credit.save
-    # # カードエラー発生時
-    rescue Payjp::CardError
-    render 'new'
+    unless current_user.credit.present?
+      @credit = Credit.new(user_id: current_user.id, customer_id: create_customer.id)
+      if @credit.save
+        render :index
+      else
+        render :new
+      end
+    else
+      redirect_to credits_path
+    end
   end
 
   def destroy
