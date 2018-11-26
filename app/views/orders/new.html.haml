@@ -11,7 +11,7 @@
           %p.buy-item-name.bold ショルダーバッグ
 
           .buy-form
-            = form_with do |f|
+            = form_with model: @order, url: item_orders_path, local: true do |f|
               %p.buy-price-ja_yen_sign ¥
               %p.buy-price-ja 499
               %span.item-shipping-fee 送料込み
@@ -57,7 +57,7 @@
             %br
             大阪府あいう市ああああああ
             %br
-            田中　太郎
+            田中 太郎
           %p
           /TODO edit_user_address_path(current_user, @address)
           = link_to '/', class: "buy-user-info-fix" do

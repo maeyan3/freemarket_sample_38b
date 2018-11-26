@@ -2,9 +2,10 @@ Rails.application.routes.draw do
   devise_for :users
   root 'items#index'
   get  'items/search_brand' => 'items#search_brand'
-  resources :items, only: [:index, :new, :create, :show]
+  resources :items, only: [:index, :new, :create, :show] do
+    resources :orders,  only: [:new, :create]
+  end
   resources :credits, only: [:index, :new, :create, :destroy]
-  resources :orders,  only: [:new, :create]
 
   post 'orders/pay' => 'orders#pay'
   get 'orders/pay' => 'orders#pay'

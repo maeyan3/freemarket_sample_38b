@@ -11,23 +11,25 @@ class CreditsController < ApplicationController
     Payjp.api_key = 'sk_test_ca3e7381a8b04f1c369683e7'
 
     #トークン作成
+    number = params[:credit][:number]
+    cvc = params[:credit][:cvc]
+    exp_month = params[:credit][:month]
+    exp_year = "20" + params[:credit][:year]
     token = Payjp::Token.create(
-      card: {
-        number: params[:number],
-        cvc: params[:cvc],
-        exp_month: params[:exp_month],
-        exp_year: params[:exp_year],
-        name: params[:name]
-      },
+      {card: {
+              number: number,
+              cvc: cvc,
+              exp_month: exp_month,
+              exp_year: exp_year,
+            }},
       'X-Payjp-Direct-Token-Generate': 'true'
     )
-    #顧客の作成
+    # 顧客の作成
     customer = Payjp::Customer.create(card: token.id)
-
     #トークンとアプリのユーザーの紐付け
-    @credit = Credit.new(customer_id: customer.id)
-    binding.pry
-    # カードエラー発生時
+    @credit = Credit.new(user_id: current_user.id, customer_id: customer.id)
+    @credit.save
+    # # カードエラー発生時
     rescue Payjp::CardError
     render 'new'
   end

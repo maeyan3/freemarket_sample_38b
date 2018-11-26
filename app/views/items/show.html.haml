@@ -102,7 +102,7 @@
         = form_tag "/orders/pay", method: :post do
           %script.payjp-button{"data-key" => PAYJP_PUBLIC_KEY, "data-text" => "購入画面に進む",:src => "https://checkout.pay.jp", :type => "text/javascript"}
 
-      = link_to "購入画面に進む", new_order_path, class: "item-buy-btn f18-24"
+      = link_to "購入画面に進む", new_item_order_path(@item), class: "item-buy-btn f18-24"
       %a.item-btn-client
 
       .item-description.f14
