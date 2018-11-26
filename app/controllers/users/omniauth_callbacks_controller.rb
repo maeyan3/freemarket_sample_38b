@@ -1,5 +1,4 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
-  include Devise::Controllers::Rememberable
 
   def facebook
     @user = User.find_for_facebook_oauth(request.env["omniauth.auth"], current_user)
