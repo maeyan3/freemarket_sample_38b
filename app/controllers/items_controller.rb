@@ -19,6 +19,7 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @items = Item.seller(@item.user_id, @item.id).limit(6).order("RAND()")
   end
 
   def create
