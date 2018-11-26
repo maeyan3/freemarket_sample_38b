@@ -11,7 +11,7 @@
               .owl-stage
                 .owl-item.active
                   .owl-item-inner
-                    = image_tag "COACH1.jpeg", size: "300x300", alt: "コーチ"
+                    = image_tag "/images/COACH1.jpeg", size: "300x300", alt: "コーチ"
                 .owl-item
                   .owl-item-inner
                 .owl-item
@@ -23,19 +23,19 @@
               .owl-dot
                 %span
                 .owl-dot-inner
-                  = image_tag "COACH4.jpeg", size: "75x75", class: "owl"
+                  = image_tag "COACH4.jpg", size: "75x75", class: "owl"
               .owl-dot
                 %span
                 .owl-dot-inner
-                  = image_tag "COACH3.jpeg", size: "75x75", class: "owl"
+                  = image_tag "COACH3.jpg", size: "75x75", class: "owl"
               .owl-dot
                 %span
                 .owl-dot-inner
-                  = image_tag "COACH2.jpeg", size: "75x75", class: "owl"
+                  = image_tag "COACH2.jpg", size: "75x75", class: "owl"
               .owl-dot
                 %span
                 .owl-dot-inner
-                  = image_tag "COACH1.jpeg", size: "75x75", class: "owl"
+                  = image_tag "/images/COACH1.jpeg", size: "75x75", class: "owl"
         .item-price-box.text-center.visible-sp
           %span.item-price
           %span.item-tax
@@ -98,7 +98,7 @@
         %span.item-tax (税込)
         %span.item-shipping-fee 送料込み
 
-      %a.item-buy-btn.f18-24 購入画面に進む
+      = link_to "購入画面に進む", new_order_path, class: "item-buy-btn f18-24"
       %a.item-btn-client
 
       .item-description.f14
@@ -154,7 +154,7 @@
         .item-boxes
           .item-box
             = link_to "#" do
-              = image_tag "COACH1.jpeg", size: "220x220", alt: "コーチ"
+              = image_tag "/images/COACH1.jpeg", size: "220x220", alt: "コーチ"
               .item-box-content
                 %h4.item-box-content__name
                 .item-info
@@ -166,7 +166,7 @@
                     %i{ class: "far fa-heart" }
                     %span 100
             = link_to "#" do
-              = image_tag "COACH1.jpeg", size: "220x220", alt: "コーチ"
+              = image_tag "/images/COACH1.jpeg", size: "220x220", alt: "コーチ"
               .item-box-content
                 %h4.item-box-content__name
                 .item-info
@@ -178,7 +178,7 @@
                     %i{ class: "far fa-heart" }
                     %span 100
             = link_to "#" do
-              = image_tag "COACH1.jpeg", size: "220x220", alt: "コーチ"
+              = image_tag "/images/COACH1.jpeg", size: "220x220", alt: "コーチ"
               .item-box-content
                 %h4.item-box-content__name
                 .item-info

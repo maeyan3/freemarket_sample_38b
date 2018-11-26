@@ -9,7 +9,7 @@ body{
     height:90px;
     background-repeat: no-repeat;
     margin: 0;
-    padding: 0;
+    padding: 0 0 10px;
     background-color:$white;
     .pc-header-inner{
       width:1020px;
@@ -73,6 +73,29 @@ h1.l.left {
     nav.l-left{
       ul.pc-header-nav{
         list-style:none;
+        padding-bottom: 5px;
+        .right-nav {
+          float: right;
+          width: 120px;
+          a, a:link, a:visited, a:hover {
+            color: inherit;
+            text-decoration: none;
+            display: block;
+            border-radius: 5px;
+            float: right;
+            padding: 0 0.5em;
+          }
+          &__registration {
+            width: 90px;
+            height: 30px;
+            border: 1px solid $blue;
+            color: $blue !important;
+          }
+          &__login {
+            background-color: $red;
+            color: white !important;
+          }
+        }
         li.two{
         }
         ul.pc-header-nav-parent-wrap{
