@@ -25,10 +25,6 @@ before_action :set_address, only: [:new,:create]
 
 
   private
-  def check_user
-    redirect_to root_path if params[:user_id] != current_user.id
-  end
-
   def address_params
     params.require(:address).
     permit(:first_name, :last_name, :first_name_reading,
