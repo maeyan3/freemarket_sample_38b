@@ -30,6 +30,8 @@ class Item < ApplicationRecord
   validates :status,       presence: true, inclusion: { in: Item.statuses.keys }
 
 
+  scope :seller, ->(user_id,item_id) { where(user_id: user_id).where.not(id: item_id)}
+
   def sizes_present?
     self.sizes.present?
   end
