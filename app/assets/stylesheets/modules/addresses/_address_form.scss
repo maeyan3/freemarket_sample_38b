@@ -1,11 +1,14 @@
-.l-container-clearfix{
-  padding-bottom:0px;
   .flash{
+    @include div_basic(100%, 40px);
     background-color:#D0F0D0;
     color:green;
     text-align:center;
+    line-height: 40px;
     font-size:20px;
+    float: left;
+    z-index: 0;
  }
+
   // 入力フォーム共通
   .address-form-box {
     margin-bottom: 2em;
@@ -90,6 +93,5 @@
         }
       }
   }
-}
 
 

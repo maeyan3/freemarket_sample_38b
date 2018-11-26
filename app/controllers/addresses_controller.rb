@@ -23,14 +23,6 @@ before_action :set_address, only: [:new,:create]
      @address = Address.find_or_initialize_by(user_id: current_user.id)
   end
 
-  def edit
-    # check_user
-    @prefectures = Prefecture.all
-  end
-
-  def update
-
-  end
 
   private
   def check_user

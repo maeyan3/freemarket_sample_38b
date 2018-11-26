@@ -1,9 +1,5 @@
 .address-form-wrapper
   %h2.address-form-wrapper__title 住所変更
-  %p.address-form-wrapper__flash
-  - if flash[:notice]
-    .flash
-      = flash[:notice]
   .address-form-content
     = form_with model: @address, url: user_addresses_path(current_user), method: :post, class: "address-form-with", local: true do |f|
       .address-form-box.address-name
