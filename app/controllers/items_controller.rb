@@ -42,7 +42,9 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-
+    @items = Item.find(params[:id])
+    @items.destroy
+    redirect_to listings_path(current_user)
   end
 
   def search_brand
