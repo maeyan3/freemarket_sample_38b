@@ -76,6 +76,38 @@ describe ItemsController, type: :controller do
 
     end
 
+  describe 'Get #edit' do
+     it "assigns the requested item to @items" do
+       item = create(:item)
+       get :edit, id: item
+      expect(assigns(:item)).to be_a_new(Item)
+    end
+
+     it "assigns the requested item to @categories" do
+       expect(assigns(:categories)).to eq(categories)
+    end
+
+     it "assigns the requested item to @sizes" do
+       expect(assigns(:sizes)).to eq(sizes)
+    end
+
+     it "assigns the requested item to @barands" do
+       expect(assigns(:brands)).to eq(brands)
+    end
+
+     it "assigns the requested item to @prefectures" do
+       expect(assigns(:prefectures)).to eq(prefectures)
+    end
+
+    it "renders the :edit template" do
+      item = create(:item)
+      get :edit, id: item
+      expect(response).to render_template :edit
+    end
+
+  end
+
+
     context '未ログイン' do
       it 'new_user_sesssion_pathにリダイレクトされるか' do
         get :new
@@ -125,6 +157,7 @@ describe ItemsController, type: :controller do
         expect(response).to redirect_to(new_user_session_path)
       end
     end
+
   end
 
 end
