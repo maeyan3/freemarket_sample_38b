@@ -1,1 +1,9 @@
-addresses#new
+= render './header'
+= render './bread_crumb'
+- if flash[:notice]
+  .flash
+    = flash[:notice]
+.l-container-clearfix
+  = render 'address_form'
+  = render './users/l-side'
+= render './footer'
