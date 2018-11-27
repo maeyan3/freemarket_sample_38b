@@ -24,7 +24,7 @@
             出品する
             %i.fas.fa-angle-right
         %li
-          %a.mypage-nav-list-item
+          = link_to listings_path(current_user), class: "mypage-nav-list-item" do
             出品した商品 - 出品中
             %i.fas.fa-angle-right
         %li
