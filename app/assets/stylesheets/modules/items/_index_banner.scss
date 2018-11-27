@@ -29,6 +29,16 @@
 .slide-box {
   .slider {
     &__list {
+      &--image1 {
+        background-image: image-url("/images/top-banner-1.png");
+        background-position: center center;
+        height: 390px;
+      }
+      &--image2 {
+        background-image: image-url("/images/top-banner-2.png");
+        background-position: center center;
+        height: 390px;
+      }
       .main-banner {
         width: 100vw;
         background-image: image-url("/images/main_bg_pc.jpg");
