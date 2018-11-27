@@ -1,7 +1,7 @@
 = render './header'
 = render './bread_crumb'
 .l-container-clearfix
-  .right-content
+  .right-content-items
     .auction_item_header
       %h2.title 出品した商品
     .auction_item_main
@@ -15,8 +15,8 @@
         %li.auction_item_tabs__list
           %h3.change_btn
             売却済み
-      .tab-contents
 
+      .tab-contents
         - if @items.present?
           - @items.each do |item|
             .item-list

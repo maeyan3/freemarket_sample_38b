@@ -1,7 +1,8 @@
 
 .l-container-clearfix{
-
-  .right-content{
+  .right-content-items{
+    @include div_basic(700px, null, #fff);
+    float: right;
     .auction_item_header{
       .title{
         margin: 40px 20px;
@@ -32,7 +33,6 @@
       }
 
       .tab-contents{
-        padding: 20px;
         .item-list{
           padding: 15px;
           border-bottom: 1px solid $grey;
@@ -43,7 +43,7 @@
             top: 15px;
             left: 105px;
           }
-          .item-list__link{
+          &__link{
             @include font_basic(#fff, 14px, bold);
             padding: 2px 4px;
             vertical-align: top;
@@ -61,9 +61,20 @@
             left: 155px;
           }
         }
+
       }
+      .item-paginate{
+          padding: 20px;
+          @include font_basic(null, 18px, bold, 58px, center);
+      }
+      a:link, a:visited, a:hover, a:active{
+        color: #888;
+        text-decoration: none;
+      }
+
     }
 
   }
-
 }
+
+
