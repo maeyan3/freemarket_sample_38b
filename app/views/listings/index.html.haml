@@ -1,11 +1,30 @@
 = render './header'
 = render './bread_crumb'
 .l-container-clearfix
-  - if @items.present?
-    - @items.each do |item|
-      = item.item_name
-      = link_to '編集', edit_item_path(item)
-      = link_to '削除', destroy_item_path(item), method: :delete, data: { confirm: '削除しますか？' }
-      %br
+  .right-content
+    .auction_item_header
+      %h2.title 出品した商品
+    .auction_item_main
+      %ul.auction_item_tabs
+        %li.auction_item_tabs__list
+          %h3.change_btn.is-active
+            出品中
+        %li.auction_item_tabs__list
+          %h3.change_btn
+            取引中
+        %li.auction_item_tabs__list
+          %h3.change_btn
+            売却済み
+      .tab-contents
+
+        - if @items.present?
+          - @items.each do |item|
+            .item-list
+              = image_tag "#{item.item_images[0].item_image_src}", size: "50x50", class: "item-image"
+              .item-name
+                = item.item_name
+              = link_to '編集', edit_item_path(item), class: "item-list__link edit-item"
+              = link_to '削除', destroy_item_path(item), method: :delete, data: { confirm: '削除しますか？' }, class: "item-list__link delete-item"
+              %br
   = render './users/l-side'
 = render './footer'
