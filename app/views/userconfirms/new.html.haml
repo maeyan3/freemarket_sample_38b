@@ -9,27 +9,31 @@
       .address-label-box.label-box
         %span.label-box__label 住所
         %span.label-box__require 必須
-      %p.address-box__postal-code 〒123-4567
-      %p.address-box__address 大阪府大阪市天王寺区3-2-1
-      %p.address-box__name 山田太郎
-      /TODO リンク先 @addressのidを渡す
-      = link_to '編集', edit_user_address_path(id: 1)
-    = form_with do |f|
+      %p.address-box__postal-code
+        = @address.postal_code
+      %p.address-box__address
+        = @address.city
+        = @address.block
+      %p.address-box__name
+        = @address.last_name
+        = @address.first_name
+      = link_to '編集', new_user_address_path
+    = form_with model: @user_detail, url: user_userconfirms_path, method: :post, class: "address-form-with", local: true do |f|
       .birth-box
         .birth-label-box.label-box
           %span.label-box__label 生年月日
           %span.label-box__require 必須
         .birthday-form
           .select-box
-            = f.select :birth_year, options_for_select((1900..2018).map{|n| ["#{n}", n]}), prompt: "---"
+            = f.select :birth_year, options_for_select((1900..2018).map{|n| ["#{n}", n]}, selected: @user_detail.birth_year), prompt: "---"
             %i.fas.fa-angle-down.select-box__arrow
           %span.birthday-form__text 年
           .select-box
-            = f.select :birth_month, options_for_select((1..12).map{|n| ["#{n}", n]}), prompt: "---"
+            = f.select :birth_month, options_for_select((1..12).map{|n| ["#{n}", n]}, selected: @user_detail.birth_month), prompt: "---"
             %i.fas.fa-angle-down.select-box__arrow
           %span.birthday-form__text 月
           .select-box
-            = f.select :birth_day, options_for_select((1..31).map{|n| ["#{n}", n]}), prompt: "---"
+            = f.select :birth_day, options_for_select((1..31).map{|n| ["#{n}", n]}, selected: @user_detail.birth_day), prompt: "---"
             %i.fas.fa-angle-down.select-box__arrow
           %span.birthday-form__text 日
         %p.birth-box__notice ※出品されたことがある、本人情報未登録のお客さまもご対象となります。

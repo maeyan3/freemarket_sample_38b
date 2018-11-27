@@ -80,6 +80,10 @@
         background-color: $red;
         color: white;
       }
+      &__submit:hover{
+        cursor:pointer;
+        opacity:0.8;
+      }
     }
   }
   &__about-register {

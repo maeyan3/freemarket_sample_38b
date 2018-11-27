@@ -1,13 +1,13 @@
 class Item < ApplicationRecord
   enum status: [:listing, :pending_delivary, :pending_recieve, :pending_evalute, :completed, :stop_listing]
 
-  has_many :item_comments,    dependent: :destroy
+  # has_many :item_comments,    dependent: :destroy
   has_many :item_images  ,    dependent: :destroy
   has_many :items_categories, dependent: :destroy
   has_many :categories, through: :items_categories
   has_many :items_sizes, dependent: :destroy
   has_many :sizes, through: :items_sizes
-  has_many :likes,        dependent: :destroy
+  # has_many :likes,        dependent: :destroy
   has_many :items_brands, dependent: :destroy
   has_many :brands, through: :items_brands
   has_one  :order
@@ -29,6 +29,8 @@ class Item < ApplicationRecord
                                                            less_than_or_equal_to: 9999999 }
   validates :status,       presence: true, inclusion: { in: Item.statuses.keys }
 
+
+  scope :seller, ->(user_id,item_id) { where(user_id: user_id).where.not(id: item_id)}
 
   def sizes_present?
     self.sizes.present?
