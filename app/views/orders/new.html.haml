@@ -7,14 +7,12 @@
       .buy-content_confirm.buy-item
         .buy-content_confirm-inner
           %h3.buy-item-image
-            = image_tag '/images/COACH1.jpeg',   size: "148x148"
-          %p.buy-item-name.bold ショルダーバッグ
-
+            = image_tag "#{@item.item_images[0].item_image_src}",   size: "148x148"
+          %p.buy-item-name.bold= @item.item_name
           .buy-form
             = form_with model: @order, url: item_orders_path(@item), local: true do |f|
-              %p.buy-price-ja_yen_sign ¥
-              %p.buy-price-ja 499
-              %span.item-shipping-fee 送料込み
+              %p.buy-price-ja= @item.price.to_s(:currency, unit: "¥", precision: 0)
+              %span.item-shipping-fee= @item.ship_burden
               %ul.buy-accordion
                 %li.accordion-parent
 
@@ -45,8 +43,7 @@
                   .buy-price-cell_1
                     支払い金額
                   .buy-price-cell_2
-                    %p.yen_sign ¥
-                    %p.total_price 499
+                    %p.total_price= @item.price.to_s(:currency, unit: "¥", precision: 0)
                 = f.submit '購入する', class: 'btn-default btn-red'
 
       .buy-content_confirm.buy-user-info

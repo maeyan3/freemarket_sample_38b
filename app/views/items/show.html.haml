@@ -101,10 +101,7 @@
           = @item.price.to_s(:currency, unit: "¥", precision: 0)
         %span.item-tax (税込)
         %span.item-shipping-fee 送料込み
-
-      %a.item-buy-btn.f18-24
       = link_to "購入画面に進む", new_item_order_path(@item), class: "item-buy-btn f18-24"
-      %a.item-btn-client
 
       .item-description.f14
         %p.item-description-inner
