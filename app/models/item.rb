@@ -10,7 +10,7 @@ class Item < ApplicationRecord
   # has_many :likes,        dependent: :destroy
   has_many :items_brands, dependent: :destroy
   has_many :brands, through: :items_brands
-  has_one  :order
+  has_many :orders
   belongs_to :user
   belongs_to :prefecture
   accepts_nested_attributes_for :item_images

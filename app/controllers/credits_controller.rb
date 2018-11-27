@@ -1,6 +1,7 @@
 class CreditsController < ApplicationController
+  include Card
   def index
-    @credits = Credit.all
+    @credit = current_user.credit
   end
 
   def new
@@ -8,11 +9,15 @@ class CreditsController < ApplicationController
   end
 
   def create
-    @credit = Credit.new(credit_params)
-    if @credit.save
-      redirect_to credits_path
+    unless current_user.credits.present?
+      @credit = current_user.credits.new(customer_id: create_customer.id)
+      if @credit.save
+        render :index
+      else
+        render :new
+      end
     else
-      render action: :new
+      redirect_to credits_path
     end
   end
 
@@ -26,4 +31,5 @@ class CreditsController < ApplicationController
   def credit_params
     params.require(:credit).permit(:credit_number,:limit_month,:limit_year,:security_code).merge(user_id: current_user.id)
   end
+
 end
