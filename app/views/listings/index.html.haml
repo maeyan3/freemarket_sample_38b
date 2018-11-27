@@ -1,5 +1,8 @@
 = render './header'
 = render './bread_crumb'
+- if flash[:notice]
+  .flash
+    = flash[:notice]
 .l-container-clearfix
   .right-content-items
     .auction_item_header
