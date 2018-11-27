@@ -13,7 +13,7 @@
         .l-single-content_credit
           %h3.l-chapter-sub-head_credit クレジットカード一覧
         %ul.settings-payment-list
-          - if user_signed_in? && current_user.id == @credit.user_id
+          - if user_signed_in? && @credit.present? && current_user.id == @credit.user_id
             %li.card_list
               .l-single-content_credit
                 .card_number

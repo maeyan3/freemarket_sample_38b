@@ -1,7 +1,7 @@
 class CreditsController < ApplicationController
   include Card
   def index
-    @credit = current_user.credit
+    @credit = current_user.credits.first
   end
 
   def new
