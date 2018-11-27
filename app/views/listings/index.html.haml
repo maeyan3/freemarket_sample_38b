@@ -5,7 +5,7 @@
     - @items.each do |item|
       = item.item_name
       = link_to '編集', edit_item_path(item)
-      = link_to '削除', destroy_item_path(item), method: :delete
+      = link_to '削除', destroy_item_path(item), method: :delete, data: { confirm: '削除しますか？' }
       %br
   = render './users/l-side'
 = render './footer'
