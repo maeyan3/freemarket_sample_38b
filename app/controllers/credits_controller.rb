@@ -9,8 +9,8 @@ class CreditsController < ApplicationController
   end
 
   def create
-    unless current_user.credit.present?
-      @credit = Credit.new(user_id: current_user.id, customer_id: create_customer.id)
+    unless current_user.credits.present?
+      @credit = current_user.credits.new(customer_id: create_customer.id)
       if @credit.save
         render :index
       else
@@ -31,4 +31,5 @@ class CreditsController < ApplicationController
   def credit_params
     params.require(:credit).permit(:credit_number,:limit_month,:limit_year,:security_code).merge(user_id: current_user.id)
   end
+
 end
