@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :orders,  only: [:new, :create]
   resources :users, only: [:new] do
     resources :userconfirms, only: [:new, :create]
-    resources :addresses, only: [:new, :create, :edit, :update]
+    resources :addresses, only: [:new, :create]
     get 'mypage' => 'users#mypage'
     get 'profile' => 'profiles#edit'
     patch 'profile' => 'profiles#update'
