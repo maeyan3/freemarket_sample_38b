@@ -42,5 +42,4 @@ class User < ApplicationRecord
     SecureRandom.uuid
   end
 
->>>>>>> KazYam1001/master
 end

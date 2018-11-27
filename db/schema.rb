@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181125142412) do
+ActiveRecord::Schema.define(version: 20181126040607) do
+
+  create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "first_name_reading", null: false
+    t.string "last_name_reading", null: false
+    t.integer "postal_code", null: false
+    t.string "city", null: false
+    t.string "block", null: false
+    t.bigint "user_id"
+    t.bigint "prefecture_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["prefecture_id"], name: "index_addresses_on_prefecture_id"
+    t.index ["user_id"], name: "index_addresses_on_user_id"
+  end
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "brand_name", null: false
@@ -124,7 +140,7 @@ ActiveRecord::Schema.define(version: 20181125142412) do
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "nickname", default: "", null: false
+    t.string "nickname", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
