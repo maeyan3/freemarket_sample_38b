@@ -25,6 +25,9 @@
                 = item.item_name
               = link_to '編集', edit_item_path(item), class: "item-list__link edit-item"
               = link_to '削除', destroy_item_path(item), method: :delete, data: { confirm: '削除しますか？' }, class: "item-list__link delete-item"
-              %br
+      .item-paginate
+        = paginate @items
+
+
   = render './users/l-side'
 = render './footer'
