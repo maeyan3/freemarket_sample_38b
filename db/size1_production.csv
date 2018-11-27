@@ -1,0 +1,8 @@
+id,size_name,parent_id
+1,XS以下,1
+2,S,1
+3,M,1
+4,L,1
+5,XL,1
+6,XL以上,1
+7,FREE SIZE,1

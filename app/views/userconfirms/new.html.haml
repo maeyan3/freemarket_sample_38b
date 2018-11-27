@@ -17,7 +17,6 @@
       %p.address-box__name
         = @address.last_name
         = @address.first_name
-      /TODO リンク先 edit_address_path
       = link_to '編集', new_user_address_path
     = form_with model: @user_detail, url: user_userconfirms_path, method: :post, class: "address-form-with", local: true do |f|
       .birth-box
