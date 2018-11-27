@@ -42,7 +42,13 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-
+    @items = Item.find(params[:id])
+    if @items.destroy
+      redirect_to listings_path(current_user)
+    else
+      flash[:notice] = '削除できませんでした'
+      redirect_to listings_path(current_user)
+    end
   end
 
   def search_brand

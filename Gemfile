@@ -79,4 +79,5 @@ gem 'font-awesome-rails'
 gem "gretel"
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
+gem 'kaminari'
 
