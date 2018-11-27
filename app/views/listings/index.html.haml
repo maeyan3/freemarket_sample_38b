@@ -1,0 +1,11 @@
+= render './header'
+= render './bread_crumb'
+.l-container-clearfix
+  - if @items.present?
+    - @items.each do |item|
+      = item.item_name
+      = link_to '編集', edit_item_path(item)
+      = link_to '削除', destroy_item_path(item), method: :delete
+      %br
+  = render './users/l-side'
+= render './footer'

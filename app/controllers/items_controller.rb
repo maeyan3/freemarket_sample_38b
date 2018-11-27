@@ -33,6 +33,18 @@ class ItemsController < ApplicationController
     end
   end
 
+  def edit
+
+  end
+
+  def update
+
+  end
+
+  def destroy
+
+  end
+
   def search_brand
     @brands = Brand.where("brand_name LIKE(?)", "#{params[:keyword]}%")
     respond_to do |format|
