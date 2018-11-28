@@ -1,0 +1,80 @@
+
+.l-container-clearfix{
+  .right-content-items{
+    @include div_basic(700px, null, #fff);
+    float: right;
+    .auction_item_header{
+      .title{
+        margin: 40px 20px;
+        @include font_basic(null, 18px, bold, null, left);
+      }
+    }
+
+    .auction_item_main{
+      @include div_basic(700px, null, #fff);
+      .auction_item_tabs{
+        width:700px;
+        height:74px;
+        border: 0;
+        background:$grey;
+        list-style:none;
+        &__list{
+          float:left;
+          .change_btn{
+            @include font_basic(null, 18px, bold, 74px, center);
+            width: 225px;
+          }
+          .is-active{
+            width:250px;
+            background: white;
+            border-top: 2px solid red;
+          }
+        }
+      }
+
+      .tab-contents{
+        .item-list{
+          padding: 15px;
+          border-bottom: 1px solid $grey;
+          position: relative;
+          .item-name{
+            font-size: 16px;
+            position: absolute;
+            top: 15px;
+            left: 105px;
+          }
+          &__link{
+            @include font_basic(#fff, 14px, bold);
+            padding: 2px 4px;
+            vertical-align: top;
+          }
+          .edit-item{
+            background: red;
+            position: absolute;
+            top: 40px;
+            left: 105px;
+          }
+          .delete-item{
+            background: gray;
+            position: absolute;
+            top: 40px;
+            left: 155px;
+          }
+        }
+
+      }
+      .item-paginate{
+          padding: 20px;
+          @include font_basic(null, 18px, bold, 58px, center);
+      }
+      a:link, a:visited, a:hover, a:active{
+        color: #888;
+        text-decoration: none;
+      }
+
+    }
+
+  }
+}
+
+

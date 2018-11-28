@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181125142412) do
+ActiveRecord::Schema.define(version: 20181126080925) do
+
+  create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "first_name_reading", null: false
+    t.string "last_name_reading", null: false
+    t.integer "postal_code", null: false
+    t.string "city", null: false
+    t.string "block", null: false
+    t.bigint "user_id"
+    t.bigint "prefecture_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["prefecture_id"], name: "index_addresses_on_prefecture_id"
+    t.index ["user_id"], name: "index_addresses_on_user_id"
+  end
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "brand_name", null: false
@@ -26,13 +42,10 @@ ActiveRecord::Schema.define(version: 20181125142412) do
   end
 
   create_table "credits", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "credit_number", null: false
-    t.integer "limit_month", null: false
-    t.integer "limit_year", null: false
-    t.integer "security_code", null: false
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "customer_id", null: false
     t.index ["user_id"], name: "index_credits_on_user_id"
   end
 
@@ -104,6 +117,15 @@ ActiveRecord::Schema.define(version: 20181125142412) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "sales_moneys", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "get_money", null: false
+    t.date "money_limit", null: false
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sales_moneys_on_user_id"
+  end
+
   create_table "sizes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "size_name", null: false
     t.integer "parent_id", null: false
@@ -111,8 +133,20 @@ ActiveRecord::Schema.define(version: 20181125142412) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "user_details", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "birth_day", null: false
+    t.integer "birth_month", null: false
+    t.integer "birth_year", null: false
+    t.bigint "user_id"
+    t.bigint "address_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["address_id"], name: "index_user_details_on_address_id"
+    t.index ["user_id"], name: "index_user_details_on_user_id"
+  end
+
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "nickname", default: "", null: false
+    t.string "nickname", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -127,6 +161,8 @@ ActiveRecord::Schema.define(version: 20181125142412) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "addresses", "prefectures"
+  add_foreign_key "addresses", "users"
   add_foreign_key "credits", "users"
   add_foreign_key "item_images", "items"
   add_foreign_key "items", "prefectures"
@@ -139,4 +175,7 @@ ActiveRecord::Schema.define(version: 20181125142412) do
   add_foreign_key "items_sizes", "sizes"
   add_foreign_key "orders", "items"
   add_foreign_key "orders", "users"
+  add_foreign_key "sales_moneys", "users"
+  add_foreign_key "user_details", "addresses"
+  add_foreign_key "user_details", "users"
 end

@@ -76,7 +76,8 @@ gem 'fog-aws'
 gem 'rack', '>= 2.0.6'
 gem 'jquery-rails'
 gem 'font-awesome-rails'
+gem 'payjp'
 gem "gretel"
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
-
+gem 'kaminari'

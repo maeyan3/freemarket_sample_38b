@@ -3,6 +3,11 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: %i[facebook google_oauth2]
+  has_one :user_detail
+
+  has_many :credits
+  has_many :sales_moneys
+  has_many :orders
 
   validates :nickname, presence: true, length: { in: 1..20 }
   validates :email, presence: true, length: { in: 4..255 }
