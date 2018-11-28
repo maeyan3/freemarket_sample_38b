@@ -1,0 +1,39 @@
+.container
+  = render './header.html.haml'
+  = render './bread_crumb'
+
+
+  .main-container
+    .main-container_full-width
+      %ul.parts-nav
+        %li.category_name aaaaaカテゴリーのリスト予定
+      .categories-items-box-container
+        %h1.items-box-head
+          レディースの商品一覧
+        .category-brand-list
+          .item-boxes
+            .category-item-box
+              - @items.each do |item|
+                = link_to item_path(item) do
+                  = image_tag "#{item.item_images[0].item_image_src}", size: "220x220"
+                  .item-box-content
+                    %h4.item-box-content__name #{item.item_name}
+                    .item-info
+                      .price-box
+                        %p.price-box__price
+                          = item.price.to_s(:currency, unit: "¥", precision: 0)
+                        %p.price-box__tax (税込)
+                      .likes-box
+                        %i{ class: "far fa-heart" }
+                        %span 10
+
+
+        .item-paginate
+          = paginate @items
+
+
+
+
+
+
+= render './footer.html.haml'
