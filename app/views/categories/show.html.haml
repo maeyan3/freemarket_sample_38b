@@ -1,5 +1,7 @@
 .container
   = render './header.html.haml'
+
+  - breadcrumb :category_list, @categories
   = render './bread_crumb'
 
 

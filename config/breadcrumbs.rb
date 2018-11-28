@@ -18,8 +18,8 @@ crumb :category do
   parent :root
 end
 
-crumb :category_list do
-  link "#{@items.categories.category_name}"
+crumb :category_list do |category|
+  link "#{category.category_name}"
   parent :category
 end
 
