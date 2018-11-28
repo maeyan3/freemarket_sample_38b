@@ -5,7 +5,7 @@ FactoryBot.define do
     last_name               "Horie"
     last_name_reading        "ホリエ"
     first_name_reading       "マナミ"
-    postal_code               "111-111"
+    postal_code               "1234567"
     city                      "神戸市"
     block                     "1-1"
     user

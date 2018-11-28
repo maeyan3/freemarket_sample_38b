@@ -1,16 +1,16 @@
 class Item < ApplicationRecord
   enum status: [:listing, :pending_delivary, :pending_recieve, :pending_evalute, :completed, :stop_listing]
 
-  has_many :item_comments,    dependent: :destroy
+  # has_many :item_comments,    dependent: :destroy
   has_many :item_images  ,    dependent: :destroy
   has_many :items_categories, dependent: :destroy
   has_many :categories, through: :items_categories
   has_many :items_sizes, dependent: :destroy
   has_many :sizes, through: :items_sizes
-  has_many :likes,        dependent: :destroy
+  # has_many :likes,        dependent: :destroy
   has_many :items_brands, dependent: :destroy
   has_many :brands, through: :items_brands
-  has_one  :order
+  has_many :orders
   belongs_to :user
   belongs_to :prefecture
   accepts_nested_attributes_for :item_images

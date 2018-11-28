@@ -9,10 +9,6 @@ class ItemsController < ApplicationController
   def new
     @item        = Item.new
     4.times { @item.item_images.build }
-    @categories  = Category.all
-    @sizes       = Size.all
-    @brands      = Brand.all
-    @prefectures = Prefecture.all
     respond_to do |format|
       format.html
       format.json { @categories = Category.where(parent_id: params[:parent_id]) }
@@ -29,6 +25,7 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path
     else
+      (4 - @item.item_images.length).times { @item.item_images.build }
       render :new
     end
   end
@@ -59,7 +56,13 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-
+    @items = Item.find(params[:id])
+    if @items.destroy
+      redirect_to listings_path(current_user)
+    else
+      flash[:notice] = '削除できませんでした'
+      redirect_to listings_path(current_user)
+    end
   end
 
   def search_brand
