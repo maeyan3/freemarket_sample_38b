@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181126040607) do
+ActiveRecord::Schema.define(version: 20181126080925) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "first_name", null: false
@@ -42,13 +42,10 @@ ActiveRecord::Schema.define(version: 20181126040607) do
   end
 
   create_table "credits", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "credit_number", null: false
-    t.integer "limit_month", null: false
-    t.integer "limit_year", null: false
-    t.integer "security_code", null: false
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "customer_id", null: false
     t.index ["user_id"], name: "index_credits_on_user_id"
   end
 
@@ -120,6 +117,15 @@ ActiveRecord::Schema.define(version: 20181126040607) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "sales_moneys", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "get_money", null: false
+    t.date "money_limit", null: false
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sales_moneys_on_user_id"
+  end
+
   create_table "sizes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "size_name", null: false
     t.integer "parent_id", null: false
@@ -169,6 +175,7 @@ ActiveRecord::Schema.define(version: 20181126040607) do
   add_foreign_key "items_sizes", "sizes"
   add_foreign_key "orders", "items"
   add_foreign_key "orders", "users"
+  add_foreign_key "sales_moneys", "users"
   add_foreign_key "user_details", "addresses"
   add_foreign_key "user_details", "users"
 end
