@@ -1,0 +1,60 @@
+.container
+  = render './header.html.haml'
+
+  - breadcrumb :category
+  = render './bread_crumb'
+
+
+  .category-index_container
+    .category-index_title
+      %h1.title カテゴリー一覧
+    .category-list-nav
+      = link_to "レディース", "#1", class: "category-list-nav__name"
+      = link_to "メンズ", "#2", class: "category-list-nav__name"
+
+    .category-list-box
+      .category-list-individual-box#1
+        .category-list-individual-box__name
+          %h2.root_category レディース
+        .category-list-individual-box__inner-box
+          = link_to 'すべて', root_path, class: "all"
+          .category-sub-category-name
+            %h4.category-2 トップス
+            .category-sub-sub-category-box
+              = link_to 'Tシャツ', root_path, class: "category-3"
+            %h4.category-2 ワンピース
+            .category-sub-sub-category-box
+              = link_to 'Tシャツ', root_path, class: "category-3"
+            %h4.category-2 バッグ
+            .category-sub-sub-category-box
+              = link_to 'Tシャツ', root_path, class: "category-3"
+
+
+      .category-list-individual-box#2
+        .category-list-individual-box__name
+          %h2.root_category メンズ
+        .category-list-individual-box__inner-box
+          = link_to 'すべて', root_path, class: "all"
+          .category-sub-category-name
+            %h4.category-2 ジャケット/アウター
+            .category-sub-sub-category-box
+              = link_to 'Tシャツ', root_path, class: "category-3"
+            %h4.category-2 スーツ
+            .category-sub-sub-category-box
+              = link_to 'Tシャツ', root_path, class: "category-3"
+            %h4.category-2 小物
+            .category-sub-sub-category-box
+              = link_to 'Tシャツ', root_path, class: "category-3"
+
+
+
+
+
+
+
+
+
+
+
+
+= render './footer.html.haml'
