@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
-  before_action :user_confirmed?, only: %i[new create]
+  before_action :user_confirmed?,only: %i[new create update]
 
   def index
     @items = Item.all.includes(:item_images).order("created_at DESC")
@@ -31,10 +31,27 @@ class ItemsController < ApplicationController
   end
 
   def edit
-
+    @item        = Item.find(params[:id])
+    (4 - @item.item_images.length).times { @item.item_images.build }
+    @categories  = Category.all
+    @sizes       = Size.all
+    @brands      = Brand.all
+    @prefectures = Prefecture.all
+    respond_to do |format|
+      format.html
+      format.json { @categories = Category.where(parent_id: params[:parent_id]) }
+    end
   end
 
   def update
+     @item = Item.find(params[:id])
+      if @item.user_id == current_user.id && @item.update(update_item_params)
+        redirect_to items_path
+      else
+        render :edit
+  end
+
+
 
   end
 
@@ -62,6 +79,14 @@ class ItemsController < ApplicationController
                                  :ship_burden,:ship_method, :ship_date,
                                  :quality, :prefecture_id, brand_ids: [],
                                  item_images_attributes: [:item_image_src],
+                                 size_ids: [], category_ids: [] ).merge(status: 0, user_id: current_user.id)
+  end
+
+  def update_item_params
+    params.require(:item).permit(:item_name, :detail, :price,
+                                 :ship_burden,:ship_method, :ship_date,
+                                 :quality, :prefecture_id, brand_ids: [],
+                                 item_images_attributes: [:item_image_src, :_destroy, :id],
                                  size_ids: [], category_ids: [] ).merge(status: 0, user_id: current_user.id)
   end
 
