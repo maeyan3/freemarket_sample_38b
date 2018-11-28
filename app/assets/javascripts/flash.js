@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function() {
+$(function() {
 
   setTimeout(function(){
     $('.flash').fadeOut(2000);
