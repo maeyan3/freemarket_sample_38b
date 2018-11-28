@@ -2,43 +2,84 @@ require 'rails_helper'
 
 describe ItemsController, type: :controller do
 
-  describe 'GET #index' do
+  # describe 'GET #index' do
+
+  #   let(:user) { create(:user) }
+  #   let(:items) { create_list(:item, 5, user_id: user.id) }
+  #   context 'ログイン中' do
+  #     before do
+  #       login user
+  #       get :index
+  #     end
+
+  #     it "populates an array of item ordered by created_at DESC" do
+  #       expect(assigns(:items)).to match(items.sort{ |a, b| b.created_at <=> a.created_at })
+  #     end
+
+  #     it "renders the :index template" do
+  #       expect(response).to render_template :index
+  #     end
+  #   end
+
+  #   context 'ログアウト中' do
+  #     before do
+  #       get :index
+  #     end
+  #     it "populates an array of item ordered by created_at DESC" do
+  #       expect(assigns(:items)).to match(items.sort{ |a, b| b.created_at <=> a.created_at })
+  #     end
+
+  #     it "renders the :index template" do
+  #       expect(response).to render_template :index
+  #     end
+  #   end
+  # end
+
+  # describe 'GET #new' do
+
+  #   let(:user) { create(:user) }
+  #   let(:item) { create(:item) }
+  #   let(:categories) { create_list(:category, 3) }
+  #   let(:sizes) { create_list(:size, 2) }
+  #   let(:brands) { create_list(:brand, 2) }
+  #   let(:prefectures) { create_list(:prefecture, 2) }
+
+  #   context 'ログイン中' do
+  #     before do
+  #       login user
+  #       get :new
+  #     end
+
+  #     it 'ビューが期待通りのものになっているか' do
+  #       expect(response).to render_template :new
+  #     end
+
+  #     it '@itemがあるか' do
+  #       expect(assigns(:item)).to be_a_new(Item)
+  #     end
+
+  #     it '@categoriesがあるか' do
+  #       expect(assigns(:categories)).to eq(categories)
+  #     end
+
+  #     it '@sizesがあるか' do
+  #       expect(assigns(:sizes)).to eq(sizes)
+  #     end
+
+  #     it '@brandsがあるか' do
+  #       expect(assigns(:brands)).to eq(brands)
+  #     end
+
+  #     it '@prefecturesがあるか' do
+  #       expect(assigns(:prefectures)).to eq(prefectures)
+  #     end
+
+  #   end
+
+  describe 'Get #edit' do
 
     let(:user) { create(:user) }
-    let(:items) { create_list(:item, 5, user_id: user.id) }
-    context 'ログイン中' do
-      before do
-        login user
-        get :index
-      end
-
-      it "populates an array of item ordered by created_at DESC" do
-        expect(assigns(:items)).to match(items.sort{ |a, b| b.created_at <=> a.created_at })
-      end
-
-      it "renders the :index template" do
-        expect(response).to render_template :index
-      end
-    end
-
-    context 'ログアウト中' do
-      before do
-        get :index
-      end
-      it "populates an array of item ordered by created_at DESC" do
-        expect(assigns(:items)).to match(items.sort{ |a, b| b.created_at <=> a.created_at })
-      end
-
-      it "renders the :index template" do
-        expect(response).to render_template :index
-      end
-    end
-  end
-
-  describe 'GET #new' do
-
-    let(:user) { create(:user) }
-    let(:item) { create(:item) }
+    let(:item) { create(:item, user: user) }
     let(:categories) { create_list(:category, 3) }
     let(:sizes) { create_list(:size, 2) }
     let(:brands) { create_list(:brand, 2) }
@@ -47,73 +88,22 @@ describe ItemsController, type: :controller do
     context 'ログイン中' do
       before do
         login user
-        get :new
+        get :edit, params: { id: item }
       end
 
-      it 'ビューが期待通りのものになっているか' do
-        expect(response).to render_template :new
+      it "returns ok" do
+        expect(response).to have_http_status :ok
       end
-
-      it '@itemがあるか' do
-        expect(assigns(:item)).to be_a_new(Item)
-      end
-
-      it '@categoriesがあるか' do
-        expect(assigns(:categories)).to eq(categories)
-      end
-
-      it '@sizesがあるか' do
-        expect(assigns(:sizes)).to eq(sizes)
-      end
-
-      it '@brandsがあるか' do
-        expect(assigns(:brands)).to eq(brands)
-      end
-
-      it '@prefecturesがあるか' do
-        expect(assigns(:prefectures)).to eq(prefectures)
-      end
-
     end
 
-  describe 'Get #edit' do
-     it "assigns the requested item to @items" do
-       item = create(:item)
-       get :edit, id: item
-      expect(assigns(:item)).to be_a_new(Item)
-    end
+  describe 'Get #update' do
+    context '保存できる' do
 
-     it "assigns the requested item to @categories" do
-       expect(assigns(:categories)).to eq(categories)
-    end
 
-     it "assigns the requested item to @sizes" do
-       expect(assigns(:sizes)).to eq(sizes)
     end
-
-     it "assigns the requested item to @barands" do
-       expect(assigns(:brands)).to eq(brands)
-    end
-
-     it "assigns the requested item to @prefectures" do
-       expect(assigns(:prefectures)).to eq(prefectures)
-    end
-
-    it "renders the :edit template" do
-      item = create(:item)
-      get :edit, id: item
-      expect(response).to render_template :edit
-    end
-
   end
 
 
-    context '未ログイン' do
-      it 'new_user_sesssion_pathにリダイレクトされるか' do
-        get :new
-        expect(response).to redirect_to(new_user_session_path)
-      end
-    end
   end
 
   describe 'POST #create' do
@@ -159,5 +149,4 @@ describe ItemsController, type: :controller do
     end
 
   end
-
 end
