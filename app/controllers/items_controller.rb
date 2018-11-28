@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
-  before_action :user_confirmed?, only: %i[new create]
+  before_action :user_confirmed?,only: %i[new create update]
 
   def index
     @items = Item.all.includes(:item_images).order("created_at DESC")
@@ -47,9 +47,9 @@ class ItemsController < ApplicationController
   end
 
   def update
-     item = Item.find(params[:id])
-      if item.user_id == current_user.id
-        item.update(update_item_params)
+     @item = Item.find(params[:id])
+      if @item.user_id == current_user.id
+        @item.update(update_item_params)
         redirect_to items_path
        else
         render :edit
