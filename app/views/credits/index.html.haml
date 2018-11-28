@@ -13,17 +13,15 @@
         .l-single-content_credit
           %h3.l-chapter-sub-head_credit クレジットカード一覧
         %ul.settings-payment-list
-          - @credits.each do |credit|
-            - if user_signed_in? && current_user.id == credit.user_id
-              %li.card_list
-                .l-single-content_credit
-                  .card_number
-                    %p
-                      = credit.credit_number
-                  .card_limit
-                    %p #{credit.limit_month}  月 / #{credit.limit_year}  年
-                = link_to credit_path(credit.id), class: "card_delete", method: :delete do
-                  %p.delete 削除する
+          - if user_signed_in? && @credit.present? && current_user.id == @credit.user_id
+            %li.card_list
+              .l-single-content_credit
+                .card_number
+                  %p last4
+                .card_limit
+                  %p 12  月 / 25  年
+              = link_to credit_path(@credit.id), class: "card_delete", method: :delete do
+                %p.delete 削除する
 
         .l-single-content_credit
           .btn-default.btn-red.submit_button

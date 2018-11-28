@@ -5,6 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: %i[facebook google_oauth2]
   has_one :user_detail
 
+  has_many :credits
+  has_many :sales_moneys
+  has_many :orders
+
   validates :nickname, presence: true, length: { in: 1..20 }
   validates :email, presence: true, length: { in: 4..255 }
   validates :profile, length: { maximum: 1000 }

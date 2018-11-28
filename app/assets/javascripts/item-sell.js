@@ -156,6 +156,39 @@ $(document).on('turbolinks:load',function(){
     }
   });
 
+  $('form').on('change', 'input[type="file"]', function(e) {
+    let file = e.target.files[0],
+        reader = new FileReader(),
+        thisPreview = $(this).parent();
+
+    if(file.type.indexOf("image") < 0){
+      return false;
+    }
+
+    reader.onload = (function(file) {
+      return function(e) {
+        thisPreview.children('img').remove();
+        thisPreview.children('div').remove();
+        thisPreview.children('input').height(150);
+        thisPreview.prepend(`<div class="image_delete"><span>削除</span></div>`);
+        thisPreview.prepend($('<img>').attr({
+          src: e.target.result,
+          width: "150px",
+          height: "150px",
+          class: "preview",
+          title: file.name
+        }));
+      };
+    })(file);
+
+    $('.preview').on('click', '.image_delete span', function() {
+      $(this).parent().prev('img').remove();
+      $(this).parent().next('input').height(184).val('');
+      $(this).parent().remove();
+    });
+
+    reader.readAsDataURL(file);
+  });
 
 });
 

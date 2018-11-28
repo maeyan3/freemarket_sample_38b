@@ -1,5 +1,8 @@
 .address-form-wrapper
   %h2.address-form-wrapper__title 住所変更
+  - if @address.errors.any?
+    - @address.errors.full_messages.each do |message|
+      .error_messages= message
   .address-form-content
     = form_with model: @address, url: user_addresses_path(current_user), method: :post, class: "address-form-with", local: true do |f|
       .address-form-box.address-name
@@ -24,7 +27,7 @@
           %span.label-box__name 都道府県
           %span.label-box__option.required 必須
         .prefecture-select-box
-          = f.collection_select(:prefecture_id, @prefectures, :id, :prefecture_name, {}, { class: "address-text-box" })
+          = f.collection_select(:prefecture_id, Prefecture.all, :id, :prefecture_name, {}, { class: "address-text-box" })
           %i.fas.fa-angle-down.prefecture-select-box__arrow
       .address-form-box.address-city
         .label-box

@@ -1,0 +1,4 @@
+.error_messages {
+  @include font_basic($red, 14px, null, null, center);
+  margin-top: 0.5em;
+}
