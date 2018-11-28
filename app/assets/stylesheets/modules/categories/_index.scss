@@ -53,10 +53,17 @@
             }
             .category-sub-sub-category-box{
               padding: 0 15px;
-              .category-3:link, .category-3:visited, .category-3:hover {
-                @include font_basic(#0099E8, 16px);
-                text-decoration: none;
+              .category-3-list{
+                &__li{
+                  @include div_basic(300px, 30px);
+                  display: inline-block;
+                  .category-3:link, .category-3:visited, .category-3:hover {
+                    @include font_basic(#0099E8, 16px, null, 30px, left);
+                    text-decoration: none;
+                  }
+                }
               }
+
             }
           }
         }

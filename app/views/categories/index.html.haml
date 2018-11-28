@@ -13,43 +13,20 @@
       = link_to "メンズ", "#2", class: "category-list-nav__name"
 
     .category-list-box
-      .category-list-individual-box#1
-        .category-list-individual-box__name
-          %h2.root_category レディース
-        .category-list-individual-box__inner-box
-          = link_to 'すべて', root_path, class: "all"
-          .category-sub-category-name
-            %h4.category-2 トップス
-            .category-sub-sub-category-box
-              = link_to 'Tシャツ', root_path, class: "category-3"
-            %h4.category-2 ワンピース
-            .category-sub-sub-category-box
-              = link_to 'Tシャツ', root_path, class: "category-3"
-            %h4.category-2 バッグ
-            .category-sub-sub-category-box
-              = link_to 'Tシャツ', root_path, class: "category-3"
-
-
-      .category-list-individual-box#2
-        .category-list-individual-box__name
-          %h2.root_category メンズ
-        .category-list-individual-box__inner-box
-          = link_to 'すべて', root_path, class: "all"
-          .category-sub-category-name
-            %h4.category-2 ジャケット/アウター
-            .category-sub-sub-category-box
-              = link_to 'Tシャツ', root_path, class: "category-3"
-            %h4.category-2 スーツ
-            .category-sub-sub-category-box
-              = link_to 'Tシャツ', root_path, class: "category-3"
-            %h4.category-2 小物
-            .category-sub-sub-category-box
-              = link_to 'Tシャツ', root_path, class: "category-3"
-
-
-
-
-
+      - @categories.where("parent_id = 0").each do |category1|
+        .category-list-individual-box{ id: category1.id }
+          .category-list-individual-box__name
+            %h2.root_category= category1.category_name
+          .category-list-individual-box__inner-box
+            = link_to 'すべて', category_path(category1), class: "all"
+            - @categories.where(parent_id: category1.id).each do |category2|
+              .category-sub-category-name
+                %h4.category-2= category2.category_name
+                .category-sub-sub-category-box
+                  %ul.category-3-list
+                    - @categories.where(parent_id: category2.id).each do |category3|
+                      %li.category-3-list__li
+                        = link_to "#{category3.category_name}", category_path(category3), class: "category-3"
 
 
 
