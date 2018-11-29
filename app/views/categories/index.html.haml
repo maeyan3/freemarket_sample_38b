@@ -8,9 +8,10 @@
   .category-index_container
     .category-index_title
       %h1.title カテゴリー一覧
-    .category-list-nav
-      = link_to "レディース", "#1", class: "category-list-nav__name"
-      = link_to "メンズ", "#2", class: "category-list-nav__name"
+    %ul.category-list-nav
+      - @categories.where("parent_id = 0").each do |category|
+        %li.category-list-nav_li
+          = link_to "#{category.category_name}", "##{category.id}", class: "category-list-nav_li__name"
 
     .category-list-box
       - @categories.where("parent_id = 0").each do |category1|
