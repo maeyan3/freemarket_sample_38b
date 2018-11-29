@@ -12,16 +12,14 @@
         .sales-moneys-box
       %time
         %i.icon-time
-        / %span= item.updated_at.to_s(:created_at)
         .clearfix
         - current_user.sales_moneys.each do |money|
           .mypage-nav-list-item.clearfix
-            .l-left= money.money_limit
+            .l-left= money.created_at.strftime("%Y/%m/%d %H:%M")
             %p.money-limit 販売利益
-            .l-right
-            .getmoney
-            = money.get_money.to_s(:currency, unit: "¥", precision: 0)
-      %i.fas.fa-angle-right
+            .l-right= money.get_money.to_s(:currency, unit: "¥", precision: 0)
+          %img{src: "#{money.item.item_images[0].item_image_src}", width: "120", height: "80"}
+        %i.fas.fa-angle-right
 
   = render './users/l-side.html.haml'
 = render './footer.html.haml'
