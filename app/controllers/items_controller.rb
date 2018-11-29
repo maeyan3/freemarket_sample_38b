@@ -3,7 +3,9 @@ class ItemsController < ApplicationController
   before_action :user_confirmed?,only: %i[new create update]
 
   def index
-    @items = Item.all.includes(:item_images).order("created_at DESC")
+    @pick_up_category = Category.find([1, 2] << (3..13).to_a.sample(2))
+    @pick_up_brand = Brand.find([1] << (2..Brand.count).to_a.sample(3))
+    @items = Item.all.includes(:item_images).order("updated_at DESC")
   end
 
   def new
