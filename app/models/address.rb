@@ -11,7 +11,7 @@ class Address < ApplicationRecord
   validates :last_name,  presence: true, length: { maximum: 35 }
   validates :first_name_reading, presence: true, length: { maximum: 35 }
   validates :last_name_reading,  presence: true, length: { maximum: 35 }
-  validates :postal_code,  presence: true, length: { maximum: 6 }
+  validates :postal_code,  presence: true, length: { is: 7 }
   validates :city,  presence: true, length: { maximum: 50 }
   validates :block,  presence: true, length: { maximum: 100 }
 

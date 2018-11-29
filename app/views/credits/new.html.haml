@@ -1,15 +1,17 @@
 .default-container
-
   = render './header.html.haml'
-
   - breadcrumb :credit_card_new
   = render "./bread_crumb"
-
+  - if flash[:notice]
+    .flash
+      = flash[:notice]
 .l-container-clearfix
   .l-content_credit
     .l-chapter-container_credit
       %h2.l-chapter-head_credit クレジットカード情報入力
-
+      - if @credit.errors.any?
+        - @credit.errors.full_messages.each do |message|
+          .error_messages= message
       = form_with model: @credit, html:{id: 'card-form'}, local: true do |f|
         .l-single-content_input
           .form-group_card

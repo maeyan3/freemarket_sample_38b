@@ -13,7 +13,7 @@ class User < ApplicationRecord
   validates :email, presence: true, length: { in: 4..255 }
   validates :profile, length: { maximum: 1000 }
   validates :password, presence: true, format: { with: /\A(?=.*?[a-z]{1,})[a-z\d]{6,128}+\z/i }, unless: -> { validation_context == :edit_profile }
-  validates :uid, uniqueness: { scope: [:provider] }
+  validates :uid, uniqueness: { scope: [:provider] }, unless: -> { validation_context == :edit_profile }
 
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     user = User.where(provider: auth.provider, uid: auth.uid).first

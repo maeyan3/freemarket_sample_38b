@@ -264,6 +264,10 @@ nav.l-left{
   }
 }
 
+.sales-points-label {
+  font-size: 16px;
+  margin-top: 2em;
+}
 
 .bread-crumbs{
   width:100%;
@@ -294,12 +298,11 @@ nav.l-left{
 
 }
 
-.l-container-clearfix
-{
-    margin: 40px auto 0;
-    width: 1020px;
-    padding: 0 0 40px;
-
+.l-container-clearfix {
+  margin: 40px auto 0;
+  width: 1020px;
+  padding: 0 0 40px;
+  overflow: auto;
   .l-content{
     width:700px;
     height:179px;
@@ -354,7 +357,6 @@ nav.l-left{
 
       padding-left:0px;
       margin-bottom:40px;
-      margin-top:20px;
 
       li{
         width:280px;

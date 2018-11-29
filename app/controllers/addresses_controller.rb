@@ -1,22 +1,20 @@
 class AddressesController < ApplicationController
-before_action :set_address, only: [:new,:create]
+  before_action :set_address, only: [:new,:create]
 
   def index
-     @address = Address.all
-
   end
 
   def new
-    @prefectures = Prefecture.all
-
   end
 
   def create
     @address.update(address_params)
-
-    flash[:notice] = "変更しました"
-    redirect_to new_user_address_path
-
+    unless @address.errors.any?
+      flash[:notice] = "変更しました"
+      redirect_to new_user_address_path
+    else
+      render :new
+    end
   end
 
   def set_address

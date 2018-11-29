@@ -60,7 +60,7 @@
             お問い合わせ 
             %i.fas.fa-angle-right
 
-        %h3 売上・ポイント
+        %h3.sales-points-label 売上・ポイント
         .mypage-nav-head
           %ul.mypage-nav-list
             %li
@@ -83,7 +83,7 @@
                 住所変更
                 %i.fas.fa-angle-right
             %li
-              = link_to new_credit_path(current_user), class: "mypage-nav-list-item" do
+              = link_to credits_path(current_user), class: "mypage-nav-list-item" do
                 支払い方式
                 %i.fas.fa-angle-right
             %li

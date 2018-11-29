@@ -40,6 +40,16 @@ describe Address do
         address.valid?
         expect(address.errors[:postal_code]).to include("can't be blank")
       end
+       it 'postal_codeが6桁だと保存できない' do
+        address = build(:address, postal_code: "123456")
+        address.valid?
+        expect(address.errors[:postal_code]).to include("is the wrong length (should be 7 characters)")
+      end
+       it 'postal_codeが8桁だと保存できない' do
+        address = build(:address, postal_code: "12345678")
+        address.valid?
+        expect(address.errors[:postal_code]).to include("is the wrong length (should be 7 characters)")
+      end
 
       it 'cityが存在しなければ保存できない' do
         address = build(:address, city: nil)
@@ -106,8 +116,8 @@ describe Address do
 
       end
 
-       it 'postal_codeが6文字で保存できる' do
-        test_postal_code = "a" * 6
+       it 'postal_codeが7桁で保存できる' do
+        test_postal_code = "1" * 7
         address = build(:address, postal_code: test_postal_code)
         expect(address).to be_valid
       end
