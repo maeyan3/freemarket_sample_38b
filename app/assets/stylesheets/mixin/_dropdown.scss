@@ -1,0 +1,98 @@
+@mixin first_content {
+  z-index: 10;
+  position: absolute;
+  background-color: $white;
+  box-sizing: border-box;
+  display: none;
+  ul {
+    border: 1px solid #ececec;
+    li {
+      width: 230px;
+      height: 45px;
+      padding-left: 10px;
+      box-sizing: border-box;
+      line-height: 45px;
+    }
+    li:hover {
+      cursor: pointer;
+      background-color: #f0342c;
+      color: $white;
+      .#{$parent_name} {
+        height: 137px;
+        border: 1px solid #ececec;
+        li {
+          color: black;
+          background-color: $white;
+          height: 30px;
+          line-height: 30px;
+          &:hover {
+            background-color: #d4d4d4;
+          }
+        }
+      }
+    }
+    li:hover .#{$parent_name} {
+      display: block;
+      bottom: 0px;
+      left: 201px;
+    }
+    .#{$hover_name}:hover .#{$children_name} {
+      display: block;
+      width: 200px;
+      height: 137px;
+      bottom: -1px;
+      left: 200px;
+    }
+  }
+}
+
+@mixin second_content {
+  z-index: 10;
+  position: absolute;
+  top:0px;
+  background-color: $white;
+  box-sizing: border-box;
+  display: none;
+  .#{$parent_name}:hover .#{$children_name} {
+    ul {
+      border: 1px solid #ececec;
+      left: 200px;
+      li {
+        width: 200px;
+        height: 30px;
+        padding-left: 10px;
+        box-sizing: border-box;
+        line-height: 30px;
+      }
+      li:hover .clothes_category{
+        cursor: pointer;
+        background-color: #d4d4d4;
+      }
+    }
+  }
+}
+
+@mixin third_content {
+  z-index: 10;
+  position: absolute;
+  background-color: $white;
+  box-sizing: border-box;
+  display: none;
+  .#{$parent_name}:hover .#{$children_name} {
+    ul {
+      border: 1px solid #ececec;
+      left: 200px;
+      li {
+        width: 250px;
+        height: 30px;
+        padding-left: 10px;
+        box-sizing: border-box;
+        line-height: 30px;
+      }
+      li:hover .clothes_category{
+        cursor: pointer;
+        background-color: #d4d4d4;
+      }
+    }
+  }
+}

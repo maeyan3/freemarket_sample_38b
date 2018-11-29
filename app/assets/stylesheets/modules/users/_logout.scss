@@ -156,44 +156,32 @@ nav.l-left{
     padding: 0;
     box-sizing: inherit;
     ul.pc-header-nav{
-    width:254px;
-    height:38px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    li{
-      width:126px;
+      width:254px;
       height:38px;
-      margin-right:0px;
-      float:left;
-    h2{
-      width:126px;
-      height:38px;
-      margin:0 auto;
-      font-size: 14px;
-      font-weight: 400;
-      border-style: none;
-      border-width: 0;
-      text-align:center;
-      padding-top:5px;
-        }
-        a.pc-header-nav-root{
-        border-style: none;
-        border-width: 0;
-        text-decoration: none;
-        margin:0 auto;
-        text-align:center;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      li.menu_category{
+        width:126px;
+        height:38px;
+        margin-right:0px;
+        float:left;
         color:black;
-        font-size: 14px;
-        font-weight: 400;
-        background-color:$white;
-        position: relative;
-        height: 38px;
-        line-height: 32px;
-
-      }
-      a:hover{
-        color: #0099e8;
+        a {
+          .header_category {
+            @include first_content;
+            .#{$parent_name} {
+              @include second_content;
+              .clothes_content {
+                @include third_content;
+              }
+            }
+          }
+        }
+        a:hover .header_category {
+          color: $black;
+          display: block;
         }
       }
 
@@ -205,6 +193,7 @@ nav.l-left{
       position:absolute;
       margin-left:600px;
       ul.pc-header-user-nav{
+        display: flex;
 
       li.one{
         width:120.94px;
