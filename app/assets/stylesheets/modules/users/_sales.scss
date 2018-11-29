@@ -1,0 +1,78 @@
+.l-chapter-container {
+  padding: 5px 0px;
+  background: #fff;
+}
+
+  .l-content-sales{
+    width:700px;
+    height:180px;
+    float:right;
+    background-color:$white;
+}
+
+.l-chapter-head {
+  font-size: 24px;
+    padding: 8px 24px;
+  border-bottom: 1px solid #f5f5f5;
+  text-align: center;
+  font-weight: bold;
+}
+
+.l-chapter-container .l-chapter-head {
+   background-color: white;
+}
+
+.sales-transfer-second {
+    margin: 40px 0 0;
+    background: #fff;
+}
+
+.fa-angle-right {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  color: #ccc;
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  -webkit-transition: all ease-out .2s;
+  transition: all ease-out .2s;
+}
+
+.mypage-nav-list li {
+  &:first-child {
+    border: 0;
+  }
+  border-top: 1px solid #eee;
+}
+
+.mypage-nav-list-item {
+  position: relative;
+  display: block;
+  min-height: 20px;
+  padding: 16px;
+  background: #fff;
+  color: #333;
+  .icon-arrow-right {
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    color: #ccc;
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    -webkit-transition: all ease-out .2s;
+    transition: all ease-out .2s;
+    position: absolute;
+  }
+}
+
+.l-left {
+  float: left;
+}
+
+.sell-price .form-group .l-right {
+  width: 50%;
+}
+
+.l-right {
+  float: right;
+}

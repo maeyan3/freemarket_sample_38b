@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   resources :users, only: [:new] do
     resources :userconfirms, only: [:new, :create]
     resources :addresses, only: [:new, :create]
+    resources :sales_moneys, only: [:index]
+    get 'sales_moneys/history' => 'sales_moneys#history', as: 'sales_moneys_history'
     get 'mypage' => 'users#mypage'
     get 'profile' => 'profiles#edit'
     patch 'profile' => 'profiles#update'
