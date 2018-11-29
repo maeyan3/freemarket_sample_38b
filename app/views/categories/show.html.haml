@@ -1,17 +1,14 @@
 .container
   = render './header.html.haml'
-
-  - breadcrumb :category_list, @categories
+  - breadcrumb :category_list, @category
   = render './bread_crumb'
 
 
   .main-container
     .main-container_full-width
-      %ul.parts-nav
-        %li.category_name aaaaaカテゴリーのリスト予定
       .categories-items-box-container
         %h1.items-box-head
-          レディースの商品一覧
+          = @category.category_name + "の商品一覧"
         .category-brand-list
           .item-boxes
             .category-item-box
@@ -29,12 +26,8 @@
                         %i{ class: "far fa-heart" }
                         %span 10
 
-
         .item-paginate
           = paginate @items
-
-
-
 
 
 
