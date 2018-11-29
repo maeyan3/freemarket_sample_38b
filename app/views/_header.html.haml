@@ -15,22 +15,39 @@
             %li.menu_category
               = link_to root_path, class: "category_list_link" do
                 カテゴリーから探す
-              %ul.menu_category-list
-                %li.menu_category-list__second-level
-                  = link_to '#', class: "init-left" do
-                    レディース
-                %li.menu_category-list__second-level
-                  = link_to '#', class: "init-left" do
-                    メンズ
-                %li.menu_category-list__second-level
-                  = link_to '#', class: "init-left" do
-                    ベビー・キッズ
-                %li.menu_category-list__second-level
-                  = link_to '#', class: "init-left" do
-                    インテリア
-                %li.menu_category-list__second-level
-                  = link_to '#', class: "init-left" do
-                    本
+                .header_category
+                  %ul
+                    %li
+                      衣類
+                      %ul.humans_category
+                        %li.human
+                          レディース
+                          %ul.clothes_content
+                            %li
+                              トップス
+                            %li
+                              パンツ
+                            %li
+                              小物
+                        %li.human
+                          メンズ
+                          %ul.clothes_content
+                            %li
+                              じーぱん
+                            %li
+                              パンツ
+                            %li
+                              小物
+                        %li.human
+                          レディース
+                          %ul.clothes_content
+                            %li
+                              トップス
+                            %li
+                              パンツ
+                            %li
+                              小物
+
             %li.menu_brand
               = link_to root_path, class: "brand_list_link" do
                 ブランドから探す
