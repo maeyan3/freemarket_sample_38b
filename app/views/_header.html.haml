@@ -13,24 +13,24 @@
         %nav.l-left
           %ul.pc-header-nav.menu_category_brand
             %li.menu_category
-              = link_to root_path, class: "category_list_link" do
-                カテゴリーから探す
+              .category_list_link
+                = link_to "カテゴリーから探す", categories_path
                 .header_category
                   %ul
                     - Category.where(parent_id: 0).each do |category1|
                       %li
-                        = link_to category_path (category1)
+                        = link_to category_path(category1) do
                           = category1.category_name
-                          %ul.humans_category
-                            - Category.where(parent_id: category1.id).each do |category2|
-                              %li.human
-                                = link_to category_path (category2)
-                                  = category2.category_name
-                                  %ul.clothes_content
-                                    - Category.where(parent_id: category2.id).each do |category3|
-                                      %li
-                                        = link_to category_path (category3)
-                                          = category3.category_name
+                        %ul.humans_category
+                          - Category.where(parent_id: category1.id).each do |category2|
+                            %li.human
+                              = link_to category_path(category2) do
+                                = category2.category_name
+                              %ul.clothes_content
+                                - Category.where(parent_id: category2.id).each do |category3|
+                                  %li
+                                    = link_to category_path(category3) do
+                                      = category3.category_name
 
             %li.menu_brand
               = link_to root_path, class: "brand_list_link" do

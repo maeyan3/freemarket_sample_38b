@@ -168,18 +168,34 @@ nav.l-left{
         margin-right:0px;
         float:left;
         color:black;
-        a {
+        .category_list_link {
+          color: #333;
+          font-size: 14px;
+          line-height: 26px;
+          text-align: left;
+          width: 150px;
+          height: 30px;
+          background-color: #fff;
+          box-sizing: border-box;
+          display: block;
+          a, a:link, a:visited, a:hover {
+            color: inherit;
+            text-decoration: none;
+            display: block;
+          }
           .header_category {
             @include first_content;
-            .#{$parent_name} {
+            .humans_category {
               @include second_content;
+              min-height: 585px !important;
               .clothes_content {
                 @include third_content;
+                width: 230px !important;
               }
             }
           }
         }
-        a:hover .header_category {
+        .category_list_link:hover .header_category {
           color: $black;
           display: block;
         }
