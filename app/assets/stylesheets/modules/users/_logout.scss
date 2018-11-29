@@ -167,6 +167,7 @@ nav.l-left{
         height:38px;
         margin-right:0px;
         float:left;
+        color:black;
         a {
           .header_category {
             @include first_content;
@@ -179,7 +180,7 @@ nav.l-left{
           }
         }
         a:hover .header_category {
-          color: #0099e8;
+          color: $black;
           display: block;
         }
       }
