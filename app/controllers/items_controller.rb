@@ -35,10 +35,6 @@ class ItemsController < ApplicationController
   def edit
     @item        = Item.find(params[:id])
     (4 - @item.item_images.length).times { @item.item_images.build }
-    @categories  = Category.all
-    @sizes       = Size.all
-    @brands      = Brand.all
-    @prefectures = Prefecture.all
     respond_to do |format|
       format.html
       format.json { @categories = Category.where(parent_id: params[:parent_id]) }
@@ -46,15 +42,13 @@ class ItemsController < ApplicationController
   end
 
   def update
-     @item = Item.find(params[:id])
-      if @item.user_id == current_user.id && @item.update(update_item_params)
-        redirect_to items_path
-      else
-        render :edit
-  end
-
-
-
+    @item = Item.find(params[:id])
+    if @item.user_id == current_user.id && @item.update(update_item_params)
+      redirect_to items_path
+    else
+      (4 - @item.item_images.length).times { @item.item_images.build }
+      render :edit
+    end
   end
 
   def destroy
