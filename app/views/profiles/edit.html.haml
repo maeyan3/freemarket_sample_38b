@@ -1,9 +1,15 @@
 = render './header'
 = render './bread_crumb'
+- if flash[:notice]
+  .flash
+    = flash[:notice]
 .l-container-clearfix
   = form_with model: current_user, url: user_profile_path, local: true do |f|
     .user-profile-box
       %h2.user-profile-title プロフィール
+      - if current_user.errors.any?
+        - current_user.errors.full_messages.each do |message|
+          .error_messages= message
       .user-profile-content
         .user-profile-name-content
           .user-profile-name-box

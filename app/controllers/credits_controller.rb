@@ -1,7 +1,9 @@
 class CreditsController < ApplicationController
   include Card
   def index
+    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     @credit = current_user.credits.first
+    @mycard = Payjp::Customer.retrieve(@credit.customer_id).cards.data[0] if @credit.present?
   end
 
   def new
@@ -12,11 +14,13 @@ class CreditsController < ApplicationController
     unless current_user.credits.present?
       @credit = current_user.credits.new(customer_id: create_customer.id)
       if @credit.save
-        render :index
+        flash[:notice] = "登録しました"
+        redirect_to credits_path
       else
         render :new
       end
     else
+      flash[:notice] = "既にカードが登録されています"
       redirect_to credits_path
     end
   end
