@@ -1,4 +1,3 @@
-
 $(function(){
   $("img.owl").hover(function(){
     var src = $(this).attr('src');
