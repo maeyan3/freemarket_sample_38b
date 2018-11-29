@@ -61,12 +61,12 @@
                 %a
                   .item-detail-table-sub-category
                     = fa_icon 'angle-right', class: "right"
-                    - @item.categories.where(parent_id: 1..2).each do |category|
+                    - @item.categories.where(parent_id: 1..13).each do |category|
                       = category.category_name
                 %a
                   .item-detail-table-sub-sub-category
                     = fa_icon 'angle-right', class: "right"
-                    - @item.categories.where(parent_id: 3..10).each do |category|
+                    - @item.categories.where(parent_id: 14..166).each do |category|
                       = category.category_name
             %tr
               %th ブランド

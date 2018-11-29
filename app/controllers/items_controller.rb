@@ -3,7 +3,9 @@ class ItemsController < ApplicationController
   before_action :user_confirmed?,only: %i[new create update]
 
   def index
-    @items = Item.all.includes(:item_images).order("created_at DESC")
+    @pick_up_category = Category.find([1, 2] << (3..13).to_a.sample(2))
+    @pick_up_brand = Brand.find([1] << (2..Brand.count).to_a.sample(3))
+    @items = Item.all.includes(:item_images).order("updated_at DESC")
   end
 
   def new
@@ -33,10 +35,6 @@ class ItemsController < ApplicationController
   def edit
     @item        = Item.find(params[:id])
     (4 - @item.item_images.length).times { @item.item_images.build }
-    @categories  = Category.all
-    @sizes       = Size.all
-    @brands      = Brand.all
-    @prefectures = Prefecture.all
     respond_to do |format|
       format.html
       format.json { @categories = Category.where(parent_id: params[:parent_id]) }
@@ -44,15 +42,13 @@ class ItemsController < ApplicationController
   end
 
   def update
-     @item = Item.find(params[:id])
-      if @item.user_id == current_user.id && @item.update(update_item_params)
-        redirect_to items_path
-      else
-        render :edit
-  end
-
-
-
+    @item = Item.find(params[:id])
+    if @item.user_id == current_user.id && @item.update(update_item_params)
+      redirect_to items_path
+    else
+      (4 - @item.item_images.length).times { @item.item_images.build }
+      render :edit
+    end
   end
 
   def destroy

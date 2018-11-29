@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :items, only: [:index, :new, :create, :show, :edit, :update] do
     resources :orders,  only: [:new, :create]
   end
+  resources :categories, only: [:index, :show]
   delete 'items/:id' => 'items#destroy', as: :destroy_item
   resources :credits, only: [:index, :new, :create, :destroy]
   resources :listings, only: [:index]
