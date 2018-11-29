@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load',function(){
+$(function(){
 
   function build_category2(categories) {
     let options = ""

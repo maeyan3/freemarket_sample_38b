@@ -75,14 +75,54 @@ describe ItemsController, type: :controller do
       end
 
     end
+  end
 
-    context '未ログイン' do
-      it 'new_user_sesssion_pathにリダイレクトされるか' do
-        get :new
-        expect(response).to redirect_to(new_user_session_path)
+  describe 'Get #edit' do
+
+    let(:user) { create(:user) }
+    let(:prefectures) { create_list(:prefecture, 2) }
+    let(:item) { create(:item, user: user, prefecture_id: prefectures[0].id) }
+    let(:categories) { create_list(:category, 3) }
+    let(:sizes) { create_list(:size, 2) }
+    let(:brands) { create_list(:brand, 2) }
+
+    context 'ログイン中' do
+      before do
+        login user
+        get :edit, params: { id: item }
+      end
+
+      it '@sizesがあるか' do
+        expect(assigns(:sizes)).to eq(sizes)
+      end
+
+      it '@brandsがあるか' do
+        expect(assigns(:brands)).to eq(brands)
+      end
+
+      it '@prefecturesがあるか' do
+        expect(assigns(:prefectures)).to eq(prefectures)
+      end
+
+      it "returns ok" do
+        expect(response).to have_http_status :ok
       end
     end
   end
+
+  describe 'PATCH #update' do
+    let!(:item) { create(:item) }
+    let(:update_item) { create(:item, user_id: item.user.id) }
+    let(:update_attributes) {{
+      attributes_for: update_item
+    }}
+    let(:params) {{ id: item.id, item: update_attributes }}
+
+    it 'saves updated item' do
+      patch :update, params: params
+    end
+  end
+
 
   describe 'POST #create' do
     let(:user) { create(:user) }
@@ -126,5 +166,4 @@ describe ItemsController, type: :controller do
       end
     end
   end
-
 end
