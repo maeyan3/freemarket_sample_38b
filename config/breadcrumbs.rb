@@ -12,6 +12,20 @@ crumb :logout do
   parent :mypage
 end
 
+
+crumb :category do
+  link "カテゴリー一覧", categories_path
+  parent :root
+end
+
+crumb :category_list do |category|
+  link "#{category.category_name}"
+  parent :category
+end
+
+
+
+
 crumb :credit_card do
   link "支払い方法", credits_path(current_user)
   parent :mypage

@@ -1,0 +1,38 @@
+.container
+  = render './header.html.haml'
+
+  - breadcrumb :category
+  = render './bread_crumb'
+
+
+  .category-index_container
+    .category-index_title
+      %h1.title カテゴリー一覧
+    %ul.category-list-nav
+      - @categories.where("parent_id = 0").each do |category|
+        %li.category-list-nav_li
+          = link_to "#{category.category_name}", "##{category.id}", class: "category-list-nav_li__name"
+
+    .category-list-box
+      - @categories.where("parent_id = 0").each do |category1|
+        .category-list-individual-box{ id: category1.id }
+          .category-list-individual-box__name
+            %h2.root_category= category1.category_name
+          .category-list-individual-box__inner-box
+            = link_to 'すべて', category_path(category1), class: "all"
+            - @categories.where(parent_id: category1.id).each do |category2|
+              .category-sub-category-name
+                %h4.category-2= category2.category_name
+                .category-sub-sub-category-box
+                  %ul.category-3-list
+                    - @categories.where(parent_id: category2.id).each do |category3|
+                      %li.category-3-list__li
+                        = link_to "#{category3.category_name}", category_path(category3), class: "category-3"
+
+
+
+
+
+
+
+= render './footer.html.haml'
