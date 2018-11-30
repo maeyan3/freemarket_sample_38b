@@ -22,71 +22,61 @@
   .main-content
     .pick-up-container
       %h2.pick-up-container__title ピックアップカテゴリー
-      .pick-up
-        /TODO カテゴリの商品一覧へリンク
-        = link_to "#", class: "pick-up__category" do
-          レディース 新着アイテム
-        .item-boxes
-          - @items.limit(4).each do |item|
-            .item-box
-              = link_to item_path(item) do
-                %img{ src: "#{item.item_images[0].item_image_src}", class: "item-box-image" }
-                .item-box-content
-                  %h4.item-box-content__name= item.item_name
-                  .item-info
-                    .price-box
-                      %p.price-box__price
-                        = item.price.to_s(:currency, unit: "¥", precision: 0)
-                      %p.price-box__tax (税込)
-                    .likes-box
-                      %i{ class: "far fa-heart" }
-                      /TODO item.likes.count
-                      %span 10
-        .pick-up__view-all
+      - @pick_up_category.each do |category|
+        .pick-up
           /TODO カテゴリの商品一覧へリンク
-          = link_to "すべての商品を見る", "#"
-      .pick-up
-        = link_to "#", class: "pick-up__category" do
-          メンズ 新着アイテム
-        .item-boxes
-          - @items.limit(4).each do |item|
-            .item-box
-              = link_to item_path(item) do
-                %img{ src: "#{item.item_images[0].item_image_src}", class: "item-box-image" }
-                .item-box-content
-                  %h4.item-box-content__name= item.item_name
-                  .item-info
-                    .price-box
-                      %p.price-box__price
-                        = item.price.to_s(:currency, unit: "¥", precision: 0)
-                      %p.price-box__tax (税込)
-                    .likes-box
-                      %i{ class: "far fa-heart" }
-                      %span 10
-        .pick-up__view-all
-          = link_to "すべての商品を見る", "#"
+          = link_to "#", class: "pick-up__category" do
+            = category.category_name
+            新着アイテム
+          .item-boxes
+            - category.items.order("updated_at DESC").limit(4).each do |item|
+              .item-box
+                = link_to item_path(item) do
+                  - unless item.status == "listing"
+                    .sold-text SOLD
+                    .sold-box
+                  %img{ src: "#{item.item_images[0].item_image_src}", class: "item-box-image" }
+                  .item-box-content
+                    %h4.item-box-content__name= item.item_name
+                    .item-info
+                      .price-box
+                        %p.price-box__price
+                          = item.price.to_s(:currency, unit: "¥", precision: 0)
+                        %p.price-box__tax (税込)
+                      .likes-box
+                        %i{ class: "far fa-heart" }
+                        /TODO item.likes.count
+                        %span 10
+          .pick-up__view-all
+            /TODO カテゴリの商品一覧へリンク
+            = link_to "すべての商品を見る", "#"
     .pick-up-container
       %h2.pick-up-container__title ピックアップブランド
-      .pick-up
-        = link_to "#", class: "pick-up__category" do
-          ルイヴィトン 新着アイテム
-        .item-boxes
-          - @items.limit(4).each do |item|
-            .item-box
-              = link_to item_path(item) do
-                %img{ src: "#{item.item_images[0].item_image_src}", class: "item-box-image" }
-                .item-box-content
-                  %h4.item-box-content__name= item.item_name
-                  .item-info
-                    .price-box
-                      %p.price-box__price
-                        = item.price.to_s(:currency, unit: "¥", precision: 0)
-                      %p.price-box__tax (税込)
-                    .likes-box
-                      %i{ class: "far fa-heart" }
-                      %span 10
-        .pick-up__view-all
-          = link_to "すべての商品を見る", "#"
+      - @pick_up_brand.each do |brand|
+        .pick-up
+          = link_to "#", class: "pick-up__category" do
+            = brand.brand_name
+            新着アイテム
+          .item-boxes
+            - brand.items.order("updated_at DESC").limit(4).each do |item|
+              .item-box
+                = link_to item_path(item) do
+                  - unless item.status == "listing"
+                    .sold-text SOLD
+                    .sold-box
+                  %img{ src: "#{item.item_images[0].item_image_src}", class: "item-box-image" }
+                  .item-box-content
+                    %h4.item-box-content__name= item.item_name
+                    .item-info
+                      .price-box
+                        %p.price-box__price
+                          = item.price.to_s(:currency, unit: "¥", precision: 0)
+                        %p.price-box__tax (税込)
+                      .likes-box
+                        %i{ class: "far fa-heart" }
+                        %span 10
+          .pick-up__view-all
+            = link_to "すべての商品を見る", "#"
 
 = render './footer'
 %script{src: "https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js", type: "text/javascript"}

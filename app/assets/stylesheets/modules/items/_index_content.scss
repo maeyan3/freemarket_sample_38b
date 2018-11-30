@@ -33,13 +33,30 @@
           .item-box {
             margin: 0 0 0 15px;
             padding: 0;
-            min-width: 220px;
+            max-width: 220px;
             height: 330px;
             a, a:link, a:visited, a:hover {
               color: black;
             }
             a {
               text-decoration: none;
+              position: relative;
+              .sold-text {
+                @include absolute(0.7em, 0em);
+                @include div_basic(4em, 1em, null);
+                @include font_basic(white, 20px, bold);
+                transform: rotate(-45deg);
+                z-index: 2;
+              }
+              .sold-box {
+                @include div_basic(100px, 100px);
+                @include absolute(0);
+                background-color: rgba(0,0,0,0);
+                border-top: 50px solid $red;
+                border-left: 50px solid $red;
+                border-right: 50px solid transparent;
+                border-bottom: 50px solid transparent;
+              }
               .item-box-image {
                 width: 220px;
                 height: 220px;

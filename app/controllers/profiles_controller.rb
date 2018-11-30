@@ -8,7 +8,8 @@ class ProfilesController < ApplicationController
     current_user.nickname = profile_params[:nickname]
     current_user.profile = profile_params[:profile]
     if current_user.save(context: :edit_profile)
-      render :edit
+      flash[:notice] = "変更しました"
+      redirect_to user_profile_path
     else
       render :edit
     end

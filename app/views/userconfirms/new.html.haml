@@ -1,9 +1,15 @@
 = render './header'
 = render './bread_crumb'
+- if flash[:notice]
+  .flash
+    = flash[:notice]
 .l-container-clearfix
   .user-confirm-box
     .user-confirm-title
       %h2.user-confirm-title__title 本人情報の登録
+      - if @user_detail.errors.any?
+        - @user_detail.errors.full_messages.each do |message|
+          .error_messages= message
       %h4.user-confirm-title__subtitle お客さまのあんしん・あんぜんな取引のため、本人情報のご登録をお願いしております。
     .address-box
       .address-label-box.label-box

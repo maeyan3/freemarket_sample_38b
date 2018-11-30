@@ -7,6 +7,9 @@ class OrdersController < ApplicationController
 
   def new
     @order = Order.new
+    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+    @credit = current_user.credits.first
+    @mycard = Payjp::Customer.retrieve(@credit.customer_id).cards.data[0] if @credit.present?
   end
 
   def create
@@ -27,6 +30,5 @@ class OrdersController < ApplicationController
   def set_item
     @item = Item.find(params[:item_id])
   end
-
 
 end

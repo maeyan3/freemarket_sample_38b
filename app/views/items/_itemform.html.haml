@@ -5,6 +5,9 @@
       #sell-container
         .sell-container-inner
           %h2.l-single-head 商品の情報を入力
+          - if @item.errors.any?
+            - @item.errors.full_messages.each do |message|
+              .error_messages= message
           = form_for @item, html:{class: 'sell-form'} do |f|
             .sell-upload-box
               %h3.sell-upload-head 出品画像

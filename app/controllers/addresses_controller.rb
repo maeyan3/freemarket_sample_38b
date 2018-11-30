@@ -1,9 +1,6 @@
 class AddressesController < ApplicationController
   before_action :set_address, only: [:new,:create]
 
-  def index
-  end
-
   def new
   end
 
