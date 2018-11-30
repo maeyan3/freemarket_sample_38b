@@ -64,7 +64,7 @@
         .mypage-nav-head
           %ul.mypage-nav-list
             %li
-              %a.mypage-nav-list-item
+              = link_to user_sales_moneys_path(current_user), class: "mypage-nav-list-item" do
                 売上・振込申請
                 %i.fas.fa-angle-right
             %li
