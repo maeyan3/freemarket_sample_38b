@@ -3,6 +3,6 @@ class SalesMoneysController < ApplicationController
   end
 
   def history
-    @sales_moneys = current_user.sales_moneys.page(params[:page]).per(5)
+    @sales_moneys = current_user.sales_moneys.order("created_at DESC").page(params[:page]).per(5)
   end
 end
