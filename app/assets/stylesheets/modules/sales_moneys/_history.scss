@@ -1,0 +1,30 @@
+.sales-moneys-container {
+  .sales-money-box {
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+    box-sizing: border-box;
+    border-bottom: 1px solid #aaa ;
+    .sales-money-left {
+      display: flex;
+      .time-box {
+        display:flex;
+        padding-top: 0.2em;
+        @include font_basic(#aaa, 20px);
+        &__icon {
+          margin:0 5px;
+        }
+        .sales-money-revenu {
+          margin: 1em 0 0 2em;
+        }
+      }
+    }
+    .sales-money-right {
+      @include font_basic(black, 30px);
+      line-height: 80px;
+    }
+  }
+  .sales-moneys-paginate {
+    @include font_basic(black, 20px, bold, null, center)
+  }
+}
