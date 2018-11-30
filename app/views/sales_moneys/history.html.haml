@@ -7,19 +7,17 @@
   .l-content
     %section.l-chapter-container
       %h2.l-chapter-head 売上履歴
-      %ul.mypage-item-list
-        .clearfix
-        .sales-moneys-box
-      %time
-        %i.icon-time
-        .clearfix
-        - current_user.sales_moneys.each do |money|
-          .mypage-nav-list-item.clearfix
-            .l-left= money.created_at.strftime("%Y/%m/%d %H:%M")
-            %p.money-limit 販売利益
-            .l-right= money.get_money.to_s(:currency, unit: "¥", precision: 0)
-          %img{src: "#{money.item.item_images[0].item_image_src}", width: "120", height: "80"}
-        %i.fas.fa-angle-right
-
+      .sales-money-container
+        .sales-money-box
+          - @sales_moneys.each do |money|
+            .mypage-nav-list-item
+              %img{src: "#{money.item.item_images[0].item_image_src}", width: "120", height: "80"}
+              .time-box
+                %i.far.fa-clock.time-box__icon
+                .time-box__date= money.created_at.strftime("%Y/%m/%d %H:%M")
+              .money-limit 販売利益
+              .l-right= money.get_money.to_s(:currency, unit: "¥", precision: 0)
+          %i.fas.fa-angle-right
+          = paginate(@sales_moneys)
   = render './users/l-side.html.haml'
 = render './footer.html.haml'
