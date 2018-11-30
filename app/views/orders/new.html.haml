@@ -52,8 +52,8 @@
 
       .buy-content_confirm.buy-user-info
         .buy-content_confirm-inner
+          %h3.shipping_address 配送先
           - if current_user.user_detail.present?
-            %h3.shipping_address 配送先
             %address.buy-user-info-text
               = "〒" + current_user.user_detail.address.postal_code.to_s
               %br= current_user.user_detail.address.prefecture.prefecture_name + current_user.user_detail.address.city + current_user.user_detail.address.block
@@ -67,9 +67,8 @@
           %h3.shipping_address 支払い方法
           - if current_user.credits.present?
             %p.buy-user-info-text
-              1234567812345678
-              %br
-              07 / 20
+              = "************" + @mycard.last4.to_s
+              %br= @mycard.exp_month.to_s + " / " + @mycard.exp_year.to_s[2,2]
           = link_to credits_path(current_user), class: "buy-user-info-fix" do
             %span 変更する
             %i.fas.fa-angle-right

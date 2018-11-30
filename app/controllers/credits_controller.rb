@@ -3,6 +3,7 @@ class CreditsController < ApplicationController
   def index
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     @credit = current_user.credits.first
+    check_user
     @mycard = Payjp::Customer.retrieve(@credit.customer_id).cards.data[0] if @credit.present?
   end
 
@@ -27,6 +28,7 @@ class CreditsController < ApplicationController
 
   def destroy
     @credit = Credit.find(params[:id])
+    check_user
     @credit.destroy
     redirect_to credits_path
   end
@@ -36,4 +38,7 @@ class CreditsController < ApplicationController
     params.require(:credit).permit(:credit_number,:limit_month,:limit_year,:security_code).merge(user_id: current_user.id)
   end
 
+  def check_user
+    redirect_to root_path unless current_user.id == @credit.user_id
+  end
 end
