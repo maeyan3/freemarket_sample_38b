@@ -32,6 +32,9 @@
             - category.items.order("updated_at DESC").limit(4).each do |item|
               .item-box
                 = link_to item_path(item) do
+                  - unless item.status == "listing"
+                    .sold-text SOLD
+                    .sold-box
                   %img{ src: "#{item.item_images[0].item_image_src}", class: "item-box-image" }
                   .item-box-content
                     %h4.item-box-content__name= item.item_name
@@ -58,6 +61,9 @@
             - brand.items.order("updated_at DESC").limit(4).each do |item|
               .item-box
                 = link_to item_path(item) do
+                  - unless item.status == "listing"
+                    .sold-text SOLD
+                    .sold-box
                   %img{ src: "#{item.item_images[0].item_image_src}", class: "item-box-image" }
                   .item-box-content
                     %h4.item-box-content__name= item.item_name

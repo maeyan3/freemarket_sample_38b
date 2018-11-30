@@ -1,11 +1,6 @@
 class UserconfirmsController < ApplicationController
 
-  before_action :set_user_detail,:move_to_index, except: :index
-
-  def index
-    @user_detail = UserDetail.all
-
-  end
+  before_action :set_user_detail
 
   def new
     @address     = Address.find_or_initialize_by(user_id: current_user.id)
@@ -33,7 +28,4 @@ class UserconfirmsController < ApplicationController
       .merge(user_id: current_user.id,address_id: @address.id)
     end
 
-    def move_to_index
-      redirect_to action: :index unless user_signed_in?
-    end
 end
