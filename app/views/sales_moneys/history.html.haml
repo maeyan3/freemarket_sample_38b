@@ -1,0 +1,24 @@
+= render './header.html.haml'
+- breadcrumb :sales
+= render './bread_crumb'
+.l-container-clearfix
+  .l-container
+  .l-content
+    %section.l-chapter-container
+      %h2.l-chapter-head 売上履歴
+      .sales-moneys-container
+        - if @sales_moneys.present?
+          - @sales_moneys.each do |money|
+            .sales-money-box
+              .sales-money-left
+                %img{src: "#{money.item.item_images[0].item_image_src}", width: "80", height: "80"}
+                .time-box
+                  %i.far.fa-clock.time-box__icon
+                  .time-box__date
+                    = money.created_at.strftime("%Y/%m/%d %H:%M")
+                    .sales-money-revenu 販売利益
+              .sales-money-right= money.get_money.to_s(:currency, unit: "¥", precision: 0)
+          .sales-moneys-paginate
+            = paginate(@sales_moneys)
+  = render './users/l-side.html.haml'
+= render './footer.html.haml'

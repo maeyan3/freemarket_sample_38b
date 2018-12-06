@@ -41,6 +41,10 @@ crumb :address_edit do
   parent :mypage
 end
 
+crumb :sales do
+  link "売上・振込申請", user_sales_moneys_path(current_user)
+  parent :mypage
+end
 
 
 

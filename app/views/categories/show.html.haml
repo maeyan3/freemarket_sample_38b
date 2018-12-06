@@ -14,6 +14,9 @@
             .category-item-box
               - @items.each do |item|
                 = link_to item_path(item) do
+                  - unless item.status == "listing"
+                    .sold-text SOLD
+                    .sold-box
                   = image_tag "#{item.item_images[0].item_image_src}", size: "220x220"
                   .item-box-content
                     %h4.item-box-content__name #{item.item_name}
